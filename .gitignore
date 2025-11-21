@@ -1,0 +1,19 @@
+# Environment variables
+.env
+
+# Virtual environments
+.venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Project-specific
+src/logs/
+src/dataset_cache/
+
+# Distribution / packaging
+*.egg-info/
+
+# Claude Code
+.claude/

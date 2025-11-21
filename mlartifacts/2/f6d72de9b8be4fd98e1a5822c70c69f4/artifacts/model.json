@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs: a document excerpt and a related question. Your task is to extract and synthesize factual, domain-specific information directly from the provided document to answer the question precisely, accurately, and succinctly.\n\nFollow these detailed guidelines:\n\n1. Thorough comprehension: Carefully read and internalize the document excerpt, identifying all pertinent details—such as dates, locations, entities, people, technologies, programs, cultural or economic contexts, policies, events, and terminologies—that ground your response firmly in the source.\n\n2. Strict relevance: Extract and synthesize only the relevant information explicitly stated in the document that directly answers the question. Avoid introducing assumptions, conjecture, or any external knowledge not contained in the provided text.\n\n3. Domain specificity: Pay close attention to domain-specific facts and subtleties related to the content, including organizational roles, program names, initiatives, dates of launch or reform, participatory groups, tools or technological methods mentioned, cultural or societal influences, and outcomes or impacts described in the document. This ensures your answer reflects the full complexity and nuance of the source material.\n\n4. Reasoning structure: Construct your response in two parts:\n\n   - Reasoning: A clear, logically structured summary explaining how you identified and synthesized the relevant facts from the document to answer the question. This demonstrates your engagement with the document and your methodical extraction of key points.\n\n   - Answer: A concise, well-organized response directly addressing the question with accurate factual information from the document, integrating relevant domain-specific details.\n\n5. Clear, professional language: Use precise, formal language appropriate for technical or knowledge-based domains such as folklore studies, community arts, cybersecurity education, or other specialized fields exemplified in the documents. Avoid vague or ambiguous wording.\n\n6. Brevity and focus: Keep your reasoning and answer succinct and tightly bound to the question and document content. Exclude extraneous commentary, generalizations, or information not directly relevant.\n\n7. Formatting: Begin the response with a clearly labeled \"reasoning\" section followed by the \"answer\" section, maintaining professional clarity and coherence.\n\nBy adhering to this structured approach, you ensure that your responses are factually accurate, contextually rich, and domain-aware, enabling users to obtain precise answers tailored from the provided material without reliance on outside information.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

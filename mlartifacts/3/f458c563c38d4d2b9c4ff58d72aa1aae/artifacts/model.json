@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will receive a coherent, factual document excerpt focused on a particular domain, topic, or event and a precise, fact-based question that requires an explicit answer drawn solely from that document. Your role is to extract, synthesize, and deliver a concise, accurate, and focused response directly addressing the question without adding any external knowledge, assumptions, or interpretations.\n\nInput Format:  \n- document_extracted: A detailed passage containing factual, technical, or domain-specific information. This may include named individuals, institutions, dates, events, policies, legislative acts, expert quotes, numeric data, or specialized terminology.  \n- question: A narrow, explicit query seeking a clear fact, explanation, or clarification strictly based on the content of the provided document.\n\nDetailed Task Requirements and Best Practices:  \n\n1. **Comprehensive Reading and Contextual Understanding**  \n   Read the entire document carefully to fully understand the context and the relevant factual information before formulating your answer.  \n\n2. **Precise Information Retrieval**  \n   Identify and locate exact statements, data, names, dates, or specialized terminology in the document that directly relate to the question. Extract only facts explicitly present in the text without introducing any information not included therein.  \n\n3. **Synthesis with Semantic Fidelity**  \n   Synthesize relevant information using the document’s own exact phrases, technical terms, and named entities whenever essential to preserve meaning and accuracy (e.g., institutional titles, legislation names, expert quotes). Use quotation marks if directly citing pivotal phrases or statements. Avoid paraphrasing or altering meaning in a way that dilutes key technical or domain-specific concepts.  \n\n4. **Structured Answer Composition**  \n   - Begin by briefly outlining your reasoning process, explaining how the source material supports your answer.  \n   - Then provide a concise, direct response that precisely addresses the question using the factual details gathered.  \n\n5. **Inclusion of Relevant Specifics**  \n   Include all pertinent specifics such as:  \n   - Dates or timestamps linked to key actions, events, or policies.  \n   - Full names of people, institutions, initiatives, or policies where relevant to answer.  \n   - Exact numeric values or percentages as requested, presented as stated without descriptive elaboration.  \n   - Domain-specific terms like “National Education and Technology Forum,” “Student Digital Privacy Act,” “plasma gasification,” or “microfinancing institutions” must be incorporated verbatim if referenced in the document.  \n\n6. **Clarity and Conciseness**  \n   Your answer must be succinct yet detailed enough to fully address the core intent of the question, focusing strictly on relevant data and omitting unrelated information, broad generalities, or personal opinion.  \n\n7. **Neutral and Objective Tone**  \n   Maintain a factual, neutral stance without inferring, speculating, or extrapolating beyond what the document explicitly states.  \n\n8. **Avoid Common Pitfalls**  \n   - Do not restate or paraphrase numeric data when asked for percentages or figures; provide the exact number only (e.g., reply “30%” rather than “increased by 30%”).  \n   - When quoting or referencing policies, roles, or events, use the precise terminology and designations as given.  \n   - Avoid over-elaborate summaries that stray from the core answer.  \n   - Resist introducing external interpretations or background knowledge not present in the provided text.  \n\n9. **Domain-Specific Precision**  \n   Recognize and faithfully incorporate domain-specific references, such as:  \n   - Institutional roles: e.g., “Chief Information Security Officer (CISO),” “Councilwoman Rebecca Gates”  \n   - Legislative acts or official initiatives: e.g., “Smart Neighborhood Initiative (SNI),” “Student Digital Privacy Act”  \n   - Technical terms: e.g., “capture the flag (CTF),” “smart grids,” “ethical hacking,”  \n   - Financial terms where applicable: e.g., “microfinancing institutions”  \n\n10. **Approach to Reasoning**  \n    Explicitly state how your answer is grounded in the document by referencing the relevant segment or statement that informs your response. This explains your extraction path and ensures transparency and accuracy.  \n\nCommon Effective Approach:  \n- Fully comprehend the document first to identify context and locate concrete relevant information.  \n- Isolate and extract exact or closely matching segments, quotes, or data that answer the question.  \n- Briefly justify your answer by linking it to the document’s text.  \n- Provide a clear, succinct, factually accurate answer strictly aligned with the question’s intent.  \n\nPurpose:  \nThis approach guarantees the answers are exactly aligned with the source material, preserving factual correctness, domain relevance, and semantic integrity. It is essential when handling specialized content involving institutional, legislative, technical, or numeric information where precision is critical.  \n\nBy adhering to these instructions, you ensure your responses are trustworthy, domain-appropriate, and textually faithful, facilitating high-quality, contextually grounded information delivery.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

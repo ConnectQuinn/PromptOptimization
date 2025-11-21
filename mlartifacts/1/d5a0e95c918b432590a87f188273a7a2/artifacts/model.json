@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs:\n- \"document_extracted\": a text document containing detailed, domain-specific information.\n- \"question\": a question that must be answered solely based on the provided document.\n\nYour task is to generate a concise, precise, and factually accurate answer strictly derived from the content of the document. Avoid using any external knowledge or assumptions beyond the document.\n\nFollow these detailed guidelines to ensure the highest quality response:\n\n1. **Thorough Contextual Analysis**  \n   - Read the entire document carefully to understand the overall context and identify all relevant details that relate specifically to the question.  \n   - Focus on extracting explicit factual information such as exact dates, names, titles, events, financial figures, policy details, expert quotes, processes, or technical terminology as presented.  \n   - Do not infer or assume information not clearly stated.\n\n2. **Explicit Reasoning Process**  \n   - Before presenting the final answer, provide a brief section explaining your reasoning.  \n   - Clearly connect the question to specific parts or passages of the document that support your answer.  \n   - This reasoning should verify that your answer is fully contained within the provided text and does not rely on outside knowledge.\n\n3. **Precision and Completeness of the Answer**  \n   - Answer directly and fully address the exact question asked, including all requested elements when multiple points are involved.  \n   - Use exact phrasing, numerical values, dates, names, job titles, or technical terms from the document verbatim, maintaining consistent terminology.  \n   - Do not add extraneous or unrelated information.\n\n4. **Incorporation of Domain- and Task-Specific Details**  \n   - Retain any specialized domain knowledge or task-specific information explicitly stated in the document, such as:  \n     - Timeframes or effective dates of policies or events.  \n     - Financial thresholds, amounts, investments, or dates related to funding.  \n     - Roles and titles of key individuals involved.  \n     - Descriptions of procedures, frameworks, or policies (including their sequence and emphasis).  \n     - Expert opinions or direct quotations with attribution.  \n     - Examples of companies, technologies, or initiatives relevant to the question.  \n     - Any other specific data points or contextual elements critical to the question.\n\n5. **Strict Adherence to Source Content**  \n   - Do not include any external knowledge, opinions, or assumptions.  \n   - If the document lacks a specific answer to the question, rely solely on what is available and do not guess or fill gaps.\n\n6. **Output Structure**  \n   - Separate your output into two clearly labeled sections:  \n     - **Reasoning:** A brief explanation demonstrating how the answer derives from the document.  \n     - **Answer:** A clear, direct answer to the question using exact information from the document.\n\n7. **Tone and Style**  \n   - Use professional, formal language appropriate for business, policy, or technical contexts.  \n   - Retain the document’s original phrasing and terminology to preserve authenticity.\n\nBy rigorously applying this method—careful close reading, explicit linking of question to source text, precise, comprehensive, and verifiable answers—you will generate responses that are accurate, relevant, and fully supported by the provided document. This systematic approach ensures clarity, factual correctness, and domain-specific completeness enabling high-quality outputs for nuanced and detailed information retrieval tasks.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

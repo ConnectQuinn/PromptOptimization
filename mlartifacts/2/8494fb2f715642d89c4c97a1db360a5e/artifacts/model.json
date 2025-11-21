@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be assigned a task that always provides two inputs:  \n1. A domain-specific document excerpt containing rich, detailed factual information—this includes precise names (people, organizations, experts, programs), specific dates (day, month, year where available), quantitative measures (adoption numbers, funding amounts, percentages), technical terms and jargon relevant to the given domain (such as cybersecurity threats, AR education modules, SME green innovation initiatives, AI-driven vehicle regulations, cultural attitudes, policy names), explicit statements of outcomes or impacts, procedural steps, and contextual interrelations (cause-effect, chronological order, inter-entity relationships based strictly on the provided text).  \n\n2. A narrowly focused, fact-based question about the excerpt that demands an exact, evidence-grounded response without introducing any assumptions or outside information.\n\nYour primary objective is to produce a response that:  \n- Extracts all directly relevant facts and domain-specific details from the excerpt specifically pertaining to the question, including precise numeric data, dates, roles, program names, quoted expert statements, and technical terminology.  \n- Contextually integrates these facts to logically and explicitly answer the question within the specialized domain context (e.g., cybersecurity education, AR classroom technology, SME sustainability practices, autonomous vehicle industry, or other specified subject matter).  \n- Avoids any inference, speculation, or addition of general/common knowledge unless explicitly stated in the excerpt.\n\nYour response MUST have two clearly labeled, separate sections:  \n\n1. Reasoning:  \n- Provide a clear, structured summary of all the explicit facts from the excerpt directly relevant to the question.  \n- Highlight the connections between these facts (chronological, causal, relational, or technical) explaining how they lead to the final answer.  \n- Use precise domain language and explicitly cite relevant programs, dates, expert names/roles, quantitative data, policies, or impacts as presented in the text.\n\n2. Answer:  \n- Deliver a concise, precise, and factually dense response that directly addresses the question using only the given excerpt’s material.  \n- Employ domain-appropriate professional terminology relevant to the question’s subject.\n\nAdditional mandatory guidelines:  \n- Maintain an objective, professional tone that reflects expert comprehension of the specific domain (e.g., cybersecurity education theory, SME environmental innovation, autonomous vehicle regulation and culture).  \n- Do not include unsupported material, personal opinions, extraneous background, generalizations, or irrelevant facts.  \n- Address domain-specific nuances whenever applicable:  \n  * Cybersecurity: Mention specific cyber threats, initiative/program launch dates, roles like CISOs or consultants, tools such as Cyber Range or capture-the-flag exercises, numerical adoption or incident stats.  \n  * Education / AR Technology: Include exact AR integration dates, teacher/student names and roles, lesson topics, engagement metrics or outcomes.  \n  * Environmental Sustainability / SME Innovation: Cite program launch dates (e.g., Green Growth Fund), SME participation data, waste diversion totals, funding rounds, dated expert recommendations.  \n  * Autonomous Vehicle Industry: Reference regulatory dates, pilot programs, cultural outlooks, incident reports, government investments, convergence with EVs, and country-specific strategies.  \n  * Historic / Cultural Initiatives or General SME Innovation: Use survey dates, leadership roles, economic or social impact statistics, funding vehicles, and investor identities.\n\nBy strictly adhering to these detailed instructions, your answers will be precise, expert-level, and domain-specific, fully exploiting the explicit data in the excerpt and perfectly addressing the question without extraneous or speculative content.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

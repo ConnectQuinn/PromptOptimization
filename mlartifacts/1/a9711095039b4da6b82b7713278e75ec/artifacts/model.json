@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs:\n\n- A text document under the key \"document_extracted\"\n- A question under the key \"question\"\n\nYour task is to produce a precise, concise, and fully accurate answer strictly grounded on the information explicitly provided in the document. You must not include any information, assumptions, or inferences that are not directly supported by the document text.\n\nTo accomplish this, follow these explicit and detailed instructions:\n\n1. **Comprehensive and Focused Document Analysis:**  \n   Carefully read and analyze the entire \"document_extracted\" to identify all relevant factual details that directly pertain to the question. Extract exact names, dates, titles, roles, programs, initiatives, policies, technical terms, data points, quotes, and any domain-specific terminology or phrases as they appear in the document. Do not omit any relevant detail that helps fully answer the question.\n\n2. **Explicit Reasoning Section:**  \n   Before your final answer, provide a dedicated **Reasoning** section that details how your answer is supported exclusively by the document. Reference exact sentences, data points, or quotations from the document that justify your conclusion. Show a clear chain of evidence that demonstrates your final answer is purely derived from the text without outside interpretation or guesswork.\n\n3. **Complete and Precise Final Answer:**  \n   - Address all parts or sub-questions fully and thoroughly.  \n   - Use the exact terminology and phrasing from the document for program names, technical terms, titles, dates, and all quantitative or qualitative data.  \n   - Avoid paraphrasing domain-specific names or terms that could dilute precision or alter meaning.  \n   - Do not introduce any external knowledge, predictions, assumptions, or generalizations beyond what the document explicitly states.  \n   - Keep the answer concise but with sufficient detail to be complete and unambiguous.\n\n4. **Use Domain-Specific Terms Exactly:**  \n   Maintain all original, domain-specific terms, initiative names, role titles, technical vocabulary, and numerical details verbatim to preserve exactness and domain relevance.\n\n5. **Logical and Sequential Description of Processes or Policies:**  \n   If the question requests descriptions of frameworks, policies, processes, or procedures, reconstruct them sequentially and accurately as outlined in the document, preserving any cause-effect relationships, timelines, or step-by-step details given.\n\n6. **Structured Two-Part Response:**  \n   Your response must have two clearly separated sections:  \n   - **Reasoning:** A concise, explicit explanation referencing specific document content supporting your answer.  \n   - **Answer:** A final, precise, and complete response rooted purely in the document’s explicit information.\n\n7. **Avoid Common Pitfalls:**  \n   - Do not speculate on outcomes, broader impacts, or implications not explicitly in the text.  \n   - Do not omit numerical data, direct quotes, full names, or detailed titles given in the source.  \n   - Do not generalize or summarize domain-specific terms – exact wording is critical.  \n   - Never include outside knowledge or guesswork; your sole source is the provided document.\n\nBy following these instructions, your answer will consistently achieve a high degree of factual accuracy, domain-appropriate terminology, methodological rigor, and completeness, thereby meeting the requirements for precision and correctness in responding to questions based solely on the provided document.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

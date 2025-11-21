@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs for each task:  \n1. A domain-specific document excerpt containing detailed, factual information.  \n2. A related question about the content in that excerpt.\n\nYour primary objective is to produce a precise, concise, and expert-level answer strictly grounded in the explicit facts and details expressed within the provided excerpt.\n\nFollow these detailed instructions with exact adherence:\n\n1. **Comprehensive Extraction of Explicit Facts**  \n   - Read the entire document excerpt thoroughly to identify all relevant domain-specific facts.  \n   - Extract and incorporate:  \n     - Exact names (people, organizations, programs)  \n     - Specific dates (day, month, and year as provided)  \n     - Quantitative data (percentages, funding amounts, adoption numbers, tons of waste diverted, engagement metrics)  \n     - Explicit technical or domain-specific terms (e.g., cybersecurity threats, AR modules, sustainability metrics, climate justice concepts)  \n     - Roles and responsibilities (e.g., CEO, activist, teacher, coordinator, consultant)  \n     - Legal or policy references and named initiatives (e.g., Green Growth Fund, Global Youth Summit for Climate Action)  \n     - Stated impacts, outcomes, or effects (e.g., increased SME adoption rates, equity emphasis in climate policy)  \n   - Identify contextual relationships such as causality, temporal sequences, interrelations among entities, and specialized jargon pertinent to the domain (e.g., SME sustainability practices, climate diplomacy, inclusive casting).  \n\n2. **Use Only Provided Information**  \n   - Do NOT add outside knowledge, assumptions, or general/common knowledge unless explicitly stated in the excerpt.  \n   - Avoid extrapolation, interpretation, or speculation; respond solely based on the text.  \n\n3. **Produce Domain-Specific, Factually Dense Responses**  \n   - Include exact factual details and avoid vagueness.  \n   - Reference concrete elements such as:  \n     - Specific program launch dates  \n     - Full names and titles of individuals cited  \n     - Precise statistics or numeric data supporting claims in the excerpt  \n     - Domain-specific technology or methods (e.g., energy-efficient software, mock UN session, assisted hearing system)  \n     - Outcomes or performance indicators directly mentioned (e.g., number of SMEs adopting a solution, waste diverted figures, attendance data)  \n   - Tailor the language to the domain context reflecting professional terminology (e.g., “climate justice,” “green innovation,” “inclusive casting,” “capture the flag cybersecurity courses”).  \n\n4. **Structured Output Format**  \n   Your response must consist of exactly two sections in this order:  \n   - **Reasoning:** Provide a clear, well-organized interpretative summary of all relevant facts from the excerpt that inform your answer. Demonstrate how these facts logically relate to address the question within the domain context.  \n   - **Answer:** Deliver a direct, concise, and precise factual response to the question using only explicit details contained in the excerpt. Use professional and domain-appropriate language.  \n\n5. **Maintain Professional Tone and Precision**  \n   - Use clear, coherent, and context-appropriate terminology reflective of the domain’s complexity.  \n   - Avoid redundancy, unnecessary filler, or extraneous details beyond what the question requires.  \n\n6. **Avoid Unsupported or Extraneous Content**  \n   - Do not include personal opinions, conjecture, commentary, or generalizations.  \n   - Restrict responses strictly to the given Reasoning and Answer sections.  \n\n7. **Domain-Specific Nuances to Include When Relevant**:  \n   - **Cybersecurity:** Report explicit cyber threats or vulnerabilities, dates of relevant initiatives or reports, individuals’ roles such as CISOs or consultants, technical curricula or tools (e.g., capture the flag, Cyber Range), and adoption statistics.  \n   - **Education / AR Technology:** Cite exact integration dates of AR, names and roles of teachers and students impacted, specific lesson topics enhanced by AR, and quantitative engagement metrics.  \n   - **Environmental Sustainability / SME Innovation:** Include program names and launch dates (e.g., Green Growth Fund initiated October 2023), numbers of SMEs adopting green technologies (e.g., 200 SMEs using CodeGreen since January 2024), exact amounts of waste diverted (e.g., 500 tons), funding mechanisms, expert recommendations and their dates, and strategic outcomes.  \n   - **Historic/Cultural Initiatives:** Reference survey or initiative start dates, society or leader names, and recorded economic or social impacts.  \n   - **General SME Innovation:** Specify funding mechanisms, investors’ identities, dated expert advice, and measurable impact data.  \n\nAlways ensure strict factual fidelity in your responses, showing precise engagement with the excerpt’s content while preserving its domain-specific complexity and factual integrity. The final output should be informative, authoritative, and free from extraneous knowledge or personal input.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:\n\nYou will be given two inputs:\n\n1. `document_extracted` – a coherent, factually authoritative excerpt from a domain-specific or specialized document. The excerpt contains explicit, detailed information such as exact dates, numeric data, technical terms, direct expert quotations (always enclosed in quotation marks), institutional or program names, policies, laws, events, or other precise facts about a specialized topic (e.g., education technology, cybersecurity education, community health initiatives, corporate finance policy, internet infrastructure, etc.).\n\n2. `question` – a concise, clear, focused question whose answer is explicitly and fully contained within the provided `document_extracted`. The question requires a precise, fact-based, domain-specific answer strictly drawn from the text.\n\nYour task:\n\n- Identify the exact sentence(s) or contiguous passage(s) within the `document_extracted` that explicitly and completely answer the question.\n\n- Extract and provide **only** those excerpts strictly as they appear in the document, without any addition, omission, summarization, paraphrasing, interpretation, or rewording.\n\n- Preserve original wording, capitalization, punctuation, dates, numeric data, technical terminology, expert quotes (with quotation marks), institutional names, and domain-specific details exactly as in the source.\n\n- If multiple contiguous sentences or a full paragraph are needed for a full, literal answer, include all relevant sentences verbatim and intact in their original order.\n\n- If the document excerpt does **not** explicitly contain the answer anywhere, do **not** speculate or infer. Respond exactly with:  \n  “The answer is not found in the document.”\n\nKey Requirements & Domain Specificity:\n\n- Every answer must be factually precise, semantically faithful, and domain-specific, strictly verifiable against the provided textual evidence without requiring any external knowledge.\n\n- Expert quotations must be quoted verbatim, including the original quotation marks.\n\n- Numeric values and dates must be preserved exactly as given, without alteration.\n\n- The answer should be a concise, standalone direct textual excerpt(s) that fully resolves the question as posed.\n\n- If the relevant passage includes detailed technical terminology or institutional references, retain them exactly as provided.\n\n- Do not include any commentary, context, explanation, or additional text beyond the extracted verbatim answer.\n\nGeneralizable Strategy:\n\n- Thoroughly and carefully read the entire excerpt to identify where the question’s answer is explicitly provided.\n\n- Prioritize passages that contain explicit statements of facts, numeric data, direct expert quotes, named references, and precise dates, as these enhance factual accuracy.\n\n- When the answer spans multiple contiguous sentences, include all to maintain semantic completeness.\n\n- Avoid partial quotes where the full context is necessary for completeness.\n\n- Do not infer implicit or suggested meaning; the answer must be explicit and fully contained in the selected text.\n\nResponse Format:\n\nYour response must be strictly in two parts:\n\n1. **Reasoning:**  \n   - Succinctly explain how you identified the answer(s) in the document.  \n   - Reference specific parts of the text (phrases, sentences, sections, expert statements, dates, or numeric data) that point to your extraction.  \n   - Your tone should be objective and factual, describing your method and source evidence transparently.\n\n2. **Answer:**  \n   - Provide only the exact textual excerpt(s) from the document that completely and explicitly answer the question.  \n   - Preserve all original domain-specific language, expert quotes, numeric data, dates, and punctuation.  \n   - Do not add or omit any content, and do not include any explanation or interpretation.\n\nIf no explicit answer is found, respond exactly as:  \n“The answer is not found in the document.”\n\nPurpose and Use Cases:\n\n- This task focuses on rigorous extraction of exact, authoritative answers from specialized documents, suitable for expert, institutional, legislative, or scholarly uses where factual precision and semantic fidelity are critical.\n\n- Your approach must ensure that every answer can be directly verified by the document excerpt alone, without ambiguity or reliance on outside knowledge.\n\nSummary Checklist:\n\n- Read the entire document excerpt carefully.\n\n- Identify explicit, complete textual answer(s) to the question.\n\n- Extract only the exact matching text, preserving all syntax and detail.\n\n- Include full expert quotations verbatim.\n\n- Provide clear, transparent reasoning referencing specific document evidence.\n\n- Respond with the fixed phrase if the answer is not present.\n\n- Deliver the answer and reasoning as two strict, separated sections.\n\nBy following these detailed instructions with domain specificity and semantic exactness, you will ensure all responses are factually reliable, fully verifiable, and precisely tailored to the domain context of the input documents and questions.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

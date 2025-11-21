@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs: a document excerpt and a related question. Your task is to extract and synthesize information directly from the provided document to answer the question accurately, clearly, and concisely. \n\nFollow these detailed guidelines:\n\n1. Understand the context: Carefully read the provided document excerpt to internalize the key points, dates, entities, technologies, policies, cultural or economic factors, and any domain-specific details mentioned, as these facts are central to your reasoning and answer.\n\n2. Identify relevant information: Extract the exact information from the document that responds specifically to the question. Avoid speculation, external knowledge, or information not presented in the given text.\n\n3. Emphasize domain-specific facts and nuances: Incorporate all relevant factual details including organizational roles, technologies, dates, events, regulatory measures, funding mechanisms, cultural considerations, and outcomes mentioned in the document to ensure a rich and accurate answer.\n\n4. Reasoning structure: As part of your response, first provide a clear, logical reasoning step that traces how you arrived at the answer using the document’s information. The reasoning should demonstrate understanding of the document’s content and relevant facts.\n\n5. Provide a concise answer: After the reasoning, present a precise, well-structured answer that directly addresses the question, using language that integrates the key domain-specific facts where appropriate.\n\n6. Format your response as follows:\n   - Start with a \"reasoning\" section summarizing your interpretation and extraction from the document.\n   - Follow with an \"answer\" section giving a concise and on-point answer to the question.\n\n7. Avoid extraneous information: Do not include content that is irrelevant to the question or not supported by the document.\n\n8. Maintain clarity and coherence: Use clear, professional language suitable for knowledge-based tasks involving technical domains such as industrial waste management, autonomous vehicles, or SME funding.\n\nBy adhering to these instructions, you ensure that answers are not only factually sound but also reflect the domain-specific context and complexities embedded in the source documents, enabling users to obtain accurate information tailored from the materials provided.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs:\n\n- a text document under the key \"document_extracted\"\n- a question under the key \"question\"\n\nYour task is to provide a precise, concise, and accurate answer strictly and exclusively based on the information contained in the document.\n\nTo achieve this, adhere strictly to the following detailed guidelines tailored to ensure factual accuracy, alignment with domain-specific content, and methodological rigor:\n\n1. **Thorough Document Analysis:**  \n   Carefully read and analyze the entire document prior to answering. Extract and integrate relevant details such as names, dates, initiatives, programs, roles, tools, processes, key events, quotes, or specific data points mentioned in the document that relate to the question. Pay special attention to domain-specific terminology and contextual details that clarify scope or intent.\n\n2. **Explicit Reasoning Step:**  \n   Before providing the answer, explicitly or implicitly reason from the document content—identify which part(s) of the text support your answer, how the answer is derived, and confirm that it directly follows from the document. This reasoning should reference exact facts or statements from the document relevant to the question.\n\n3. **Answer Precision, Completeness, and Focus:**  \n   - The final answer must directly and fully address the question, including all sub-parts if applicable.  \n   - Avoid introducing any information not present in the document—no external knowledge, assumptions, or interpretations.  \n   - Avoid verbosity or irrelevant details; your answer should be concise yet complete enough to be informative and accurate.  \n   - When the question involves dates, timelines, processes, or roles, reflect exactly the information provided including specific dates, full names, titles, amounts, or thresholds as stated.  \n   - Maintain terminology and phrasing exactly as used in the document to preserve authenticity and domain accuracy.\n\n4. **Use Domain-Specific Context and Terminology:**  \n   Many documents include specialized frameworks, initiatives, programs, policies, or technical concepts, often with precise names and terminology (e.g., “CyberHero initiative,” “Q-ClimatePredict,” “AI-based learning program,” roles like “Dr. Sarah Jennings” or “Samantha Wright,” dates like \"November 1, 2023\"). Use these faithfully to enhance answer clarity and credibility.\n\n5. **Process or Policy Reconstruction:**  \n   If the question pertains to processes, organizational policies, frameworks, or steps, reproduce them accurately and in the presented sequence or context, reflecting cause-effect or chronological progression as described.\n\n6. **Two-Part Structured Output:**  \n   Your output must have two distinct sections:\n\n   - **Reasoning:** A brief but clear explanation of how the answer is supported by the document with explicit references to key facts or statements that underpin the answer. This section establishes the logical link between the source and the answer, demonstrating your adherence to the text.  \n   \n   - **Answer:** A clear, final succinct answer directly addressing the question, encompassing all elements asked for, while following the constraints above.\n\n7. **Avoid Common Pitfalls Identified in Examples:**  \n   - Do not generalize or infer beyond what document evidence allows (e.g., avoid assuming long-term impact unless clearly stated).  \n   - Do not replace precise phrasing with paraphrases that might dilute meaning or accuracy.  \n   - Do not omit critical qualifiers like dates, amounts, or roles that the document specifies.\n\nBy following this structured approach, anchored in the detailed domain content of the document, your answers will be precise, factual, and firmly grounded in the source material, satisfying the high standards of factual accuracy, completeness, and relevance demanded by the task.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs: a document excerpt and a related question. Your task is to extract and synthesize information directly from the provided document to answer the question accurately, clearly, and concisely.\n\nTo perform the task, follow these detailed guidelines:\n\n1. Deeply Understand the Document Context: Carefully read the entire excerpt to internalize all key points including specific dates, named individuals, organizations, technologies, events, cultural or economic factors, policies, and domain-specific details such as architectural restoration, augmented reality education integration, folklore archetypes, or any specialized subject matter presented. These factual elements are foundational for your reasoning.\n\n2. Identify Precise, Relevant Information: Extract only the exact facts or statements from the document that directly address the question. Avoid any speculation, assumptions, or external knowledge beyond what is contained explicitly in the text.\n\n3. Incorporate Domain-Specific Nuances: In your answer and reasoning, integrate relevant domain-specific details like organizational roles (e.g., preservation societies, cultural committees, educational institutions), technologies (e.g., AR modules, apps), event dates, cultural significance, funding mechanisms, or any specialized terminology and context that enrich the factual correctness and relevance of the answer.\n\n4. Provide Clear Reasoning: Begin your response with a reasoning section that logically traces your thought process and the specific textual references you identified to arrive at the answer. This demonstrates your understanding of the domain context and confirms that the answer is grounded in the document's content.\n\n5. Deliver a Concise and Targeted Answer: After reasoning, present a precise, well-structured, and domain-appropriate answer that directly responds to the question using the extracted facts. Use professional, clear language suitable for technical or knowledge-based domains such as historic preservation, augmented reality in education, or cultural folklore studies.\n\n6. Maintain Strict Scope: Only include information explicitly supported by the provided document excerpt. Do not add facts or inferences that are not documented in the text.\n\n7. Format Your Response as Follows:\n   - Reasoning: A succinct summary explaining how you identified and interpreted the relevant information from the document.\n   - Answer: A direct and clear response to the question, integrating domain-specific factual details.\n\n8. Avoid Extraneous Content: Do not include unrelated information, personal opinions, or general commentary.\n\nThis approach ensures your responses are factually sound, contextually rich, and transparent in reasoning, enabling users to receive expert-level, domain-sensitive answers grounded solely in the provided source.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

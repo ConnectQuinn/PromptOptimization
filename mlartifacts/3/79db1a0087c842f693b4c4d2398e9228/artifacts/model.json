@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:\n\nYou will be provided with two inputs:  \n1. `document_extracted` – a factual, domain-specific excerpt containing precise information such as institutional names, dates, technical terms, policies, expert quotes, events, numerical data, and concrete examples related to a narrowly defined subject.  \n2. `question` – a direct and precise query seeking a factual, explicit answer that is strictly contained within the provided document excerpt.\n\nYour task is to produce a concise, semantically faithful answer strictly grounded on the information explicitly present in the `document_extracted`, without adding any external knowledge, inference, or assumptions.\n\nKey Requirements:\n\n1. Comprehensive Reading:  \n   Carefully read the entire `document_extracted` before answering to ensure full understanding of all context and factual content.\n\n2. Exact Extraction of Supporting Text:  \n   Identify and extract only the precise segment(s) of the document that directly answer the question, including all relevant factual details such as:  \n   - Institutional names and roles (e.g., \"Councilwoman Rebecca Gates\")  \n   - Specialized terminology and technical phrases (e.g., \"salt block grilling technique\", \"CyberHero initiative launched on November 1, 2023\")  \n   - Exact dates and numerical data without paraphrasing (e.g., “October 15, 2023.”)  \n   - Expert statements or quotes, preserving original wording and punctuation exactly\n\n3. Reasoning Statement:  \n   Begin your response with a brief reasoning statement that cites or quotes the exact relevant portion(s) of the document which support the answer. This should clearly show which sentence(s) or phrase(s) justify the final response.\n\n4. Concise, Direct Final Answer:  \n   Following your reasoning, provide a concise, direct answer that strictly addresses the question using only the facts from the text, reproducing all critical factual elements exactly as given. Include quotations with quotation marks when preserving exact wording is essential.\n\n5. Semantic Fidelity and Terminology:  \n   Preserve domain-specific terms, official names, exact figures, specific dates, and special terminology as they appear in the source. Avoid generalizations, rephrasings, or any modifications that might dilute or alter the original meaning or emphasis of the source text.\n\n6. Numerical and Date Precision:  \n   If the question asks for numerical or date information, supply the exact figures or dates verbatim, avoiding rounding or paraphrasing.\n\n7. Handling Absence of Answers:  \n   If the document does not explicitly contain the factual answer to the question, respond clearly and unambiguously with:  \n   “The answer is not found in the document.”\n\n8. Objectivity and Factual Tone:  \n   Maintain an objective, factual tone throughout. Do not speculate, infer, or provide commentary beyond the explicit content of the document.\n\n9. Avoid Redundancy:  \n   Extract the minimal but complete factual fragments sufficient to answer the question accurately and precisely, avoiding verbosity or unnecessary elaboration.\n\n10. No External Knowledge:  \n    Do not introduce any external or background knowledge, even if widely known or easily inferred. The answer must be strictly confined to the contents of the provided document excerpt.\n\nRecommended Approach:\n\n- Thoroughly read the entire provided document excerpt.\n- Identify the minimal key sentences or phrases that directly answer the question.\n- Quote or paraphrase these segments precisely in your reasoning statement.\n- Formulate a concise final answer, reproducing key factual elements exactly, using direct quotations where appropriate.\n- For questions requesting numbers or dates, include exactly those values without modification.\n- If no answer is present, state so clearly and immediately.\n\nAdditional Domain-Specific Notes:\n\n- Terminology and phrasing are critical. For instance, if the document uses phrases like “salt block grilling technique” or event names like “CyberHero initiative launched on November 1, 2023,” these must appear exactly as is.\n- Named entities (people, institutions, initiatives), technical or policy terms, key dates, and expert quotes must be preserved verbatim to maintain semantic accuracy.\n- The answer should reproduce the emphasis of the original document, especially regarding who said what, timing of events, or magnitude of numerical data.\n- When a direct quote from the document is relevant to the question, use quotation marks to preserve the exact wording.\n- Do not attempt to paraphrase answers if a direct phrase or quote from the document provides a clearer, more precise factual response.\n\nThis approach ensures answers are authoritative, precise, semantically accurate, and fully grounded in the source text, suitable for high-stakes, domain-specific queries where exact terminologies, dates, figures, and institutional references are critical.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

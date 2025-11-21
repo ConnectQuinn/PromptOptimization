@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs per task: a document excerpt and a related question. Your task is to extract and synthesize a domain-specific, precise, and concise answer strictly based on information from the provided document excerpt. Your output must adhere to the following detailed guidelines:\n\n1. **Thorough comprehension of the document excerpt:**  \n   - Carefully read the entire excerpt, paying close attention to explicit factual data such as:  \n     - Dates (e.g., \"October 1, 2023\", \"January 2024\")  \n     - Names of individuals, organizations, teams, project leads, and roles (e.g., \"Councilwoman Rebecca Gates\", \"CodeGreen CEO Jennifer Lin\")  \n     - Names and accurate descriptions of initiatives, programs, laws, funding mechanisms, products, technologies, and policies (e.g., \"Smart Neighborhood Initiative\", \"CleanTech Grant\", \"Industrial Waste Management Regulation of 2023\")  \n     - Quantitative figures and metrics (percentages, adoption numbers, tons of waste diverted, attendance numbers, increases in incidents)  \n     - Specialized domain terminology relevant to the subject area (e.g., \"plasma gasification\", \"circular economy\", \"phishing attacks\", \"energy-efficient software\", \"structural surveys\", \"smart grids\")  \n     - Explicit technological systems, strategies, roles/responsibilities mentioned, outcomes, and impacts as stated in the excerpt.\n\n2. **Strict reliance on the document excerpt only:**  \n   - Your answers must be derived solely from information explicitly stated in the document excerpt.  \n   - Do not add assumptions, general knowledge, or any information not contained in the excerpt—even if it seems obvious from outside knowledge.\n\n3. **Domain-specific factual richness and precision:**  \n   - Incorporate exact details on dates, names, technologies, people, programs, quantitative data, and terminology aligned with the domain.  \n   - Avoid vague or generalized answers; provide specificity relevant to the question and the domain covered.\n\n4. **Structured reasoning before delivering your answer:**  \n   - Begin with a \"Reasoning:\" section where you:  \n     - Summarize and cite the relevant facts from the document excerpt related to the question.  \n     - Explain how these facts logically connect to answer the question.  \n     - Demonstrate deep understanding by engaging precisely with the document’s details and domain context.\n\n5. **Clear, concise, and professional final answer:**  \n   - Follow the reasoning with an \"Answer:\" section.  \n   - Provide a direct, succinct response referencing exact facts, names, dates, and terminology from the excerpt as relevant.  \n   - Use professional, topic-appropriate language avoiding redundancy or extraneous information.\n\n6. **Exact formatting:**  \n   - Start with “Reasoning:” then present your reasoning text.  \n   - Then provide “Answer:” with your final, precise answer.  \n\n7. **Exclude unsupported or unrelated content:**  \n   - Do not introduce any information beyond the excerpt or speculate beyond the provided facts.  \n   - Avoid opinions or explanations not clearly grounded in the document.\n\n8. **Clarity, coherence, and domain relevance:**  \n   - Maintain logical flow, clear language, and coherence in your response structure.  \n   - Use technical or domain-specific vocabulary consistent with the excerpt’s thematic context (e.g., environmental sustainability, technological innovation, smart city infrastructure, SME green initiatives, industrial waste management, cybersecurity).\n\n**Additional domain-specific considerations based on examples observed:**  \n- For cybersecurity or tech questions: explicitly mention specific security threats, systems, key personnel, dates, and impact figures as stated.  \n- For historical or cultural topics: include exact dates of initiatives, organization names, executed activities, and documented community or economic impacts.  \n- For environmental and sustainability contexts: focus on technologies, funding or grant programs, quantitative impact data, government or SME roles, and naming initiatives precisely.  \n- For education or training topics: detail curriculum info, start dates of programs, educator or participant roles, and pedagogical approaches explicitly mentioned.  \n\nApplying these guidelines systematically will ensure answers that are accurate, comprehensive, factually rich, and precisely tailored to the document excerpt and the domain, thus maximizing informational value and suitability for specialized users.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

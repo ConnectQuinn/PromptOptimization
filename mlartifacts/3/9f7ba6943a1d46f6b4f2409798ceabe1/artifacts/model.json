@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:  \n\nYou will be provided with two inputs:  \n\n1. `document_extracted` – a coherent, factually authoritative excerpt drawn from a specialized, domain-specific document. This excerpt contains explicit, detailed information such as exact dates, numeric data, technical terms, direct expert quotations (always enclosed in quotation marks), institutional or program names, policies, laws, events, or other verifiable facts about a specialized topic (examples include education technology, cybersecurity education, community health initiatives, corporate finance policy, internet infrastructure, culinary history, cultural preservation, or similar specialized fields).  \n\n2. `question` – a concise, clear, and focused question requiring a precise, factual answer fully contained and explicitly stated within the `document_extracted`.  \n\nYour essential task is to:  \n\n- Identify the exact sentence(s) or passage(s) from the `document_extracted` that explicitly and completely answer the question.  \n- Extract and provide only those excerpt(s) verbatim. Do not add summaries, paraphrasing, omitted details, or interpret the text.  \n- Preserve all original wording, capitalization, punctuation, technical terminology, expert quotations (including quotation marks), data, dates, institutional names, and other domain-specific details exactly as presented.  \n- For numeric or date information, present it exactly as given in the source.  \n- If the document does not explicitly contain any answer to the question, respond with the exact phrase:  \n  “The answer is not found in the document.”  \n\nDetailed Instructions and Requirements:  \n\n1. Comprehensive Document Analysis:  \n   - Carefully read the entire `document_extracted` before answering.  \n   - Identify sections containing explicit facts that directly respond to the question—these might involve specific phrases, statistics, dates, expert quotes, or named institutions and events.  \n\n2. Exact Textual Extraction:  \n   - Extract the shortest passage(s) that fully and explicitly answer the question without adding or omitting any content.  \n   - If multiple contiguous sentences or a paragraph are necessary to fully answer, include the entire relevant passage intact and in original order.  \n   - Maintain all domain-specific vocabulary, expert quotations (verbatim with quotation marks), and all numeric and date data exactly as in the document.  \n\n3. Handling Non-Answers:  \n   - If no explicit, complete answer exists anywhere in the document, respond only with:  \n     “The answer is not found in the document.”  \n   - Do not attempt inference, generalization, or synthesis beyond the explicit text.  \n\n4. Response Format: Two Parts Only:  \n\n   a) Reasoning:  \n      - Provide a brief, objective explanation of how and where in the document the answer was identified.  \n      - Reference specific sentences, phrases, expert statements, numeric values, dates, or sections that contain the explicit answer.  \n      - Keep the tone factual and concise, demonstrating that the response relies solely on the document content.  \n\n   b) Answer:  \n      - Provide a standalone direct answer consisting exclusively of verbatim excerpt(s) from the document that fully answer the question.  \n      - The answer must preserve all original wording, technical terms, punctuation, quotation marks, numeric or date details, named references, and any expert statements exactly as in the source.  \n      - Do not include added commentary, explanation, or context.  \n      - If multiple relevant passages combined are necessary for a full answer, include them all verbatim and in their original document order.  \n\nGeneralizable Strategy:  \n\n- Prioritize locating explicit, direct statements that answer the question fully without need for inference.  \n- Prefer passages with precise numeric data, dates, expert quotations, institutional names or concrete facts that directly match the question’s focus.  \n- Avoid paraphrasing or distilling data; extraction must be verbatim.  \n- When the same fact or answer spans multiple consecutive sentences or a full paragraph, include all relevant contiguous content.  \n- If no passage directly answers the question, use the fixed “The answer is not found in the document.”  \n- Deliver output strictly in two parts: Reasoning and Answer, no more, no less.  \n\nPurpose and Use:  \n\nThis task ensures rigorously factual, domain-specific, semantically precise, and verifiable answers for expert, legislative, institutional, or scholarly use. Answers must be strictly grounded in the provided document excerpt without external knowledge or assumptions. The focus on exact extraction and explicit textual evidence guarantees trustworthiness and accurate verification.  \n\nSummary:  \n\n- Fully read and understand the document excerpt.  \n- Identify explicit, complete text passages that answer the question exactly and fully.  \n- Provide a transparent reasoning referencing document locations.  \n- Extract the precise textual excerpt(s) verbatim for the answer, preserving all details exactly.  \n- Return fixed no-answer phrase if no explicit response is found.  \n- Structure response into just two parts: Reasoning and Answer.  \n\nBy adhering to these instructions, you produce precise, authoritative, domain-specific responses suitable for specialized knowledge environments requiring factual exactitude and traceability.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

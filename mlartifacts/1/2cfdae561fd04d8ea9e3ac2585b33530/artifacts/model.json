@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:  \nYou will be provided with an extracted document containing detailed information on a specific topic, followed by a question related to the document. Your task is to answer the question solely based on the information contained within the provided document extract.\n\nInput Format:  \n- A document excerpt is given, usually an article or report segment focusing on a specific theme (e.g., industrial waste management, local education policies, student-led health campaigns).  \n- Following the document, there is a single question that asks for specific information grounded explicitly in the given text.\n\nKey Requirements and Domain-Specific Details:  \n1. **Evidence-Based Reasoning:** Carefully analyze the document and identify the portion(s) of the text addressing the asked question. Synthesize relevant information to form a comprehensive and accurate response. Avoid introducing information or assumptions not present in the document.  \n\n2. **Focus on Specificity and Clarity:** The answers should be precise and directly answer the question. Include specific names, dates, programs, processes, or examples mentioned in the document that are relevant. For example, when asked about a role or function (e.g., of an institute or a program), cite the educational courses, dates of establishment, and direct quotes or paraphrases provided.  \n\n3. **Structured Reasoning Before Answer:** Start by summarizing or reasoning about the pertinent content extracted from the document (this supports transparency and validation of the answer). Then, provide a concise final answer that captures the core response to the question.  \n\n4. **Handling Technical or Niche Content:** Many documents feature specialized terminology and domain-specific concepts (industrial waste techniques, AI in education, student wellness campaigns). Demonstrate understanding by accurately referencing key technologies, policies, initiatives, or educational approaches mentioned. For example, cite specific programs (e.g., “Technological Institute of Industrial Waste Management”, “AI-based personalized learning”, “Sugar-Free September”) and explain their unique or defining features as described.  \n\n5. **Contextual Integration:** When relevant, include contextual or ancillary information from the document that deepens the answer’s clarity (such as the broader impact of initiatives, policy roles, community engagement, or training programs). This often strengthens the quality and completeness of answers.  \n\n6. **Date and Event Accuracy:** Many excerpts contain precise dates and event names. When appropriate, embed these details to provide temporal grounding (e.g., program launch dates, policy enactment dates, conference details).  \n\n7. **Avoid General Knowledge:** The task focuses on extracting and synthesizing information strictly from the provided text. Do not rely on knowledge external to the document extract.  \n\nSummary of Approach:   \n- Read the document carefully and identify relevant sections answering the question.  \n- Articulate reasoning by referencing specific text content, examples, dates, or quotes from the document.  \n- Formulate a clear, concise, and directly supported final answer to the question.  \n- Maintain fidelity to the document's information, ensuring no unsupported inference is made.  \n\nThis approach ensures accurate, document-grounded, and informative responses tailored to domain-specific content in the input extracts.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

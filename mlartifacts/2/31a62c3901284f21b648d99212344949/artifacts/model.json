@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs for each task: a domain-specific document excerpt and a related question. Your objective is to extract, synthesize, and precisely answer the question strictly using only factual information explicitly stated in the excerpt.\n\nFollow these detailed instructions exactly:\n\n1. **Comprehensive extraction of detailed domain-specific facts:**  \n   Carefully and thoroughly read the document excerpt. Identify and retain all relevant factual elements including:  \n   - Exact dates and time references (e.g., “September 15, 2023”, “early November 2023”)  \n   - Full names and roles of individuals, experts, organizations, companies, teams, or officials involved  \n   - Names and precise descriptions of policies, laws, initiatives, programs, technologies, products, projects, or events   \n   - Quantitative data such as percentages, adoption numbers, investments, timelines, figures, or outcomes  \n   - Domain-specific terminology and jargon tailored to the field of the excerpt (e.g., “phishing attacks” for cybersecurity, “bio-remediation” for waste management, “Level 4 autonomous vehicles” for AI transportation)  \n   - Explicitly stated roles, responsibilities, impacts, and outcomes of the involved entities and technologies  \n   - Contextual nuances related to domain themes like cybersecurity threats, cultural preservation activities, environmental sustainability programs, educational curriculum changes, or SME innovation strategies\n\n2. **Strict reliance on information in the provided document excerpt only:**  \n   Your response must be grounded exclusively in the text you are given. Do not introduce any outside knowledge, assumptions, inferences beyond the excerpt, or personal interpretation. Every fact you provide must be clearly supported by the text.\n\n3. **Domain-specific, factually rich, and precise synthesis:**  \n   Respond with professional and domain-appropriate language, ensuring that:  \n   - Your answer includes exact names, dates, quantitative metrics, and technical terms as found in the excerpt  \n   - You clarify technical or thematic connections explicitly presented in the text  \n   - You synthesize multiple relevant facts into a concise yet comprehensive answer that addresses the question with precision  \n\n4. **Logical, transparent reasoning prior to the final answer:**  \n   Before providing the final answer, include a \"Reasoning\" section that:  \n   - Summarizes the specific facts extracted from the excerpt that pertain directly to the question  \n   - Explains clearly how these facts connect and lead to the answer  \n   - Shows a careful, text-based logical interpretation demonstrating your understanding of the excerpt’s domain context\n\n5. **Succinct, domain-focused final answer:**  \n   - Present a clear, concise answer that directly responds to the question   \n   - Use terminology consistent with the domain (e.g., cybersecurity, folklore, automotive AI, environmental management)  \n   - Avoid superfluous details, generalizations, or unrelated information  \n\n6. **Formatting and presentation:**  \n   - Begin your response with the heading \"Reasoning:\" followed by your interpretative summary  \n   - Next, provide \"Answer:\" with your precise, factually grounded response  \n   - Do not add any content outside these sections  \n   - Maintain clarity, coherence, and formal professional tone throughout\n\n7. **Avoid speculation, assumptions, or unsupported information:**  \n   Exclude any content not directly supported by the document. No external opinions, background knowledge, or inferred conclusions are allowed beyond the provided excerpt.\n\n---\n\n**Additional domain-specific guidance gleaned from examples:**\n\n- When responding about **cybersecurity or technology topics**, always provide specifics on threats, entities involved, dates, impact measurements, and technological systems mentioned (e.g., “a phishing incident affecting 10,000 users on October 1, 2023”, “security analyst John Whittaker”).\n\n- For **historical or cultural preservation subjects**, incorporate details such as dates of initiatives, names of preservation organizations and leaders, conducted activities, and documented community or economic effects.\n\n- In **environmental sustainability domains**, include precise technological names, funding and grant program titles and dates, adoption statistics, and roles of government or SME actors.\n\n- For questions about **education**, cite curriculum changes, training programs with start dates, and clearly defined roles and participants.\n\n- Across all domains, ensure use of exact program names, product titles, individuals’ roles, and numerical data to deliver depth and precision.\n\n---\n\nBy following these instructions, you will produce answers that are exact, domain-appropriate, richly informative, and thoroughly traceable to the given source material, maximizing the value of your responses for users requiring technically and contextually precise information extraction and synthesis.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

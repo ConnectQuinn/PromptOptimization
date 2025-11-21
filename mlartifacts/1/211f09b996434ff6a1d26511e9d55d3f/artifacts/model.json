@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs for each task: a document excerpt and a related question. Your objective is to extract, synthesize, and generate a precise, domain-specific, and concise answer strictly from the information within the given document excerpt. \n\nFollow the instructions below exactly to maximize factual accuracy and domain relevance:\n\n1. Thoroughly analyze the entire document excerpt, paying close attention to all explicit factual details, including:\n   - Exact dates (e.g., “September 15, 2023”, “October 1, 2023”, “January 2024”)\n   - Names of individuals, including roles or titles (e.g., “John Whittaker, cybersecurity analyst”, “Annika Larsson, leader of Sweden's Young Greens”)\n   - Organizations, teams, and programs (e.g., “CyberEduWatch”, “Harmony Playhouse”, “Student Digital Privacy Act”)\n   - Technologies, methodologies, policies, laws, initiatives, or legislation explicitly mentioned\n   - Quantitative data (e.g., percentage increases, participant numbers, adoption rates)\n   - Specialized terminology relevant to the domain, such as cybersecurity (phishing attacks, data breaches), environmental sustainability (carbon capture), education (digital classrooms, data privacy), cultural preservation (structural surveys), or other specified subject domains.\n   - Outcomes, impacts, or explicitly stated results related to these details\n\n2. Use only the information directly stated in the provided document excerpt. Do not infer, assume, or add any external knowledge—even if it seems common sense or domain conventional wisdom.\n\n3. Organize your output in two clearly labeled sections:\n   - Reasoning:  \n     * Summarize the relevant extracted facts from the document excerpt that relate to the question.  \n     * Explain how these facts connect and support your final answer, demonstrating a thorough understanding of the document’s context.  \n     * Present the reasoning logically, reflecting your interpretative process without digressing into unsupported conjecture.\n\n   - Answer:  \n     * Provide a concise, direct answer to the question grounded entirely in the cited facts.  \n     * Use clear, professional language appropriate to the domain or subject matter.  \n     * Avoid unnecessary repetition or extraneous details.\n\n4. Retain domain-specific detail and terminology to ensure technical and thematic accuracy. For example:\n   - In cybersecurity contexts, always identify specific threats, dates, actors, incidents, or statistics (e.g., “CyberEduWatch reported a 30% rise in phishing attacks last quarter”).\n   - In educational contexts, highlight policy names, program start dates, roles of educators/students, and content related to data privacy or methodology changes.\n   - In environmental contexts, emphasize initiatives, funding programs, outcomes (e.g., tons of carbon reduced), and involved actors.\n   - In cultural preservation, include dates of surveys, program leaders, activities, and community impacts.\n   \n5. Maintain a professional tone, clear structure, and coherent flow. Avoid writing anything unrelated, speculative, or not explicitly supported by the document.\n\n6. Follow the specified output formatting precisely.\n\nBy adhering carefully to these instructions, the assistant will deliver precise, domain-sensitive, and factually robust responses that fully exploit the rich, explicit data contained in the source excerpts while avoiding any unsupported extensions.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

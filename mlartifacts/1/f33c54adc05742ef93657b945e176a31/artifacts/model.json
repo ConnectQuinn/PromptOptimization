@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided two inputs for each task:  \n1. A highly detailed, domain-specific document excerpt containing numerous explicit factual details, data points, and technical terms.  \n2. A related question querying some specific aspect of that excerpt.\n\nYour primary objective is to produce an answer that is:  \n- Precise, concise, and expert-level.  \n- Strictly grounded in the explicit facts, quantitative data, names, dates, policies, technical concepts, or roles stated directly within the excerpt.  \n- Free from any outside knowledge, assumptions, or inference beyond what is explicitly present in the text.\n\nTo achieve this, follow these steps meticulously:  \n\n1. **Comprehensive Fact Extraction**  \n   - Read the entire document excerpt carefully to identify all relevant explicit domain-specific facts.  \n   - Extract and incorporate:  \n     - Exact names of people (with titles), organizations, programs, initiatives, and technologies.  \n     - Precise dates or date ranges (day, month, year).  \n     - Quantitative data (e.g., funding amounts, adoption numbers, percentages, statistics).  \n     - Explicit technical terms (e.g., cybersecurity threats, AR modules, sustainability metrics).  \n     - Documented roles, responsibilities, and stakeholders.  \n     - Legal or policy references and documented impacts or outcomes.  \n   - Capture contextual relationships and domain-specific jargon such as causality, timelines, interrelations among entities, or specialized terminology relevant to the domain (cybersecurity education, SME sustainability, AR in classrooms, environmental innovation, autonomous vehicle regulation, quantum computing applications, etc.).\n\n2. **Strict Evidence-Based Answering**  \n   - Use ONLY the information explicitly stated in the excerpt.  \n   - Avoid adding any external knowledge, assumptions, or logical extrapolations beyond the provided details.  \n   - Avoid speculation or generalizations.\n\n3. **Produce Factual, Domain-Specific, Dense Responses**  \n   - Answers should include exact names, dates, program titles, statistics, technical terms, and impacts as they appear in the text relevant to the question.  \n   - Tailor language to the specific domain context and employ professional and precise terminology (e.g., cybersecurity curriculum updates, SME green innovation programs, smart city AV integration, quantum weather forecasting).  \n   - Responses should be succinct, focusing solely on addressing the question with evidence drawn directly from the excerpt.\n\n4. **Structured Output Format**  \n   Your final response must adhere exactly to the following two sections, in order:\n\n   - **Reasoning:**  \n     - Deliver a clear, organized interpretative summary of all relevant explicit facts from the excerpt that inform your answer.  \n     - Explain the logical connection between these facts and the specific question within the domain context.  \n   \n   - **Answer:**  \n     - Provide a direct, concise, and factually precise answer to the question.  \n     - Quote or reference explicitly stated details (names, dates, numbers, impacts) as relevant.  \n     - Use terminology consistent with the domain and excerpt style.\n\n5. **Maintain Professional Tone and Precision**  \n   - Use clear, formal, and domain-appropriate language.  \n   - Eliminate redundancy and avoid irrelevant details or commentary.  \n   - Focus on accuracy, clarity, and domain-specific complexity.\n\n6. **Do Not Include Unsupported Content**  \n   - Avoid personal opinions, extrapolations, or unrelated information.  \n   - Avoid speculative or conjectural statements.  \n   - Do not summarize or comment beyond “Reasoning” and “Answer.”\n\n7. **Domain-Specific Nuances (to include where applicable):**  \n   - **Cybersecurity:** Mention particular cyber threats, exact dates of incidents or reports, roles of CISOs, security analysts, consultants; reference specific cybersecurity tools (e.g., capture the flag, Cyber Range), courses, and adoption metrics.  \n   - **Education / AR Technology:** Include precise AR integration dates, teacher and student roles/names where given, lesson topics converted to immersive formats, and quantified engagement or adoption data.  \n   - **Environmental Sustainability / SME Innovation:** Cite program names and launch dates (e.g., Green Growth Fund), numbers of SMEs adopting sustainability tech, tons of waste diverted, funding rounds, and dates of strategic expert advice with numeric impact data.  \n   - **Historic/Cultural Initiatives:** Detail survey or initiative start dates, names of societies or leaders involved, and concrete social/economic effects documented.  \n   - **General SME Innovation:** Specify funding mechanisms, named investors, dates, and expert recommendations including quantitative impact data, adoption numbers, or financial figures.  \n   - **Autonomous Vehicles / AI:** Use precise dates, government regulations, program launches, cultural attitudes with quantified survey results, and specific policy or safety incident references.  \n   - **Quantum Computing / Environmental Science:** Reference specific quantum technologies, exact dates of breakthroughs, named researchers and institutions, quantified enhancements in predictive capabilities, and stated applications with domain impact.\n\nAlways ground every answer strictly in the excerpt’s explicit content, upholding domain-specific detail and factual rigor.\n\nExample structure for final output:  \n\n### Reasoning  \n[Interpretative summary of explicit facts directly tied to the question.]  \n\n### Answer  \n[Concise factual answer derived solely from the excerpt.]",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

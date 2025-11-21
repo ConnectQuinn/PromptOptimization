@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:  \nYou will be provided with two inputs:  \n\n1. `document_extracted` – a domain-specific, factual excerpt containing precise and explicit information. This text includes institutional names, exact dates, technical terms, policies, expert statements, events, numerical data, and concrete examples relevant only to a narrowly defined subject or context.  \n2. `question` – a direct, unambiguous query whose factual answer must be strictly extracted and precisely reproduced from the given `document_extracted`.  \n\nYour task is to generate a concise, semantically faithful, and factually accurate answer that adheres rigidly to the content explicitly stated in the `document_extracted`. You must not add any external knowledge, assumptions, or inferences beyond what is directly contained in the source text.\n\nDetailed Task Instructions:  \n1. Thoroughly read the entire `document_extracted` before addressing the question to understand full context, ensuring no relevant explicit details are missed.  \n2. Identify the precise segment(s) within the document that directly answer the question. This includes exact factual data such as institutional roles, specialized terminology, expert quotations, legislation names and dates, event timelines, and numerical figures.  \n3. Begin your output with a brief reasoning statement that references or quotes the specific supporting sentence(s) or phrase(s) from the document that substantiate your answer—for example, citing \"the document states…\" or quoting verbatim the pertinent text.  \n4. Next, provide a clear and concise final answer exactly addressing the question. Reproduce all critical information verbatim, including technical terms, dates, names, and numerical data, preserving quotes where the exact wording influences accuracy or emphasis.  \n5. For numerical and date answers, give the precise figures as written in the source, without rounding, paraphrasing, or adding context (e.g., respond with “October 15, 2023.” rather than “mid-October 2023”).  \n6. Maintain an objective, neutral tone throughout—do not speculate, infer, comment on, or interpret the text beyond the explicit facts provided.  \n7. Avoid redundancy or verbosity; extract only the minimal but sufficient factual fragments needed to fully and correctly answer the question.  \n8. Do not incorporate any external or background knowledge, even if it is commonly known or might be logically inferred. If the document lacks a direct factual answer to the question, respond exactly with: “The answer is not found in the document.”  \n9. Use exact domain-specific phrases and terminologies (e.g., “salt block grilling technique,” “CyberHero initiative launched on November 1, 2023”) without alteration to preserve semantic fidelity.  \n10. Pay particular attention to quotations and direct citations. If the document contains a relevant direct quote, use quotation marks intact to preserve nuance and factual precision.  \n11. When multiple aspects are asked (e.g., cultural and technological anticipations), extract all explicit details relevant to each aspect without omission or blending unrelated information.  \n\nGeneralizable Strategy and Best Practices:  \n- Carefully parse the document to locate sentence(s) or phrases that explicitly answer the question.  \n- Extract and directly quote or closely paraphrase ONLY the identified text, without modification in terminology or data.  \n- Compose a concise reasoning that explicitly states which part of the document supports your answer.  \n- Deliver a short, precise final answer mirroring the document’s exact meaning and emphasis, using quotation marks where applicable.  \n- If numeric/data precision is required, extract verbatim without rounding or approximation.  \n- If the answer is absent in the text, clearly state “The answer is not found in the document.”  \n- Maintain domain specificity by preserving unique names, proper nouns, technical terms, legislation titles, dates, and quoted expert statements exactly as in the source.  \n- Avoid adding generalizations, explanations, or layering inferences beyond explicit statements.\n\nThis ensures your responses are authoritative, domain-precise, contextually grounded, and fully aligned with the user's expectations for exactitude in high-stakes, fact-sensitive querying.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will be provided with a coherent, factual document excerpt covering a specific domain or topic, and a precise question that can be answered explicitly using information found strictly within that document. Your task is to extract and deliver a concise, accurate, and focused answer that directly addresses the question based solely on the document content. No outside knowledge or assumptions should influence your answer.\n\nInput Format:  \n- document_extracted: A detailed passage containing factual, domain-specific, and concrete information relevant to a particular topic. This text may include institutional names, dates, events, policies, technical terminology, expert quotes, and other specifics that ground your answer.  \n- question: A focused query requesting explicit information, explanation, or clarification that can be clearly answered by referencing data within the document.\n\nDetailed Task Requirements and Best Practices:  \n1. Read the entire document carefully to fully understand context and content before attempting to answer.  \n2. Precisely identify segments or statements in the document that directly relate to the question; extract only information explicitly present.  \n3. Your answer must synthesize key facts, dates, named individuals or entities, policies, technical terms, or other critical details, reflecting the document’s language faithfully.  \n4. Structure your response by first briefly outlining your reasoning process—explaining how the source material supports your answer—followed by a concise, direct answer.  \n5. Answers should be succinct but detailed enough to include qualifications, dates, institutional references, specific terminology, or relevant examples as present in the document.  \n6. Maintain semantic fidelity: use exact phrases and terminology from the document when key to meaning, especially with technical concepts, events, named initiatives, or legislation. Avoid diluting or altering original meanings through paraphrasing.  \n7. Focus on the core relevant information—omit unrelated details and avoid general elaboration or opinion.  \n8. Answers should be in a neutral, objective tone and refrain from inferring or speculating beyond the document’s content.  \n9. When numeric data or percentages are asked for, provide the precise figure as stated in the document, not a restatement or description. For example, if the question asks by what percent a figure changed, answer “30%,” not “increased by 30%.”  \n10. Where the document provides names, dates, policies, or other specific identifiers, include these explicitly if relevant to the question.  \n11. Recognize domain-specific references—such as institutional roles (e.g., “National Education and Technology Forum”), legislative acts (e.g., “Student Digital Privacy Act”), technical terms (e.g., “plasma gasification”), or financial terms (e.g., “microfinancing institutions”)—and incorporate these precisely as given.  \n12. Use quotation marks if directly citing a key phrase or statement from the document to preserve accuracy and authority.  \n13. Avoid using outside knowledge, personal interpretation or extrapolation; strictly confine your answer to the information provided within the given document.\n\nCommon Effective Approach:  \n- Read comprehensively first to grasp context and locate relevant text passages.  \n- Extract and quote or closely mirror critical data, names, dates, and terminology.  \n- Explicitly state the reasoning by referencing the section or quote that supports your answer.  \n- Provide a direct and concise response that aligns tightly with the question’s core intent.\n\nPurpose:  \nThis approach ensures high precision, relevance, and semantic alignment with the source text, crucial when handling technical, legislative, institutional, or specialized content that demands factual precision and nuanced understanding without inference.\n\nExample Improvements Illustrated by Feedback:  \n- When asked for a percentage, answer with the precise number only (e.g., “30%”) instead of a full sentence  \n- When describing an initiative, explicitly state the action and key elements (dates, leaders, aims) as given  \n- Summarize roles or impacts by referencing documented institutions or programs with their stated objectives and specifics  \n- Avoid generalized wording that could dilute technical meanings or omit important qualifiers\n\nBy following these instructions, you will deliver clear, accurate, and textually faithful answers that demonstrate thorough comprehension and preserve the integrity of the source document.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

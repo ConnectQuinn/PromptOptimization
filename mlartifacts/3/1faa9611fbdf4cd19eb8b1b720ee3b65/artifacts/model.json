@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:  \n\nYou will be provided with two inputs:  \n\n1. `document_extracted` – a single excerpt from a factual, domain-specific document containing explicit, detailed information related to a specialized topic domain (e.g., education technology, culinary practice, corporate finance policy). This excerpt may include exact dates, expert statements in quotation marks, institutional or program names, technical terminology, policies or laws, numeric data, events, or other precise facts. The document is coherent and factually authoritative.  \n\n2. `question` – a concise, focused question whose answer is explicitly and factually contained within the `document_extracted`.  \n\nYour goal is to extract and provide a concise, semantically faithful, and precise answer strictly grounded in the document excerpt. You must NOT add, infer, paraphrase, summarize, reword, or omit critical details. The answer must be an exact reproduction or direct quotation of the relevant portions of the document that fully answer the question. If the document does not explicitly contain the answer, respond exactly with:  \n“The answer is not found in the document.”  \n\nDetailed Instructions:  \n\n1. Comprehensive Reading and Identification  \n   - Fully read and understand the entire `document_extracted`.  \n   - Identify the exact sentence(s) or passage(s) that explicitly and fully answer the question. This may include numeric values, dates, proper nouns, expert quotes, or other domain-specific details.  \n\n2. Exact Extraction and Semantic Fidelity  \n   - Extract and provide only the text directly answering the question.  \n   - Do not paraphrase, summarize, or interpret beyond the document’s explicit content.  \n   - Retain complete original wording, punctuation, capitalization, and domain-specific terminology including expert attributions in quotation marks.  \n   - For numeric or date answers, supply only the exact numeral(s) or date(s) as presented without rounding or approximation.  \n   - If the answer is a critical expert statement, reproduce the statement verbatim within quotation marks.  \n\n3. Handling Absence of Explicit Answers  \n   - If the document does not explicitly provide any part of the answer, reply:  \n   “The answer is not found in the document.”  \n\n4. Response Structure  \n   Your output must have two distinct parts, clearly demarcated:  \n\n   a) Reasoning  \n      - Briefly explain how and where in the document you identified the answer.  \n      - Reference specific phrases, sentences, or expert quotes validating your extracted answer.  \n      - Use an objective and factual tone, demonstrating a clear, text-based interpretive process.  \n      - Keep this explanation succinct but transparent.  \n\n   b) Answer  \n      - Provide a concise, standalone, direct answer containing only the exact text fragment(s) from the document that explicitly answer the question.  \n      - Preserve original domain-specific terminology, numeric values, names, and exact expert wording and punctuation.  \n      - Do not add commentary, background, or additional information not present in the document.  \n      - Do not rephrase or summarize the extracted text.  \n\nGeneralizable Strategy:  \n\n- Prioritize locating the precise, verbatim excerpts from the document that directly respond to the question.  \n- Utilize explicit expert quotations or named references when they contribute critically to the answer’s accuracy.  \n- Reproduce numeric data and dates exactly as given in the source.  \n- Avoid inference, interpretation, generalization, omission, or addition beyond what is strictly supported by the document text.  \n- Clearly distinguish between reasoning and answer for clarity and verification.  \n\nPurpose:  \n\nThese instructions ensure that every response is rigorously factual, domain-specific, semantically faithful, and verifiable based solely on the provided document excerpt. The approach guarantees trustworthiness and precision for responses requiring exact, specialized knowledge and terminological accuracy without outside influence or assumptions.  \n\nSummary:  \n\n- Fully read and comprehend the document excerpt.  \n- Locate explicit and complete answer passages within the text.  \n- Output a brief reasoned explanation citing exact document evidence.  \n- Provide a concise, exact textual answer preserving original terminology, formatting, and data.  \n- Use quoted expert statements verbatim when relevant.  \n- Provide the fixed response “The answer is not found in the document.” if no explicit answer is present.  \n- Avoid additions, inference, paraphrasing, or summarization beyond the exact source text.  \n\nBy adhering to these instructions, all answers will maintain high standards of factual precision and domain specificity suitable for specialized, technical, legislative, institutional, or expert contexts.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

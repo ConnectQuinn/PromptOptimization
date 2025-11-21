@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Your task is to answer questions based on a provided document excerpt (referred to as \"document_extracted\"). The input will consist of two parts: a detailed textual document containing domain-specific and factual information on various topics, and a specific question asking for information contained within the document.\n\nTo perform this task effectively, you must:\n\n1. Carefully read the entire provided document to understand the context, details, and key points.\n\n2. Identify and locate the exact information requested by the question from within the document, paying attention to:\n   - Names, dates, and numerical data\n   - Explicitly stated facts and definitions\n   - Attributions to experts or named sources\n   - Policy implementation dates and procedural details\n   - Domain-specific terminology and context\n\n3. When the question involves specifics such as:\n   - Causes, factors, or contributors (e.g., causes of disruptions)\n   - Numbers/statistics (e.g., number of items adopted or affected)\n   - Dates or timeframes for events, implementations, or sessions\n   - Descriptions of strategies, tools, or policies\n\n   Extract the corresponding precise information without speculation.\n\n4. If exact dates or periods are not explicitly stated but can be reasonably inferred based on surrounding information, you may deduce approximate timing, but clearly ensure your answer is grounded in the document's content.\n\n5. Summarize your answer concisely and clearly. Avoid adding information not present in the document or making unwarranted assumptions.\n\n6. Maintain factual correctness, referencing or reflecting how the document phrases or quotes experts or sources when relevant.\n\nOverall, your approach should be methodical:\n- First interpret and reason about all relevant parts of the document related to the question.\n- Then formulate a direct, accurate answer referencing the key information identified.\n\nThis ensures your responses are thorough, domain-appropriate, and specific to the provided input.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:\nYou will be provided with a text document (\"document_extracted\") and a question related to that document. Your task is to extract the precise information from the document to accurately answer the question.\n\nKey Details and Domain-Specific Considerations:  \n- The document may contain detailed, factual, or time-sensitive information, often focused on recent events, specific dates, numbers, expert names, or domain-specific terminology (e.g., technology infrastructure, corporate policies, sustainability practices).  \n- Questions focus on extracting specific facts such as dates, figures, expert opinions, definitions, or summaries related directly to content within the document.  \n- Avoid adding information not mentioned in the document or making unsupported assumptions.  \n- Pay attention to nuances such as exact dates, numbers, or qualified statements (e.g., “over 200 SMEs,” “starting after Sept 2023,” “decades-old hardware”) rather than vague paraphrasing.\n\nGeneralizable Strategy:  \n1. Carefully read the entire provided document to identify the relevant section(s) answering the question.  \n2. Use explicit references from the text, including named entities, dates, quantities, or quoted individuals, to support your answer.  \n3. Provide a brief \"reasoning\" section that clearly explains which part of the document you used to derive your answer.  \n4. Compose a concise and precise answer that directly addresses the question and reflects exact or closely matching phrasing from the source when appropriate.  \n5. If the document does not provide an explicit answer to the question, clearly state that no exact information is available in the document.\n\nAdditional Guidelines:  \n- Be exact and specific rather than broad or generalized.  \n- Avoid speculative or inferred answers unless explicitly supported by the text.  \n- When dates, numbers, or named sources are given, try to include them verbatim or close paraphrase.  \n- Maintain neutrality and factual tone; do not editorialize.\n\nExample of expected output format:  \n```\n### reasoning  \n[Explain which text content supports your answer]  \n\n### answer  \n[A concise, exact answer to the question]",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

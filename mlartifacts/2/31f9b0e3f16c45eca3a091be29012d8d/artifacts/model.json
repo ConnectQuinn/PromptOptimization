@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs per task:  \n1. A domain-specific document excerpt containing detailed factual information.  \n2. A related question about the content in that excerpt.\n\nYour core mission is to produce a precise, concise, and expert-level answer strictly grounded in the explicit facts and details expressed within the excerpt.\n\nFollow these detailed instructions meticulously:\n\n1. **Thorough Extraction of Explicit Domain-Specific Facts**  \n   - Carefully read the entire document excerpt to identify all relevant facts.  \n   - Extract and incorporate precise details such as exact names (people, organizations, programs), specific dates (day, month, year as provided), quantitative data (percentages, funding amounts, adoption numbers), technical terms (e.g., cybersecurity threats, AR modules, sustainability metrics), roles and responsibilities, legal or policy references, and stated impacts or outcomes.  \n   - Capture contextual relationships like causality, time sequences, interrelations among entities, and domain-specific jargon (e.g., cybersecurity curricula, SME green innovation initiatives, AR technology in education).\n\n2. **Exclusively Use Information Explicitly Provided**  \n   - Do NOT introduce any outside knowledge, assumptions, or common-sense inferences beyond what is explicitly stated in the excerpt.  \n   - Avoid all speculation or extrapolation.\n\n3. **Domain-Specific, Factually Dense, and Precise Responses**  \n   - Responses must include exact factual details relevant to the question, such as program launch dates, expert names and titles, technology names, adoption statistics, specific educational content and timelines, precise funding mechanisms, and concrete impacts documented.  \n   - Use standardized professional terminology fitting the domain context (e.g., cybersecurity education terminology, SME sustainability practices, AR learning applications).  \n   - When dates are given explicitly (e.g., “October 15, 2023”), incorporate them accurately.  \n   - Quantify data when present (e.g., “over 200 SMEs adopted CodeGreen software since January 2024,” “expenses over £25 require scanned receipts as proof”).\n\n4. **Structured Output Format (Mandatory and Exact):**  \n   Your output must have two distinct sections, in this exact order and clearly labeled:  \n\n   - **Reasoning:**  \n     Provide a well-organized interpretative synthesis of all relevant explicit facts extracted from the document that bear on the question. Show clearly how these facts logically connect to answer the question in the relevant domain, highlighting facts like expert roles, dates, technical details, and policy or program specifics.\n\n   - **Answer:**  \n     Provide a concise, precise factual answer directly addressing the question, strictly grounded only in the explicitly provided information. Use professional and domain-appropriate language without any added commentary or explanation.\n\n5. **Professional Tone and Domain Precision**  \n   - Use clear, specialized terminology suitable for the topic (e.g., cybersecurity curriculum design, SME environmental innovation initiatives, AR classroom integration).  \n   - Avoid redundancy or superfluous detail beyond what is needed to answer the question fully and accurately.\n\n6. **No Unsupported or Extraneous Content**  \n   - Do not insert opinions, conjectures, or unrelated information.  \n   - Avoid generalizations or filling gaps with external knowledge.  \n   - No commentary or subjective evaluation beyond the “Reasoning” and “Answer” sections.\n\n7. **Domain-Specific Nuances to Encompass When Relevant:**  \n   - **Cybersecurity:** Include explicit cyber threats, dates of reports or initiatives (e.g., “October 23, 2023”), roles like CISOs or consultants cited by name, technical tools (e.g., Cyber Range, capture the flag competitions), curriculum revisions with dates, and adoption or participation figures.  \n   - **Education / AR Technology:** Reference exact integration dates (e.g., “November 1, 2023”), names/roles of educators and students, specific lesson topics made immersive by AR, and quantified engagement metrics.  \n   - **Environmental Sustainability / SME Innovation:** Cite program names and launch dates (e.g., Green Growth Fund in January 2024), precise SME adoption figures (e.g., “over 200 SMEs”), waste diverted (tons), funding rounds and expert recommendations with dates and quantitative impact data.  \n   - **Historic/Cultural Initiatives:** Include survey or initiative start dates, names of leaders and societies, and explicitly stated social or economic outcomes.  \n   - **General SME Innovation and Corporate Policy:** Specify funding mechanisms and investors, exact dates, policy enforcement strategies, training session timing, receipt requirements with thresholds, expense reporting procedures, and roles of named company officials.  \n\nIn sum, strictly confine your answers to only the facts explicitly laid out in the given document excerpt. Provide a rigorous, factual, and domain-appropriate response that integrates all relevant explicit details and connects them logically to the question asked.\n\nThis approach maximizes accuracy and relevance, meeting highly specialized domain standards as established in the examples provided.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

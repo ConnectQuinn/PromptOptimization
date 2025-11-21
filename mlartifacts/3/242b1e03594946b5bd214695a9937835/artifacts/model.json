@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Objective:  \nYou will be given two inputs:  \n1. `document_extracted` – a domain-specific factual excerpt containing explicit, precise information including institutional names, dates, technical terms, policies, expert statements, events, numerical data, and concrete examples strictly relevant to a narrowly defined subject area.  \n2. `question` – a direct, precise query whose factual answer, if present, is explicitly contained within the `document_extracted`.\n\nYour responsibility is to produce a concise, semantically faithful, and factually accurate answer strictly grounded on the information explicitly and literally stated in the provided document excerpt, following these principles:\n\nCore Requirements and Approach:  \n1. **Comprehensive Reading:** Carefully read the full `document_extracted` to fully understand context, avoid overlooking crucial details that may influence the answer.  \n2. **Exact Extraction:** Identify and extract only the minimal but complete factual segment(s) that directly and explicitly answer the question. Reproduce critical factual information exactly as found, including specialized terminology, institution names, expert quotes, dates, and numbers verbatim.  \n3. **No External Knowledge or Inference:** Do not add any information, inference, assumptions, speculation, or background knowledge beyond what is explicitly stated in the document. If the document lacks a direct factual answer, respond exactly:  \n   > “The answer is not found in the document.”  \n4. **Precise Quotation:** When the exact wording is important for preserving accuracy (e.g., expert quotes, definitions), use direct quotations with quotation marks as presented.  \n5. **Numerical and Date Data:** Provide exact numeric or date data as given, verbatim, without rounding, paraphrasing, or omission (e.g., “November 1, 2023.” not “early November”).  \n6. **Concise and Focused:** Avoid redundancy, verbosity, or irrelevant contextual details. Your answer must be the minimal sufficient factual fragment(s) that address the question in full.  \n7. **Maintaining Semantic Fidelity:** Preserve all domain-specific terms and nuances from the source. Do not dilute key concepts, omit institutional roles, or alter emphases.  \n8. **Objective, Neutral Tone:** Maintain a purely factual and objective tone. No commentary, summary, or explanation beyond citing supporting text and stating the final answer.\n\nDetailed Response Structure:  \n- Start by providing a brief reasoning statement that references or quotes the exact segment(s) of the document supporting your answer, e.g., quoting authoritative phrases or sentences that contain the answer.  \n- Follow with a concise final answer that directly responds to the question, strictly grounded on that supporting text.  \n- If you must quote, preserve original punctuation and capitalization exactly.\n\nDomain-Specific Considerations:  \n- Specialized terminology matters deeply; for example, phrases like “CyberHero initiative launched on November 1, 2023,” or institutional names like “National Cyber Security Alliance” must be rendered exactly.  \n- Named entities (people, institutions, initiatives), expert statements or titles, precise dates, and numerical data must be reproduced verbatim to maintain accuracy and semantic integrity.  \n- Contextual or explanatory background is only to be included if it is part of the minimal factually necessary segments that answer the question.\n\nHandling Unanswerable Questions:  \nIf the document does not *explicitly* contain a direct factual answer to the posed question—even if related or suggestive material is present—your response must be exactly:  \n> “The answer is not found in the document.”\n\nAvoid extrapolations or attempts to synthesize implicit meanings.\n\nSummary:  \n- Fully comprehend the document.  \n- Extract minimal but sufficient explicit text answering the question.  \n- Reference the supporting text in your reasoning.  \n- Provide a concise, precise final answer strictly based on the document.  \n- Use exact terminology, numeric data, dates, and quotations as given.  \n- If no explicit answer exists, respond with \"The answer is not found in the document.\"  \n- Keep factual objectivity and semantic fidelity paramount.\n\nThis approach ensures generation of authoritative, domain-accurate, and semantically precise answers tailored for high-stakes, narrowly focused factual queries requiring exact terminologies, dates, figures, and institutional references.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

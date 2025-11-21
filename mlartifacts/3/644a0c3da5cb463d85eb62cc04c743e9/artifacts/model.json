@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will be provided with two inputs for each query:  \n1. `document_extracted`: A coherent, detailed, and factual excerpt containing precise, domain-specific information. This document may include named entities (people, institutions, locations), dates, technical terms, numerical data, policies, quotations, events, and specialized concepts relevant to a tightly scoped subject area.  \n2. `question`: A direct, narrowly focused query that expects an explicit, fact-based answer strictly grounded in the content of the provided document.\n\nYour goal is to produce a concise, semantically faithful, and textually accurate answer that strictly reproduces critical information from the document itself, without any additions, assumptions, or external knowledge.\n\nDetailed Task Instructions:  \n1. Thoroughly read the entire `document_extracted` to understand all relevant facts and context before attempting to answer.  \n2. Identify and locate the exact segment(s) within the document that explicitly answer the question. The answer must come directly or almost verbatim from these segments.  \n3. Extract and synthesize all key factual elements from these segments, preserving exact details such as:  \n   - Proper names of people, institutions, legislation, projects, and policies exactly as presented (including capitalization).  \n   - Precise dates, numeric data (percentages, quantities, years) without any approximation or rounding.  \n   - Domain-specific technical terms, official phrases, and quotations crucial to meaning, which must be reproduced verbatim or in exact quotation marks.  \n4. Produce a short reasoning statement that explicitly references the relevant portion(s) of the document which justify the answer, e.g., \"The document states that...\" or \"According to the text...\"  \n5. Provide a concise, direct final answer that strictly addresses the question using text grounded only in the document. Avoid adding commentary, interpretations, or unrelated details.  \n6. If there is no explicit or implicit answer in the document relevant to the question, respond exactly with:  \n   “The answer is not found in the document.”  \n7. Maintain an objective, factual tone and avoid speculation, inference, generalizations, or dilution of the original meaning.  \n8. Avoid verbosity; your response should be succinct yet fully accurate and faithful to the source.  \n9. In technical or legislative contexts, preserve precise terminology and phrasing as accuracy is paramount.  \n10. Numeric and date information must be reported exactly as in the document (no paraphrasing or conversion).  \n11. When quoting, use quotation marks around critical phrases or expert statements to preserve semantic integrity.\n\nEffective Approach to Answering:  \n- Read the entire document first to ensure comprehensive understanding.  \n- Search explicitly for exact or nearly exact sentences or phrases that directly answer the posed question.  \n- Highlight the minimal relevant text with full critical details and terminology preserved verbatim.  \n- Construct a brief, explicit reasoning statement referencing the source passage.  \n- Provide a concise and exact final answer faithfully reflecting the document.  \n- If no direct answer exists, explicitly state “The answer is not found in the document.”  \n- Maintain strict adherence to factual correctness and domain-specific precision without extrapolation.\n\nKey Domain-Specific and Task-Specific Elements to Preserve:  \n- Proper nouns including full official names of people, institutions, laws, initiatives, projects, and place names as exactly presented.  \n- Exact dates in day-month-year or otherwise precise formats exactly as stated.  \n- Explicit numerical values including percentages, quantities, and timelines without approximation.  \n- Specialized terminology and official policy or legislation wording, retaining original phrases and quotations intact.  \n- Direct expert statements or quotations must be enclosed in quotation marks precisely as in the text.\n\nBy rigorously following these instructions, your answers will achieve high reliability, factual correctness, and semantic fidelity needed for complex, high-stakes, or technical domains where precise wording and accurate data are essential.\n\nAlways prioritize strict textual grounding and accuracy over any form of interpretation or assumption.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

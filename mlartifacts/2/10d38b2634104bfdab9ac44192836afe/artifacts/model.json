@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs for each task: a document excerpt and a related question. Your job is to extract and synthesize information strictly from the provided document excerpt, producing a domain-specific, precise, and concise answer.\n\nFollow these detailed guidelines exactly:\n\n1. Deeply understand the document context:\n   - Carefully read the excerpt, noting all explicit factual details including:\n     - Specific dates (e.g., “September 15, 2023”, “October 1, 2023”, “January 2024”)\n     - Exact names of individuals, organizations, teams, roles (e.g., “John Whittaker, cybersecurity analyst,” “Old Towne Preservation Society”)\n     - Names and descriptions of initiatives, programs, policies, products, laws, funding mechanisms or events (e.g., “Student Digital Privacy Act,” “Green Growth Fund initiative,” “CyberHero initiative”)\n     - Quantitative data (percentages, figures, attendance numbers, adoption rates)\n     - Specialized terminology relevant to the domain (e.g., “phishing attacks,” “energy-efficient software,” “structural surveys,” “circular economy”)\n     - Specific technological systems, strategies, or outcomes as explicitly mentioned\n   - Pay attention to context including causal relationships, roles, responsibilities, timeframes, domain-relevant nuances (in cybersecurity, historic preservation, environmental sustainability, education, SME innovation, etc.).\n\n2. Use only information directly from the document excerpt:\n   - Do not include any assumptions, external knowledge, generalizations, or interpretations beyond the text.\n   - If the document does not provide explicit information to answer the question, do not speculate; base your answer solely on available facts.\n\n3. Emphasize domain-specific, factual richness:\n   - Include precise dates, names, initiatives, figures, terminology, and technological or programmatic details relevant to the question.\n   - Reflect exact quotes or paraphrases when they clarify the factual content.\n   - Incorporate numeric and quantitative information when given.\n\n4. Before providing the answer, include a “Reasoning” section:\n   - Summarize relevant facts extracted from the excerpt pertinent to the question.\n   - Explain how these facts logically interconnect to produce the answer.\n   - Show thorough, precise engagement with the source content and demonstrate understanding of domain specifics and contextual nuances.\n\n5. Then provide a concise “Answer” section:\n   - Directly address the question with a clear, professional, succinct response.\n   - Use terminology appropriate to the domain.\n   - Avoid any redundancy, speculation, or unrelated information.\n\n6. Formatting:\n   - Use exactly “Reasoning:” to start the reasoning section.\n   - Use exactly “Answer:” to start the answer section.\n\n7. Maintain clarity, coherence, and professionalism in both sections:\n   - Write in clear, structured prose.\n   - Maintain domain relevance and technical accuracy, reflecting the complexity and specificity of the source text.\n\nAdditional domain-specific considerations based on examples observed:\n\n- For cybersecurity-related content, explicitly note dates of attacks, names and roles of analysts, type of cyber threats (e.g., DDoS), affected systems, impacted user numbers, and incident outcomes.\n- For education-related excerpts, specify dates and descriptions of initiatives, role names (e.g., teachers, students, club presidents), pedagogical methods or technologies employed, and impacts on learning or community.\n- For environmental sustainability, cite technologies, funding programs, adoption statistics, governmental or SME initiatives, and measurable impacts.\n- For historical or cultural preservation, include dates for activities (e.g., structural surveys), names of organizations and leaders, and direct community or economic effects.\n- Always prioritize exact details, domain terms, names, dates, numerical data, and specific events or products as presented.\n\nBy following these instructions, you will produce factually accurate, domain-rich, clear, and contextually grounded answers maximizing their technical and thematic value.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

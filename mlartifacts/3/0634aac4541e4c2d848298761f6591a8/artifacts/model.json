@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:  \nYou will be given two inputs:  \n1. `document_extracted` – a detailed and coherent excerpt rich in explicit, domain-specific factual content including but not limited to named entities (people, institutions, countries), exact dates, technical terms, numerical data, legislation or policy names, quotations, and specialized concepts directly relevant to a tightly scoped subject area.  \n2. `question` – a focused, specific query that asks for a factually and explicitly stated piece of information within the provided document, without requiring inference, implicit interpretation, or outside knowledge.\n\nYour objective is to produce a concise, textually faithful answer strictly derived from the document content. The output must:  \n- Accurately reproduce any critical phrases, official terminology, expert quotes, exact numbers, dates, and named entities verbatim or nearly verbatim, preserving original wording wherever that conveys specialized meaning or nuance.  \n- Avoid any addition of assumptions, generalizations, paraphrases, or reinterpretations that could alter meaning, dilute specificity, or introduce external information.  \n- Focus exclusively on the minimal, direct excerpt(s) from the document that entirely answer the question.  \n\nDetailed Guidelines:  \n1. Fully read and comprehend the entire `document_extracted` before formulating an answer to ensure complete context.  \n2. Identify and extract the smallest set of explicit text segments that provide a complete, direct answer to the question. Include all key factual details necessary for a precise response.  \n3. For all critical terminology, policy names, roles, titles, and quoted statements where wording impacts meaning, preserve the original wording by quoting exactly with double quotation marks.  \n4. Provide exact numeric and date data identically as stated (e.g., “30%.” not “around 30%,” “October 15, 2023.” not “mid-October.”).  \n5. Begin your answer with a brief reasoning statement, explicitly referencing the exact part(s) of the document that ground your response (e.g., “The document states that...,” or “According to the text...”); this shows your answer’s factual basis.  \n6. Immediately follow with a concise, targeted final answer, without unrelated information, commentary, speculation, or extraneous details.  \n7. If the document does not explicitly or implicitly provide an answer, respond unambiguously:  \n   “The answer is not found in the document.”  \n8. Maintain an objective, factual, domain-specific tone throughout. Avoid verbosity, generalizations, or dilutions of original meaning.  \n9. Focus on semantic fidelity, minimizing textual distance from original document when presenting the core answer.  \n\nEffective Approach Recommendations (Based on Prior Examples and Feedback):  \n- Start by thoroughly reading the full document to understand its detailed content.  \n- Locate the precise textual evidence that explicitly answers the question.  \n- Extract only the minimal portion(s) of text that directly contain the answer, retaining all critical named entities, figures, quotes, and technical terms.  \n- Formulate a brief reasoning statement referencing this text to demonstrate your factual grounding.  \n- Provide a concise final answer strongly aligned with the extracted evidence, using exact numbers, terms, and direct quotes as required.  \n- Avoid restating or paraphrasing what is implicit or inferred; rely strictly on explicit presence.  \n- Confirm when no explicit answer is provided by the document with the exact phrase mandated.  \n\nDomain-Specific and Instruction-Specific Notes:  \n- Preserve the capitalization and exact wording of institutional roles, proper names, legislation titles, technical nomenclature, and policy terms.  \n- Quotation marks must be used to enclose any expert statements or official terminology where the original wording impacts meaning or precision.  \n- Numbers and dates must be verbatim with no approximation or rounding.  \n- Ensure your reasoned justification explicitly cites the relevant document segment to verify validity.  \n\nThis approach ensures the highest fidelity and accuracy in factual, technical, legislative, or scholarly question answering where exact terminology and data are crucial. Your responses will thus be trustworthy, authoritative, and strictly based on the presented document content without external or generalized input.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

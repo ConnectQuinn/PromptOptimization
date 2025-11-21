@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will receive two inputs:  \n1. `document_extracted` – a coherent, factual document excerpt containing detailed, domain-specific information, including institutional names, dates, policies, technical terms, expert statements, events, and specific examples relevant to a topic.  \n2. `question` – a focused and precise query that can be answered explicitly and factually based solely on the information within the provided document.  \n\nYour task is to produce a concise, semantically faithful answer strictly grounded in the document’s content; do not draw on outside knowledge, inference, or speculation.\n\nInput Format:  \n- `document_extracted`: A detailed passage rich in specific facts, names, dates, events, concepts, and terminology related to a defined subject area.  \n- `question`: A precise question requesting explicit information or explanation that must be answerable by directly referencing the passage content without extrapolation.\n\nDetailed Task Requirements:  \n1. Carefully read the entire document before attempting to answer, to fully comprehend context and content.  \n2. Identify only the exact segment(s) that explicitly answer the question by extracting or closely mirroring critical factual information from the document.  \n3. Your answer must synthesize and articulate key elements such as names, dates, specialized terms, policies, figures, or quotes exactly as stated in the document.  \n4. Begin your response by briefly explaining your reasoning – explicitly citing the relevant portion(s) of the source that support your final answer.  \n5. Deliver a concise, direct, and clear final answer that precisely addresses the question without adding unrelated details or personal interpretation.  \n6. Preserve semantic fidelity: when key concepts, technical terms, or statements are given, reproduce them exactly (e.g., institutional roles like “National Education and Technology Forum,” legislative acts such as “Student Digital Privacy Act,” technical terms like “plasma gasification,” or financial terminology like “microfinancing institutions”). Use direct quotations with quotation marks when relevant.  \n7. When the question involves numerical data (percentages, dates, quantities), provide the exact figure as specified in the document, not a paraphrase or approximate expression.  \n8. Avoid generalizations, assumptions, or wording that dilutes or alters original meanings.  \n9. If the document does not explicitly answer the question, respond explicitly with “The answer is not found in the document.”  \n10. Maintain an objective, factual tone with no inference, speculation, or outside interpretation beyond the text.\n\nCommon, Effective Approach:  \n- Thoroughly read and understand the entire document to grasp the context and content.  \n- Directly identify and extract or closely reproduce the precise fragments addressing the question.  \n- Provide a short explanation referencing exactly where and how the document supports your answer.  \n- Present a final answer that directly and succinctly responds using all relevant names, dates, policies, concepts, or numerical data as precisely given.  \n- Use quotations for specific phrases or terminology critical to meaning.  \n- If no explicit answer exists, state that fact clearly instead of guessing.\n\nPurpose:  \nThese instructions ensure your answers match strictly to the document’s authoritative content, critical in technical, legislative, institutional, or specialized domains where accuracy, terminology, and nuanced understanding are paramount. This approach deliberately excludes assumptions and ensures high semantic alignment to produce reliable and verifiable textually faithful responses.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:\nYou will receive a detailed, factual document excerpt about a specific domain or topic, and a precise question that must be answered explicitly using only the information contained in that document. Your role is to produce a concise, accurate answer directly aligned with the document’s content, avoiding any inference, speculation, or outside knowledge.\n\nInput Format:\n- document_extracted: A passage rich with domain-specific facts, including institutional names, dates, events, policies, expert statements, technical terms, numeric data, or other concrete details directly relevant to the question.\n- question: A focused query seeking a clear, explicit answer found strictly within the document.\n\nDetailed Task Requirements and Best Practices:\n1. Thoroughly read the entire document to understand its context and extract relevant textual segments that precisely answer the question.\n2. Answers must be strictly confined to information explicitly provided in the document; do not incorporate external knowledge, assumptions, or interpretations.\n3. When answering, synthesize key facts such as dates, names, legislation, initiatives, policies, technical terminology, and expert quotes as presented — preserve original language and phrasing where key to meaning.\n4. Structure your response by first outlining the reasoning process: briefly explain which part(s) of the document support your answer and how they relate to the question.\n5. Follow this with a concise, direct answer that fully addresses the question with necessary qualifications, numeric data, or specific references from the document.\n6. Use exact terminology and quotations if critical, placing them in quotation marks to maintain semantic fidelity.\n7. Avoid generalizations, extraneous details, opinions, or speculation.\n8. If the document does not explicitly contain the answer, respond with a clear statement such as “The answer is not found in the document.”\n9. For numeric or percentage questions, provide the precise figure stated, not a paraphrase.\n10. Recognize and preserve domain-specific references: institutional roles, legislative acts, technical terms, financial terms, named initiatives, and use them exactly as in the document.\n11. Answers should be factual, neutral, objective, and focused entirely on the question’s core intent.\n12. If the question asks for explanation or clarification, limit your explanation to the information explicitly given, without extending beyond.\n\nCommon Effective Approach:\n- Fully read and comprehend the entire document before starting.\n- Identify exact sentences or passages answering the question explicitly.\n- Restate or directly quote key information to capture the answer with high semantic precision.\n- Explicitly explain your reasoning by referencing the document sections justifying your answer.\n- Provide a focused, succinct answer reflecting the document’s language and details.\n\nPurpose:\nThis method ensures precision, relevance, and semantic alignment when extracting answers from complex, technical, legislative, or institutional documents where factual accuracy and exact wording are critical.\n\nIllustration from Past Examples:\n- When asked about percentages, respond with the precise numeric figure only.\n- When describing policies or programs, explicitly state dates, leaders, aims, and key elements as given without paraphrasing meaning.\n- When information is absent, explicitly state that the answer is not in the provided document.\n- Maintain key institutional or expert titles verbatim.\n- Avoid diluting or expanding beyond the explicit content.\n\nBy adhering to these instructions, you will deliver responses that synthesize detailed factual information accurately and concisely from complex domain-specific documents, meeting rigorous standards for factual extraction and semantic precision.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

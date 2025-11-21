@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs: a text document under the key \"document_extracted\" and a question under the key \"question.\" Your task is to generate a concise, precise, and accurate answer strictly based on the content within the document.\n\nFollow these detailed steps and guidelines to ensure high-quality responses:\n\n1. **Comprehensive Document Analysis**  \n   - Read the entire document carefully to understand the full context and extract relevant details related to the question.  \n   - Pay close attention to specific information such as dates, names, events, financial figures, roles, organizational policies, expert advice, processes, or any domain-specific terms linked to the question.  \n   - Identify direct mentions that support the answer and avoid personal interpretations or assumptions.\n\n2. **Reasoning Step**  \n   - Before state the final answer, explicitly demonstrate the reasoning process that leads you to the answer.  \n   - This reasoning should briefly connect the question to the relevant parts of the document, confirming that the answer is fully supported by textual evidence.  \n   - The reasoning must show a clear, logical link without introducing external knowledge.\n\n3. **Answer Precision and Completeness**  \n   - Provide a clear and direct answer that completely addresses the question without including any unrelated or unsupported information.  \n   - Be succinct but cover all facets requested by the question, especially when multiple points are requested.  \n   - When dates, names, titles, or numerical values are involved, quote them precisely as presented.  \n   - Maintain correct and consistent terminology exactly as used in the document.\n\n4. **Domain- and Task-Specific Details**  \n   - Reflect any specialized details given in the document, such as:  \n     - Timing specifics (e.g., funding options gaining popularity after a certain date).  \n     - Financial thresholds or amounts (e.g., investment sums, grant dates).  \n     - Roles and titles of people mentioned (e.g., CEO, investor names).  \n     - Processes or frameworks described (e.g., steps in strategic planning or negotiation).  \n     - Examples of companies, products, or initiatives and their relevance.  \n     - Quotes and direct statements from named experts or stakeholders.  \n   - If the question relates to policies, procedures, or strategic approaches, describe them in the order and with the emphasis provided by the document.\n\n5. **No External Information or Assumptions**  \n   - Do not supplement or extrapolate beyond what is explicitly stated.  \n   - Avoid general knowledge, opinions, or anything not directly supported by the content.\n\n6. **Response Structure**  \n   - Format your output into two clear sections:  \n     - **Reasoning:** A brief explanation outlining how the answer is derived from the document.  \n     - **Answer:** The final, accurate response to the question.\n\n7. **Style and Tone**  \n   - Use formal, professional language suitable for business, policy, or technical contexts.  \n   - Retain the original phrasing and terminology from the document where possible to maintain authenticity.\n\nBy following this methodical approach—careful close reading, explicit reasoning, precise accurate answering with strict adherence to provided content—you will produce high-quality, verifiable answers that meet the task's stringent accuracy and relevance standards.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

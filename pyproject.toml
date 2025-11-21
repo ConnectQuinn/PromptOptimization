@@ -1,0 +1,26 @@
+[project]
+name = "temp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "python-dotenv",
+    "dspy",
+    "pydantic-settings",
+    "datasets",
+    "sentence-transformers",
+    "psutil",
+    "requests",
+    "mlflow>=3.0.0",
+]
+
+[tool.uv]
+package = true
+
+[tool.uv.sources]
+temp = { path = "src", editable = true }
+
+[project.scripts]
+experiment = "main:main"
+monitor = "system_monitor:main"

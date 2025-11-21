@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:\n\nYou will be given two inputs:\n\n1. `document_extracted` – a coherent, factual excerpt from a domain-specific document. This text includes precise details such as expert statements (quoted verbatim), dates, technical terms, institutional or program names, numeric data, policies, laws, or explicit facts related to specialized topics (e.g., education technology, corporate finance, autonomous vehicles, SME funding). The excerpt is authoritative and structured with clearly demarcated sections or paragraphs covering different facets of the topic.\n\n2. `question` – a concise, narrowly focused question whose answer is explicitly and fully contained in the `document_extracted`.\n\nYour goal is to extract from the document an exact, semantically faithful, and complete answer that is strictly grounded in the text provided. Your answer must:\n\n- Fully and directly reply to the question using only the explicit information or quotations present in the document excerpt.\n\n- Avoid paraphrasing, summarizing, rewording, interpreting, inferring, omitting, or adding any detail beyond what the document states.\n\n- Preserve original wording, punctuation, capitalization, terminology, numeric data, and expert quoted statements verbatim.\n\n- Provide numeric or date answers exactly as they appear in the document, without rounding or abbreviation.\n\nIf the document does not explicitly contain the answer to the question, reply exactly:\n\n“The answer is not found in the document.”\n\nInstructions for Your Process:\n\n1. Careful Comprehension  \n   - Read the entire `document_extracted` carefully to understand its full context and to locate precise text segments that explicitly answer the question.\n\n2. Precise Localization of Answer  \n   - Identify the exact sentence(s) or passage(s) within the document that fully and explicitly respond to the question.\n   - This may include technical terms, expert quotes in quotation marks, numeric data, dates, names, or complete factual statements.\n\n3. Exact Extraction  \n   - Extract only the relevant fragment(s) that fully answer the question.\n   - Retain complete original wording, formatting, punctuation, domain-specific terminology, and named quotes without any alteration.\n   - Do not omit any critical detail or divide partial sentences as long as the extraction fully answers the question.\n\n4. Handling Absence of Data  \n   - If no explicit answer exists in the document, do not guess or infer; respond exactly:  \n     “The answer is not found in the document.”\n\n5. Output Format  \n   - Your response must be composed of two clear parts, separated distinctly:\n\n   a) Reasoning  \n      - Briefly explain how and where you found the explicit answer in the `document_extracted`.  \n      - Reference the exact section, sentence(s), or expert quote that contain the answer.  \n      - Use an objective and factual tone, clearly linking the extracted answer to the question and its source text.  \n      - Keep this explanation succinct, transparent, and strictly based on the document.\n\n   b) Answer  \n      - Provide an exact, concise, standalone textual excerpt from the `document_extracted` that fully answers the question.  \n      - Preserve all original domain-specific terminology, quoted expert wording, numeric values, dates, and formatting exactly.  \n      - Do not add explanation, external information, summary, or rephrasing.\n\nGeneralizable Strategy to Apply:\n\n- Scrutinize the document to locate the explicit textual evidence directly addressing the question—pay attention to dates, expert attributions, named programs, and numeric details.\n\n- Extract complete sentences or relevant contiguous phrases precisely as they appear, ensuring semantic completeness without omission.\n\n- Always check if the answer is explicitly stated before extracting; avoid assumptions or filling gaps with inferred details.\n\n- When expert statements are critical, reproduce these verbatim within quotation marks exactly as presented.\n\n- If multiple explicit fragments are necessary for a full answer, extract all relevant parts – do not limit to the first partial phrase.\n\n- If multiple closely linked details are necessary, ensure they come directly from the text and maintain original order and wording.\n\nPurpose:\n\nThese instructions ensure factually precise, authoritative, domain-specific answers that maintain semantic fidelity and verifiability purely based on the provided document. This is crucial for specialized, technical, legislative, or institutional contexts demanding exact referencing and avoiding any AI-generated inference or paraphrase.\n\nSummary:\n\n- Read and understand the entire provided document excerpt carefully.  \n- Locate the exact segment that explicitly answers the question fully and literally.  \n- Extract and present only the precise text(s) that answer the question, preserving all original facts, numbers, quotes, names, and terminologies.  \n- If answer is missing, respond exactly with “The answer is not found in the document.”  \n- Provide a brief reasoning statement citing exact locations or quotations demonstrating how you identified the answer.  \n- Avoid adding, inferring, summarizing, or interpreting beyond the given content.  \n- Maintain all formatting, punctuation, and quoting intact.  \n- Structure your output into a \"Reasoning\" and \"Answer\" section clearly.\n\nBy applying this rigorous extraction methodology, every response will maintain the highest standards of factual and domain-specific accuracy, essential for expert use cases requiring strict verification and traceability.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:\nYou will be given a document (text passage) and a specific question related to the content of that document. Your task is to extract and provide a concise, accurate, and directly relevant answer strictly based on the information found in that document. Avoid introducing any external knowledge or assumptions not supported by the text. \n\nInput Format:\n- document_extracted: A coherent, detailed passage containing factual and domain-specific information on a particular subject.\n- question: A precise question asking for information, explanations, or clarifications that can be answered explicitly by the content of the given document.\n\nTask Requirements and Strategies:\n1. Carefully read and understand the full document before attempting to answer the question.\n2. Identify the exact portions of the document that contain relevant information to the question.\n3. Extract and synthesize key facts, details, and context directly from the document.\n4. Structure your response by first briefly explaining your reasoning process (summarizing how the answer follows from the document) and then providing a clear and concise answer.\n5. Ensure that your answer is precise and focused, reflecting the document’s language and content as closely as possible without unnecessary elaboration or omission of key details.\n6. Use terminology and specific examples from the document when appropriate, as technical or domain-specific references often enhance the completeness and accuracy of your response.\n7. Avoid paraphrasing in a way that dilutes or alters the document’s original meaning. Aim for high semantic fidelity between document content and the answer.\n8. When formulating the answer, strive to explicitly incorporate critical keywords or phrases used in the document, especially for nuanced or technical topics.\n9. Keep answers appropriately detailed: include qualifications, dates, names, or contextual specifics only if they are present and relevant in the document.\n10. Maintain neutrality and objectivity — do not infer opinions or make unsupported claims beyond document content.\n\nDomain-Specific Points Highlighted by Examples:\n- Institutional names, dates, and events related to topics such as technological institutes or legislative changes should be accurately referenced.\n- Precise framing of initiatives, policies, and technological terms (e.g., “bio-remediation,” “plasma gasification,” “CleanTech Grant”) is important.\n- Cultural and regional characteristics impacting technology adoption must be acknowledged exactly as described.\n- Financial and economic terms (e.g., “microfinancing institutions,” “alternative lending,” “equity financing”) must be correctly identified and categorized.\n- When summarizing roles or impacts (e.g., an institute’s role in workforce training), explicitly state the educational scope and objectives mentioned in the document.\n\nIn sum, your goal is to provide well-reasoned, textually supported answers that are detailed enough to show comprehension but specific and accurate enough to align closely with the original document's intent and factual content.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

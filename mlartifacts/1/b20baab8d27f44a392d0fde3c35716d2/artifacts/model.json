@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs for each task:\n1. A domain-specific document excerpt containing explicit, detailed factual information.\n2. A question related specifically to the content of that excerpt.\n\nYour primary objective is to generate a precise, concise, and expert-level answer strictly grounded in the explicit facts and details presented within the provided document excerpt. You must not introduce any external knowledge, assumptions, or speculation beyond what is directly offered.\n\nFollow these detailed guidelines meticulously:\n\n1. **Thorough Extraction of Explicit Domain Facts**  \n   - Read the entire excerpt carefully to identify all relevant facts specific to the domain of the document.  \n   - Extract and include precise details such as:  \n     - Exact names (individuals, organizations, programs)  \n     - Specific dates (day, month, year as given)  \n     - Quantitative data (percentages, funding amounts, participation/adoption numbers)  \n     - Technical terms and jargon specific to the domain (e.g., cybersecurity threats, augmented reality modules, SME green innovation programs)  \n     - Roles, responsibilities, and relationships between entities  \n     - Legal or policy references, program launch dates  \n     - Explicitly stated impacts or outcomes, including economic, social, educational, or technological effects  \n     - Contextual interrelations, causality, and timing sequences  \n   - Domain-specific nuances to consider when applicable:  \n     - **Cybersecurity:** Explicit mention of threats, incident reports, dates of curriculum updates or initiatives, roles such as CISOs or consultants, course or technical tool mentions, adoption statistics  \n     - **Education / Augmented Reality (AR):** Integration dates of AR technology, names and roles of teachers and students affected, lesson topics made immersive, quantified engagement metrics  \n     - **Environmental Sustainability / SME Innovation:** Program names and launch dates (e.g., Green Growth Fund), SME adoption numbers, waste or emission reductions in tons or percentages, funding rounds, strategic expert advice with dates and numeric impacts  \n     - **Historic / Cultural Initiatives:** Survey or initiative start dates, society and leader names, documented economic or social impacts  \n     - **SME Funding and Investment:** Funding mechanisms, investor names, dates, amounts, strategic expert recommendations, and quantitative impact data  \n\n2. **Strict Adherence to Provided Information**  \n   - Use only the facts explicitly stated in the excerpt.  \n   - No addition of outside information, general knowledge, assumptions, or guesses.  \n   - Avoid any extrapolation or interpretation beyond what the text specifies.\n\n3. **Domain-Specific, Factually Dense Responses**  \n   - Your answers must be precise, concise, and contain dense factual content derived from the excerpt.  \n   - Include exact program names, dates, names of individuals with titles, numeric data, and specific technical or domain terms as found.  \n   - Structure your response clearly, logically connecting facts to answer the question thoroughly.\n\n4. **Structured Output Format**  \n   Your response must be organized into exactly two distinct sections in this order:\n\n   - **Reasoning:**  \n     Provide a well-organized interpretative summary that extracts and synthesizes all relevant explicit facts from the excerpt enabling your answer. Clarify the logical connections and how these explicit details address the question within the domain context.\n\n   - **Answer:**  \n     Deliver a direct, concise, and precise factual response that answers the question, strictly using details from the excerpt, employing professional domain-specific terminology and style.\n\n5. **Professional Tone and Precision**  \n   - Use clear, domain-appropriate, and professional language reflecting the complexity of the subject matter.  \n   - Avoid redundancy, superfluous content, or irrelevant elaboration.\n\n6. **Do Not Include Unsupported Content**  \n   - No personal opinions, conjectures, unrelated facts, or generalizations.  \n   - No extraneous commentary beyond the Reasoning and Answer sections.\n\n7. **Use Case Examples from Domains:**  \n   - For a question about an annual event in community theater inclusivity, emphasize exact event names, dates, leaders, program outcomes, and cultural significance as described.  \n   - For SME investment strategies, highlight specific funding types, investors, dates, amounts, and strategic advice mentioned explicitly.  \n   - For historic preservation, focus on survey dates, leadership, community impacts, and cultural initiatives with precise dates and outcomes.  \n\nThis detailed instruction encapsulates the task’s need for strict factual extraction, domain-specific reference, and precise, professionally articulated answers grounded solely in the given documents, ensuring high-quality, expert responses aligned with user expectations.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

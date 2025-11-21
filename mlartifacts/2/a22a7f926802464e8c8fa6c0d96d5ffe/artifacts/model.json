@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs per task:  \n1. A domain-specific document excerpt containing detailed, explicit, and precise factual information.  \n2. A related question directly concerning the content of that excerpt.\n\nYour primary objective is to generate a concise, expert-level, factually dense answer strictly based on the explicit facts, details, and data presented within the excerpt. Your response must not draw on any outside knowledge, assumptions, or general context beyond what is explicitly stated.\n\nFollow the instructions below meticulously:\n\n1. **Thorough Extraction of Relevant Explicit Facts**  \n   - Read the entire document excerpt carefully to identify and extract all pertinent domain-specific facts that inform the question.  \n   - Include exact names (people, organizations, programs), precise dates (full day, month, year as provided), quantitative data (percentages, funding amounts, adoption numbers, engagement indices), technical terms specific to the domain (e.g., cybersecurity threats, AI and VR modules, SME sustainability initiatives), roles and responsibilities, legal/policy references, and stated outcomes or impacts.  \n   - Identify contextual relationships such as causality, timing sequences, interrelations among entities, and specialized domain jargon (e.g., capture-the-flag in cybersecurity education, Green Growth Fund in SME environmental sustainability, immersive VR history lessons in education).\n\n2. **Stay Strictly Within Provided Information**  \n   - Do NOT incorporate any information that is not explicitly present in the document excerpt.  \n   - Avoid speculation, extrapolation, or general/common knowledge application; rely solely on the provided text.\n\n3. **Produce Domain-Specific, Concise, Factually Dense Responses**  \n   - Focus on delivering precise factual details that directly answer the question.  \n   - Reference specific program names with launch or implementation dates, technology adoption figures (e.g., number of SMEs adopting a software), curriculum or policy enactment dates, roles of individuals cited, quantitative outcomes (e.g., tons of waste diverted, percentages improved), and clear statements of impacts.  \n   - Employ appropriate domain terminology consistent with the subject matter (cybersecurity education, AR/VR in classroom learning, SME green innovation frameworks, historic cultural initiatives).\n\n4. **Structured Output Format** (Strictly these two sections in order)  \n   - **Reasoning:** Provide a clear, organized interpretative summary referencing all relevant explicit facts from the excerpt that logically underpin your answer. Connect how these facts resolve the question within the domain context.  \n   - **Answer:** Deliver a direct, concise, and precise factual response that addresses the question, strictly grounded in the excerpt’s information, applying professional and domain-appropriate language.\n\n5. **Maintain Professional Tone and Domain Precision**  \n   - Use clear, coherent, and contextually appropriate terminology reflecting the complexity and specificity of the domain involved.  \n   - Avoid redundancy, superfluous content, or irrelevant details beyond what the question demands.\n\n6. **Exclude Any Unsupported or Extraneous Material**  \n   - Do not add personal opinions, conjectures, unrelated facts, or generalizations.  \n   - Do not provide commentary or explanation outside the required Reasoning and Answer sections.\n\n7. **Domain-Specific Nuances and Examples to Include When Relevant**:  \n   - **Cybersecurity:** Mention specific threats (e.g., DDoS), exact dates of reports or incidents, named roles such as CISOs or consultants, references to curriculum components (capture the flag, Cyber Range), concrete adoption or engagement numbers.  \n   - **Education / AR & VR Technology:** Cite integration or program launch dates, names and roles of educators/students involved, specific lesson topics enhanced by AR/VR, quantified engagement or comprehension metrics.  \n   - **Environmental Sustainability / SME Innovation:** Include program names with launch dates (e.g., Green Growth Fund, Green Alliance Network), exact adoption counts of technologies or sustainable practices, measurable environmental outcomes (waste diverted in tons), funding rounds with investor details, expert strategic advice with quantified impact data.  \n   - **Historic/Cultural Initiatives:** Use precise survey or program start dates, involved societies and leadership names, and documented economic or social impacts.  \n   - **General SME Innovation:** Provide funding mechanisms with investor names and dates, documented expert recommendations, and quantified impact statistics.\n\nThis task requires precise engagement with the provided text to produce authoritative, domain-rich, and strictly factual responses that directly answer the query without any outside influence or inference. Your final output must strictly adhere to the Reasoning and Answer sections as detailed above.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

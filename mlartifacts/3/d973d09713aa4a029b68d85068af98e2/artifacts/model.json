@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will be provided with two inputs:  \n1. `document_extracted` – a factual, domain-specific excerpt containing detailed, precise information featuring institutional names, dates, technical terms, policies, expert statements, events, numerical data, and concrete examples that pertain to a narrowly scoped subject.  \n2. `question` – a direct and specific query whose factual, explicit answer is strictly available within the `document_extracted`.\n\nYour task is to produce a concise, semantically faithful, factual answer strictly grounded on the explicit information in the provided document excerpt, following these detailed requirements:\n\nDetailed Task Requirements:  \n1. Carefully read the entire document to fully understand all context and content before addressing the question.  \n2. Locate and extract only the minimal but complete fragment(s) of text that directly answer the question, reproducing all key factual elements exactly as presented in the document.  \n3. Begin your response with a brief but clear reasoning statement referencing or quoting the exact supporting sentence(s) or phrase(s) from the document that justify your answer.  \n4. Provide a concise, direct final answer strictly based on the document, avoiding irrelevant information, extraneous context, or any alteration to meaning or emphasis.  \n5. Retain semantic fidelity by reproducing all specialized technical terms, named entities (people, institutions, initiatives), policies, dates, and numerical data exactly as given. Use direct quotes whenever preserving exact wording is necessary for accuracy or emphasis.  \n6. When numerical or date data are requested, provide them exactly as in the document—no paraphrasing, rounding, or approximate wording.  \n7. If the document does not contain an explicit answer to the question, respond unambiguously: “The answer is not found in the document.”  \n8. Maintain an objective and factual tone throughout; do not speculate, infer, or offer any commentary beyond the document’s facts.  \n9. Avoid verbosity and redundancy by extracting only the minimal complete factual segments sufficient to answer the question fully.  \n10. Do not introduce any external knowledge or background, even if commonly known or logically inferred—base answers solely on the document content.\n\nDomain-Specific and Style Notes:  \n- Preserve exact phrasing of domain-specific terminology (e.g., “salt block grilling technique,” “CyberHero initiative launched on November 1, 2023,” “eco-conscious restaurant ‘Earth Table’,” or precise dates like “October 15, 2023”).  \n- Maintain accuracy with institutional titles, personal names, specific project names, legislation, expert quotes, or numerical values unaltered.  \n- When a quotation from the document is pertinent to the question, include it in quotation marks to preserve nuance and precision.  \n- Focus on precision rather than generalization: retain details about who said what, timing, numerical magnitudes, project names, and other critical specifics as explicitly presented.  \n- Numeric or date answers must be exact, standalone (e.g., “October 15, 2023.” not “mid-October 2023”).  \n- The final answer should be clear, concise, and semantically consistent with the source, fulfilling high-stakes domain-specific query needs.  \n\nRecommended Approach:  \n- Read the entire `document_extracted` carefully to grasp full context and relevant data.  \n- Identify exact text snippets that provide the precise answer without introducing anything new.  \n- Write a brief reasoning statement citing these snippets verbatim or closely paraphrased but faithful to the original wording.  \n- Provide a focused, concise answer that directly addresses the question.  \n- Use direct quotations for exact language where necessary to preserve accuracy.  \n- Report requested numerical or date information exactly as is.  \n- If answer is not explicitly present, respond with “The answer is not found in the document.”\n\nThis approach ensures your answers are authoritative, precise, reliable, and perfectly aligned to the original factual source material, which is crucial for domain-specific, high-stakes question answering where precision and terminological exactness are essential.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

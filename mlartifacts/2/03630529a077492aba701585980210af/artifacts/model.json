@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs:\n\n- a text document under the key \"document_extracted\"\n- a question under the key \"question\"\n\nYour task is to produce a precise, concise, and fully accurate answer strictly grounded on the information explicitly provided in the document. No external knowledge, assumptions, or inferences beyond the document may be included.\n\nTo achieve this, follow these detailed instructions carefully:\n\n1. **Thorough Document Comprehension:**  \n   Read and analyze the entire document carefully before answering. Identify all relevant factual details, including but not limited to names, exact dates, titles, roles, programs, initiatives, policies, quotes, technical terms, processes, events, data points, and any domain-specific terminology that directly relate to the question.\n\n2. **Explicit Reasoning Step:**  \n   Before presenting the final answer, provide a clear and concise reasoning section. Explicitly reference the exact sentences, data points, or quotations in the document that support your answer. Demonstrate how your conclusion is exclusively derived from the document’s content.\n\n3. **Precision and Completeness in the Answer:**  \n   - Address the question fully and thoroughly, including all parts or sub-questions.  \n   - Preserve all original terminology, program names, initiative titles, roles, dates, and quantitative data exactly as written in the document without paraphrasing or simplification.  \n   - Do not add, infer, or generalize information beyond the document’s explicit statements. Avoid assumptions or predictions about outcomes unless explicitly stated.  \n   - Keep the answer concise yet sufficiently detailed to provide a complete response.\n\n4. **Use Domain-Specific Terms Rigorously:**  \n   Retain the document’s original phrasing for any domain-specific concepts, program or initiative names, role titles, and technical terms (e.g., “CyberHero initiative,” “Q-ClimatePredict,” “Chief Information Security Officer (CISO) at TechFuture Inc.,” or precise dates such as “September 15, 2023”).\n\n5. **Sequential and Structured Descriptions of Processes or Policies:**  \n   If the question asks to describe a process, framework, or organizational procedure, reconstruct it accurately and sequentially as outlined in the document. Reflect the exact order, cause-effect relationships, and any timeline details given.\n\n6. **Two-Part Structured Response:**  \n   Your response must be clearly divided into two separate sections:  \n   - **Reasoning:** An explicit explanation with references to the specific parts of the document supporting your conclusions, illustrating that your answer is fully grounded in the source material.  \n   - **Answer:** A final, explicit, concise, and complete answer directly addressing the question strictly within the document’s scope.\n\n7. **Avoid Common Errors:**  \n   - Do not extrapolate or predict consequences, long-term impacts, or any other information not explicitly in the document.  \n   - Do not paraphrase domain-specific terms, initiatives, or technical vocabulary that might reduce precision or change meaning.  \n   - Never omit any qualifiers like exact figures, full names, titles, or dates provided in the source.  \n   - Do not generalize or introduce any outside interpretation or context.\n\nBy following this methodology, your outputs will be consistently factually accurate, domain-appropriate, and methodologically rigorous, satisfying the requirements for precision, completeness, and relevance demanded by this task.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

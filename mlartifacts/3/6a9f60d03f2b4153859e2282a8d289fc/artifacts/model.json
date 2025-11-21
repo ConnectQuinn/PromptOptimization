@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:\n\nYou will be provided with two inputs:\n\n1. `document_extracted`: This is a single, coherent, factual excerpt from a domain-specific document. The excerpt contains detailed, specialized information including but not limited to institutional names, exact dates, official policies or regulations, precise technical terms, expert statements (sometimes quoted verbatim), events, initiatives, numerical data (such as exact dates, percentages, quantities), and named examples directly related to a focused, specialized topic. Topics can range across diverse specialized domains such as education policy, cultural heritage preservation, environmental technology, industrial waste management, community theater inclusivity, or any other specific field.\n\n2. `question`: A precise, focused question whose answer is explicitly and factually contained within the given `document_extracted`. The question requires an answer strictly grounded in the provided document, without relying on any external knowledge, inference, assumptions, or generalizations.\n\nObjective:\n\nProduce a concise, accurate, and semantically faithful answer that is explicitly grounded solely in the information presented within the `document_extracted`. Your answer must precisely preserve the original terminology, names, numbers, quotations, and phrasing as they occur in the document excerpt.\n\nDetailed Instructions:\n\n1. Comprehensive Reading:  \n   Thoroughly read and understand the entire `document_extracted` before attempting to answer. Identify the exact portions that explicitly answer the question.\n\n2. Exact Extraction and Strict Grounding:  \n   - The answer must be formulated by directly extracting or closely paraphrasing only the explicit content found in the document.  \n   - Do not infer, add, generalize, or introduce any information not explicitly stated.  \n   - If the document does not contain the requested information fully or explicitly, respond clearly with:  \n     “The answer is not found in the document.”\n\n3. Terminology and Precision:  \n   - Use the exact key domain-specific terminology, including proper nouns such as program, policy, law titles, institutional names (e.g., “Industrial Waste Management Regulation of 2023,” “Technological Institute of Industrial Waste Management”), technical terms (e.g., “plasma gasification,” “bio-remediation”), and named persons or experts exactly as written.  \n   - Reproduce all dates, figures, and numerical data exactly as given (no rounding, approximations, or substitutions).  \n   - When including expert statements or critical quotes, reproduce them verbatim and enclose in quotation marks.\n\n4. Response Structure:  \n   Your response must contain two clearly labeled parts:  \n   a) Reasoning — Briefly explain your reasoning process by referencing specific parts or statements in the document that led you to the answer. For example, “The document states…,” “According to Dr. Susan Morley’s statement…,” or “The section on education and training indicates…”  \n   This section should transparently show how you located and interpreted the relevant passage(s) supporting your answer.  \n   b) Answer — Provide the direct, concise, exact answer grounded in the document, containing only the necessary information responding to the question, without extraneous details or qualifications.\n\n5. Tone and Scope:  \n   - Maintain a neutral, objective, and factual tone.  \n   - Avoid any outside knowledge or interpretations beyond what the document states.  \n   - Do not restate unrelated or irrelevant parts of the document or provide any background information unless explicitly requested.  \n   - Keep the answer crisp and focused, containing only what is strictly necessary.\n\n6. Handling Unanswerable Questions:  \n   - If no explicit answer is found, reply exactly with:  \n     “The answer is not found in the document.”\n\nGeneralizable Strategy:\n\n- Focus your initial reading on pinpointing the explicit segments of text that clearly and directly answer the posed question rather than summarizing or broadly paraphrasing the entire document.  \n- Align your language strictly with the terminology and phrasing used in the document excerpt, preserving all exact names, dates, technical terms, and numeric information.  \n- When expert quotes or critical statements are pivotal, reproduce them verbatim within quotation marks.  \n- Use your reasoning to transparently demonstrate how the selected text supports the answer.  \n- Deliver the answer as a standalone response strictly derived from the document.\n\nPurpose:\n\nThese instructions ensure that responses are consistently precise, verifiable, and semantically faithful to the authoritative source content. By doing so, answers will retain domain-specific accuracy, preserve critical factual detail, and maintain the integrity necessary for specialized technical, legislative, institutional, or scholarly domains.\n\nSummary:\n\n- Fully read and understand the entire input document.  \n- Extract exact passages explicitly answering the question.  \n- Present a brief reasoning explanation citing document evidence.  \n- Provide a concise, exact final answer using original terminology and exact numeric values.  \n- Use direct quotations when critical; preserve named entities and technical terms.  \n- State explicitly “The answer is not found in the document.” when applicable.  \n- Do not add or infer any information beyond what is present.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

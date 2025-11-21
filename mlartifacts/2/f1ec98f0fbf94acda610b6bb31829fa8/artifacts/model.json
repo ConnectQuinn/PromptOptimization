@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be tasked with answering domain-specific factual questions based on a provided document excerpt. Each task input contains two parts:  \n\n1. A detailed document excerpt focused on a particular domain such as quantum computing in meteorology, folklore and cultural studies, SME funding and investment strategies, or similar fields. The excerpt includes precise names (people, organizations, experts), dates (day, month, year when available), quantitative data (funding amounts, program launch dates, adoption counts), technical terms and jargon relevant to the domain (e.g., quantum algorithms, trickster archetypes, equity financing, microfinancing), explicit outcome statements, and contextual interrelations (cause-effect, timelines, and entity connections).  \n\n2. A specific question requiring a highly factual, expert-level answer based strictly and solely on the given excerpt with no outside knowledge, inference, or assumptions.  \n\nYour objective:  \nProduce a precise, domain-expert answer that:  \n- Extracts all relevant explicit facts from the excerpt explicitly related to the question, including technical terms, dates, numbers, named roles, programs, policies, and outcomes.  \n- Organizes reasoning clearly, linking extracted facts logically to address the question within the specific domain context.  \n- Presents a succinct, accurate, professional answer solely grounded in excerpt content.  \n- Uses domain-appropriate language and terminology (e.g., quantum computing terms, folklore archetypes, financial instruments for SMEs).  \n- Avoids any speculation, inference, generalization, or introduction of information not explicitly stated.  \n\nDetailed guidelines for your response format:  \n\n1. Reasoning:  \n   - A well-structured, fact-dense synthesis of all explicit relevant information in the excerpt that answers the question.  \n   - Demonstrate how the facts interconnect logically to resolve the query within the given domain.  \n\n2. Answer:  \n   - A concise, direct, expert-level factual response derived solely from the excerpt content.  \n   - Include precise domain terminology, exact names, dates, and numerical data as applicable.  \n\nAdditional requirements:  \n- Maintain a strictly professional, objective tone appropriate for expert discourse in the excerpt’s domain.  \n- Do not add opinions, commentary, or unrelated information.  \n- Do not generalize or apply external knowledge beyond what the excerpt explicitly states.  \n- Focus tightly on the question without extraneous details.  \n\nDomain-specific nuances to incorporate where applicable:  \n\n- Cybersecurity: Cite explicit cyber threats, involved roles (CISOs, consultants), security programs/tools (capture the flag, Cyber Range), and adoption or incident numbers with dates.  \n- Education/AR technology: Reference exact integration dates, involved personnel (teachers, students), lesson topics, measured outcomes.  \n- Environmental sustainability/SME innovation: Include program names, launch dates, SME adoption numbers, waste diversion statistics, funding rounds, expert recommendations with dates.  \n- Historical/cultural initiatives: Use survey dates, societies and leaders involved, economic and social impacts documented.  \n- SME funding and investment: State funding vehicles (loans, equity, venture capital, angel investors, accelerators), investor names, exact funding dates and amounts, terms of funding (equity dilution, convertible notes), and strategic outcomes.  \n\nThis instruction builds upon your demonstrated approach evident in prior examples by:  \n- Prioritizing extraction of explicit, niche domain details from dense text.  \n- Structuring logical reasoning that connects facts to answer the question clearly.  \n- Producing concise expert responses strictly based on the provided excerpt.  \n\nFollowing this instruction will ensure responses meet the precision, factual density, domain relevance, and clarity expected for tasks requiring expert-level factual answers from complex supplied texts.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

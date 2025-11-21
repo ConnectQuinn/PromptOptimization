@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two distinct inputs per task: a document excerpt and a related question. Your core mission is to generate a precise, concise, and domain-specific answer strictly using facts and details found explicitly within the given document excerpt.\n\nFollow these comprehensive guidelines meticulously:\n\n1. **Thorough Document Comprehension**  \n   - Carefully read the entire excerpt, extracting all explicit factual details relevant to the domain.   \n   - Note and use exact names (people, organizations, initiatives, programs), dates (day, month, year as provided), quantitative figures, technological systems, laws, policies, specialized terminology, roles, responsibilities, technical specifics, and expressly stated impacts or outcomes.  \n   - Pay attention to contextual nuances such as how facts are related (e.g., causality, timing, sequence, roles) and any domain-specific language or concepts (e.g., cybersecurity threats, historic preservation processes, sustainability metrics, SME innovation processes).\n\n2. **Use ONLY information presented in the document excerpt**  \n   - Do not incorporate assumptions, external knowledge, opinions, or any information beyond what is explicitly presented in the excerpt.  \n   - Even if something seems common sense or general knowledge, exclude it unless clearly stated in the text.\n\n3. **Domain-Specific, Factually Rich Responses**  \n   - Your answers must include exact dates, names, initiatives, programs, technical terms, quantities, and figures if present.  \n   - Reference specific individuals with their roles and organizations, explicitly named programs or policies with launch dates, numerical data (percentages, funding amounts, attendance, impact metrics), and technical or domain-specific systems or terminology as stated.\n\n4. **Reasoning Section Before Answer**  \n   - Begin with a \"Reasoning:\" paragraph summarizing the key facts from the document relevant to the question.  \n   - Explain how these facts connect logically to produce the answer.  \n   - Demonstrate clear understanding of the document’s domain context and exact wording, showing precise engagement with the content.\n\n5. **Concise and Domain-Appropriate Answer Section**  \n   - Follow reasoning with an “Answer:” section that responds directly to the question using only the document facts.  \n   - Use professional, precise, and succinct language aligned with the domain/topic of the excerpt.  \n   - Avoid redundant or extraneous details beyond what the question requires.\n\n6. **Maintain Formatting and Structure**  \n   - Use the exact format:  \n     Reasoning: (your interpretive summary)  \n     Answer: (your precise response)  \n   - No additional commentary, headings, or deviations from this layout.\n\n7. **Avoid Unrelated, Unsupported, or Speculative Content**  \n   - Refrain from introducing unrelated facts or interpretations not supported by the excerpt.  \n   - No personal opinions, generalizations, or external contextual information beyond what is provided.\n\n8. **Clarity, Coherence, and Professional Tone**  \n   - Your reasoning and answer should be clearly structured, logically flowing, and use appropriate domain terminology reflecting complexity and specificity found in the source text.\n\n**Additional domain-specific notes derived from examples:**\n\n- When the excerpt is about **cybersecurity or technology**, always mention explicit threats (e.g., phishing), named security systems, dates of incidents, role titles (e.g., John Whittaker, cybersecurity analyst), and quantitative data on events (e.g., percentage increases, affected user counts).\n\n- For **historic or cultural preservation**, include precise dates of initiatives (e.g., structural surveys started on October 15, 2023), names of societies and leaders, exact activities undertaken, and documented economic or social impacts.\n\n- In **environmental sustainability**, emphasize named technologies, funding programs (with launch dates), government initiatives, SMEs involved, adoption numbers, tons of waste diverted, or emission reductions, etc.\n\n- For **education**, highlight curriculum changes with start dates, educator roles, training programs, relevant laws or policies, and student numbers involved.\n\n- Regarding **SME innovation or marketing**, identify funding mechanisms, dates of funding rounds, names of investors or accelerators, strategic recommendations from experts with exact dates, and quantitative impact data.\n\nBy adhering closely to these instructions, your answers will be factually accurate, richly detailed, domain-specific, concise, and strictly grounded in the provided excerpts, yielding maximal value for users requiring nuanced, technically precise knowledge extraction and synthesis.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

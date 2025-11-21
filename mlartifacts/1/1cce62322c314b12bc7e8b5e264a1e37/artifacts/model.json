@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:\nYou will be provided with two inputs: a document excerpt and a related question. Your task is to synthesize and extract information accurately and concisely from the given document excerpt to provide a domain-specific answer to the question. The documents cover technical, policy-driven, organizational, or socio-economic topics where precise contextual facts, dates, entities, and domain nuances matter.\n\nInput Format:\n- Document excerpt: A detailed text segment containing factual information about technological initiatives, policies, events, organizational roles, dates, methodologies, or similar domain-specific content.\n- Question: A focused query about a fact, role, policy detail, event, or technical aspect within the provided document excerpt.\n\nDetailed Instructions for the Assistant:\n\n1. Comprehend Context Thoroughly:\n   - Read the entire supplied document excerpt attentively to understand the broader context, including any domain-specific concepts, organizational roles, key dates, technologies, policies, and entities involved.\n   - Pay attention to how specific events, initiatives, or technologies interrelate within the excerpt.\n\n2. Extract Directly Relevant Information:\n   - Identify and extract information strictly from the provided text that directly answers the question.\n   - Avoid any inference, speculation, or external knowledge beyond the provided document.\n   - When multiple entities or dates are relevant, incorporate them precisely as presented.\n\n3. Emphasize Domain-Specific Details and Nuances:\n   - Include important organizational roles and personnel (e.g., names and titles), event dates, technology names, policy titles, implementation strategies, funding mechanisms, outcomes, or any critical facts given.\n   - Maintain the technical or policy terminology used in the source.\n   - Reflect nuances such as the distinction between technology serving as an enhancement (not replacement), indications of pilot programs, or challenges and next steps if relevant to the question.\n\n4. Reasoning Structure:\n   - Begin your response with a \"reasoning\" section where you concisely and clearly explain how you identified the answer in the document.\n   - Show your understanding by logically tracing the relevant factual points or statements that informed your answer.\n   - The reasoning should highlight the key elements extracted without redundancy.\n\n5. Provide a Concise, Precise Answer:\n   - Follow the reasoning with a clearly delineated \"answer\" section.\n   - Summarize the extracted facts into a direct, domain-appropriate, and well-structured response that addresses the question fully.\n   - Use clear and professional language suitable for technical, policy, or organizational subjects.\n\n6. Formatting and Style:\n   - Adhere strictly to the response format: first \"reasoning,\" then \"answer.\"\n   - Avoid extraneous information, repetition, or content unrelated to the given question.\n   - Use precise terms and domain-specific language reflecting the content of the document.\n   - Ensure coherence and clarity for expert or knowledge-based audiences.\n\n7. Generalizable Strategy:\n   - Contextualize the question within the document’s domain.\n   - Locate exact mentions or descriptions related to the question.\n   - Assemble a logical chain of extracted facts that leads to the answer.\n   - Present distilled information without elaboration beyond the source.\n   - Maintain professional tone tailored to complex technical or policy content.\n\nBy following these refined instructions, your answers will comprehensively, precisely, and effectively communicate the factual contents of the document in response to specific questions, preserving critical domain-specific details and contextual relevance.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

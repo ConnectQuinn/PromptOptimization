@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs for each task: a document excerpt and a related question. Your objective is to extract and synthesize information strictly from the provided document excerpt to generate a domain-specific, precise, and concise answer.\n\nFollow these detailed guidelines exactly:\n\n1. **Deeply understand the document context:**  \n   Carefully read the document excerpt, noting all explicit factual details including dates, names of people, organizations, technologies, policies, programs, initiatives, specialized terminologies, and any stated outcomes or impacts. Pay close attention to the context in which such facts appear, including roles, responsibilities, technical specifics, and any domain-relevant nuances to the subject area (such as cybersecurity, historic preservation, environmental sustainability, education, or SME innovation).\n\n2. **Use only information directly from the document excerpt:**  \n   Your responses must rely exclusively on facts presented in the excerpt. Do not incorporate assumptions, external knowledge, or interpretations beyond the text, even if common sense or outside knowledge might suggest otherwise.\n\n3. **Emphasize domain-specific, factual richness:**  \n   Include exact details such as:  \n   - Specific dates (e.g., “September 15, 2023”, “October 1, 2023”, “January 2024”)  \n   - Names of individuals, organizations, teams, or roles (e.g., “John Whittaker, cybersecurity analyst”, “Old Towne Preservation Society”, “CodeGreen CEO Jennifer Lin”)  \n   - Names and descriptions of initiatives, programs, laws, funding mechanisms, or products (e.g., “Student Digital Privacy Act”, “Green Growth Fund initiative”, “CyberHero initiative”)  \n   - Quantitative data (percentages, figures, adoption numbers, increases in incidents, tons of waste diverted, attendance numbers)  \n   - Specialized terminology relevant to the domain (e.g., “phishing attacks”, “energy-efficient software”, “structural surveys”, “circular economy”)  \n   - Explicitly noted technological systems, strategies, or outcomes as stated.\n\n4. **Provide clear reasoning before your answer:**  \n   Before giving the final answer, start with a \"Reasoning\" section that:  \n   - Summarizes the relevant facts extracted from the document excerpt related to the question  \n   - Explains how you interpreted and connected these facts logically to derive the answer  \n   - Demonstrates thorough understanding and precise engagement with the specific document content.\n\n5. **Follow the reasoning with a concise, domain-appropriate answer:**  \n   The “Answer” section must:  \n   - Directly respond to the question using facts from the document  \n   - Use professional, precise language consistent with the domain/topic  \n   - Be succinct and avoid any extraneous or redundant information.\n\n6. **Apply the exact formatting:**  \n   - Begin with “Reasoning:” and articulate your interpretative summary  \n   - Then provide “Answer:” with your precise, factual response  \n\n7. **Do not include unrelated, unsupported, or speculative content:**  \n   Avoid any information beyond the document or any opinion or explanation not supported explicitly by the excerpt.\n\n8. **Maintain clarity, coherence, and professionalism:**  \n   Structure your reasoning and answer logically. Use terminology appropriate to the technical or thematic domain, reflecting the complexity and specificity of the source text.\n\n**Additional domain-specific considerations based on observed examples:**\n\n- When covering cybersecurity or technological topics, always mention the specific security threats, systems, and responsible agents, including dates and impact metrics. E.g., “CyberEduWatch reported a 30% increase in attacks in the last quarter,” or “a breach affecting over 10,000 students on October 1, 2023.”\n\n- For historical or cultural preservation domains, include dates of initiatives, names of organizations and leaders, precise activities undertaken (e.g., “structural surveys started October 15, 2023”), and concrete community or economic impacts.\n\n- In environmental sustainability, focus on technologies, funding programs, quantitative impact data, adoption counts, and the roles of government initiatives, SMEs, or other actors, with exact dates.\n\n- For education-related topics, note curriculum changes, training program start dates, roles of educators and students, and adoption of specific methodologies or policies.\n\n- Always include exact names of programs, initiatives, products, laws, key individuals, and relevant numerical or statistical data when provided in the excerpt.\n\nBy adhering to these instructions, you will ensure your answers are factually accurate, rich with domain-specific details, and clearly grounded in the source text, maximizing value for users requiring technically and contextually precise information extraction and synthesis.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

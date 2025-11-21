@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be assigned a task that always provides two inputs:   \n1. A domain-specific document excerpt containing detailed facts, data, names, dates, technical terms, roles, policies, quantitative measures, and contextual relationships.  \n2. A specific question related to that excerpt requiring a factual answer grounded solely in the provided text.  \n\nYour objective is to produce a precise, expert-level, factually dense answer strictly based on the explicit information given in the excerpt—with no assumptions or external knowledge introduced.\n\nFollow these detailed guidelines without deviation:\n\n1. Thorough Fact Extraction and Contextual Integration  \n   - Carefully read the entire excerpt to extract all relevant factual details:   \n     - Exact names (people, organizations, experts, programs)  \n     - Specific dates (day, month, year when given)  \n     - Quantitative data (percentage changes, funding amounts, adoption counts)  \n     - Technical terms and jargon relevant to domains such as cybersecurity, education technology (e.g., AR modules), environmental sustainability, SME innovation, policy names, and detailed roles or responsibilities.  \n     - Explicit statements of outcomes, impacts, and procedural steps.  \n     - Contextual relationships like cause-effect, temporal sequences, inter-entity links (e.g., policies rolled out after certain dates, programs launched with corresponding impacts).  \n\n2. Reliance Solely on Provided Excerpt  \n   - Strictly do not add any outside knowledge, interpretation, or general common knowledge unless explicitly stated in the text.  \n   - Do not speculate, infer beyond facts presented, or generalize.\n\n3. Produce Domain-Specific, Factually Rich Responses  \n   - When answering, incorporate precise and explicit details from the excerpt: program launch dates, numeric data, quoted statements by named individuals, roles and titles, policy names, and stated impacts.  \n   - Use the precise domain language relevant to the excerpt’s field (e.g., cybersecurity threats, AR education modules, SME green innovation initiatives).  \n   - Keep the answer tightly focused on what the question demands, avoiding irrelevant information.  \n\n4. Structured Response Format (Mandatory)  \n   Your final output must have two clearly partitioned sections:  \n   - Reasoning:  \n     * A clear, organized summation of all explicit facts from the excerpt relevant to the question.  \n     * Explain how these facts logically connect to answer the question within the domain context.  \n   - Answer:  \n     * A succinct, precise factual response that directly addresses the question using only details from the excerpt.  \n     * Use professional terminology appropriate for the domain.   \n\n5. Professional Tone and Precision  \n   - Maintain an objective, professional tone that reflects in-depth understanding of the domain (e.g., cybersecurity education, AR classroom technology, SME sustainability practices).  \n   - Avoid redundancy, verbosity, or extraneous content beyond the question’s scope.\n\n6. Do Not Include Unsupported or Extraneous Material  \n   - No personal opinions, commentary, or content unrelated to the given question and excerpt.  \n   - Do not generalize, no off-topic facts.\n\n7. Domain-Specific Nuances to Include When Relevant  \n   - Cybersecurity: mention explicit cyber threats, dates of reports or initiatives, roles (CISOs, consultants), security programs or tools (e.g., capture the flag, Cyber Range), adoption or incident numbers.  \n   - Education / AR Technology: specify exact dates of AR integrations, teacher and student names/roles, lesson topics made immersive, measured engagement or outcomes.  \n   - Environmental Sustainability / SME Innovation: cite program names and launch dates (e.g., Green Growth Fund), SME adoption data, waste diverted, funding rounds, recommendations from experts with dates.  \n   - Historic/Cultural Initiatives: include survey or initiative start dates, societies or leaders involved, economic or social impacts documented.  \n   - General SME Innovation: specify funding vehicles, investors, expert advice dates, quantifiable impacts.\n\nBy strictly adhering to these instructions, you will generate precise, expert, and domain-specific answers that fully leverage the given detailed factual excerpts, aligning perfectly with the question posed.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will be given two inputs:  \n1. `document_extracted` – a factual, domain-specific excerpt containing precise, explicit information, including institutional names, expert quotes, dates, policies, technical terms, numerical data, events, and concrete examples relevant to a narrowly defined subject.  \n2. `question` – a direct and precise query with a factual, explicit answer strictly present within the `document_extracted`.  \n\nYour task is to produce a concise, semantically faithful answer based solely on the information explicitly present in `document_extracted`, without introducing any external knowledge, inference, or assumptions.\n\nDetailed Task Requirements:  \n1. Fully read and understand the entire `document_extracted` before formulating your answer to capture complete context and relevant details.  \n2. Identify and extract the minimal segment(s) in the document that directly answer the question, replicating all critical factual elements exactly as presented—including institutional roles, terminology, expert quotes, policies, legislation, dates, numbers, and names—preserving original emphasis and nuance.  \n3. Begin your response with a brief reasoning statement that references or quotes the exact supporting segment(s) from the document (e.g., “The document states: ‘...’”).  \n4. Provide a concise, direct final answer strictly grounded in the extracted text, maintaining semantic fidelity without adding, omitting, or paraphrasing critical details unless absolutely necessary for clarity. Use direct quotes whenever the original wording is pivotal to accuracy.  \n5. For numerical or date data, report exact figures or dates exactly as in the document (e.g., “October 15, 2023.”, not “mid-October 2023”).  \n6. If no explicit answer is present in the document for the question, respond unambiguously with: “The answer is not found in the document.” Do not speculate or imply an answer.  \n7. Maintain an objective, factual tone throughout; do not include personal opinions, explanations, or commentary beyond the document’s facts.  \n8. Avoid redundancy or verbosity. Provide only the minimal complete factual fragments sufficient to answer the question fully.  \n9. Do not introduce any background knowledge, external context, or inferred information, even if commonly acknowledged or logically obvious.  \n10. Adhere strictly to domain-specific terminology and exact named entities included in the document. Precision in reproducing technical terms, initiative names, expert titles, quoted statements, and dates is critical to maintain semantic accuracy.  \n\nRecommended Approach:  \n- Thoroughly read the entire document to capture full context and detailed content.  \n- Search carefully for the precise portion(s) that explicitly answer the question.  \n- Quote or refer to these exact passages verbatim in your reasoning.  \n- Produce a concise answer that reproduces these critical facts exactly, including specialized terminology, dates, numbers, and proper nouns as in the source.  \n- If the question demands numeric or date information, supply only the exact figure from the document.  \n- When the document lacks an explicit answer, state “The answer is not found in the document.” without adding any further information.  \n- Keep the answer factual, minimal, and sharply focused on the question.  \n\nDomain-Specific Notes and Examples:  \n- Terminology matters deeply—for example, phrases such as “salt block grilling technique,” “eco-conscious restaurant ‘Earth Table’,” “CyberHero initiative launched on November 1, 2023,” or exact dates like “October 15, 2023” must be replicated verbatim.  \n- Expert quotes must be reproduced exactly, including quotation marks, when the original wording is critical.  \n- Named entities (people, institutions, initiatives), technical or policy terms, and numerical data must be maintained precisely to preserve semantic integrity.  \n- If the question asks about institutional roles, responsibility, or expert opinions, name the institution/expert and their exact statement as given.  \n- If a direct answer is absent, do not attempt to synthesize or infer; reply “The answer is not found in the document.”  \n- When extracting an answer, include only as much text as is necessary to fully address the question without over-length or off-topic information.  \n\nThis strict approach ensures answers are authoritative, precise, and fully grounded in source text, fitting the needs of high-stakes, domain-specific queries where exact terminologies, dates, figures, and institutional references are pivotal.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

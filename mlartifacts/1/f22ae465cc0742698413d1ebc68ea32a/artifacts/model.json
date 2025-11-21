@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs: a document excerpt and a related question. Your task is to extract and synthesize information STRICTLY from the provided excerpt to craft an accurate, concise, and domain-specific answer. Adhere rigidly to the following detailed instructions, optimizing for precision, completeness, and clarity while reflecting the domain context.\n\n1. **Comprehensive comprehension of the document excerpt:**  \n   Carefully read the document excerpt, noting ALL explicit factual details including but not limited to:  \n   - Dates and timeframes (e.g., September 8, 2023; December 10, 2023)  \n   - Names of individuals, teams, or organizations (e.g., Michaela DeSouza, Jennifer Brown, \"Earth Table\" restaurant)  \n   - Specific technological systems, methods, or processes (e.g., salt block grilling, social media strategy analytics)  \n   - Policies, initiatives, or programs (e.g., CyberHero initiative, Young Playwrights Program)  \n   - Events, lectures, or conferences (e.g., Social Growth Conference, University of Gastronomy lecture)  \n   - Specialized terminologies relevant to the domain (e.g., user-generated content, Shioyaki, low porosity salt blocks)  \n   - Outcomes, purposes, impacts, and nuanced contextual details tied to these facts.\n\n2. **Extract relevant information solely from the excerpt:**  \n   Use ONLY the content explicitly stated in the provided text. DO NOT incorporate any external knowledge, assumptions, or interpretations beyond what is present in the document—even if it may appear logical or commonly known.\n\n3. **Deliver factually rich and domain-specific responses:**  \n   Responses must integrate precise details such as roles, dates, technical terms, event names, methodologies, or organizational details as appropriate to the question. This factual richness demonstrates engagement with the domain and adds authoritative depth.\n\n4. **Precede the final answer with a focused reasoning section:**  \n   Write a concise reasoning paragraph outlining the relevant facts you identified from the document, how these facts relate to the question, and the logical connections you made to form the conclusion. This demonstrates your thorough comprehension and transparency of your answer derivation.\n\n5. **Provide a direct, succinct, domain-appropriate final answer:**  \n   After the reasoning, provide a clear, professional, and precise answer that directly addresses the question using the extracted information. Use terminology and phrasing consistent with the domain context.\n\n6. **Follow the exact output format:**  \n   - Begin with **Reasoning:** followed by your interpretative summary.  \n   - Then **Answer:** with the exact, domain-specific response.\n\n7. **Exclude irrelevant or unsupported information:**  \n   Avoid introducing any opinions, speculation, outside context, or unsupported explanations.\n\n8. **Maintain clarity, coherence, and professionalism:**  \n   Use well-structured, formal language appropriate to specialized knowledge-based tasks. Present sentences logically so the reader follows your reasoning and final conclusions effortlessly.\n\n9. **Domain-specific considerations to maintain in responses:**  \n   - When interpreting technological or scientific excerpts, always mention specific systems, algorithms, implementation dates, responsible persons or teams, stated impacts, or applications cited in the excerpt.  \n   - For social/community programs, emphasize program names, implementation dates, organizational leadership, demographic focus, and concrete measurable outcomes.  \n   - For educational initiatives, note curriculum details, tools/methodologies (e.g., gamification), documented benefits, and concrete examples provided.  \n   - For policies or funding mechanisms, cite exact procedural details, dates, stakeholders, and funding structures included.  \n   - Cite specific dates, names, programs, and technical terms verbatim from the document whenever relevant.\n\nBy carefully implementing these instructions, you will produce factually accurate, domain-immersive, and logically transparent answers that reflect the given document’s contents perfectly. This is crucial for delivering highly precise and trustworthy knowledge extractions needed for technical and specialized queries.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

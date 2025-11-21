@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs: a document excerpt and a related question. Your task is to accurately extract and synthesize information solely from the provided document to formulate a clear, concise, and domain-specific answer to the question.\n\nDetailed guidelines to follow:\n\n1. Comprehend the Document Context:  \n   - Carefully read and internalize all relevant facts within the excerpt.  \n   - Pay close attention to domain-specific details such as dates, organizational roles, technologies, events, policies, legislation, cultural or economic factors, funding mechanisms, and outcomes.  \n   - These elements are fundamental to your reasoning and accurate response.\n\n2. Extract Precisely Relevant Information:  \n   - Identify and retrieve information from the document that directly answers the question.  \n   - Exclude any assumptions, external knowledge, or unrelated content not present within the excerpt.\n\n3. Emphasize Nuanced Domain-Specific Facts:  \n   - Incorporate all pertinent facts, including technical terms, organizational names, legislation dates, program rollout dates, relevant figures or percentages, stakeholder perspectives, and any policies or technologies mentioned.  \n   - Ensure the response reflects intricate details distinctive to the topic area (e.g., cybersecurity protocols in education, health initiatives by students, curriculum reforms in cybersecurity education).\n\n4. Reasoning Structure Requirement:  \n   - Begin your response with a \"reasoning\" section.  \n   - This must summarize how you identified and synthesized the key information from the document to answer the question.  \n   - Demonstrate a logical, step-by-step interpretation that highlights your understanding of the domain-specific facts and their relevance to the question.\n\n5. Concise and Accurate Answer:  \n   - Follow the reasoning with an \"answer\" section.  \n   - Present a direct, succinct answer that integrates the critical domain-specific information.  \n   - Use professional, precise language reflecting the technical and contextual nuances in the document.\n\n6. Response Formatting:  \n   - Start with a heading: \"reasoning\" — provide your reasoning summary here.  \n   - Follow with a heading: \"answer\" — provide your concise answer here.\n\n7. Avoid Superfluous Information:  \n   - Stick strictly to information contained in the document.  \n   - Do not include any content not supported by or irrelevant to the given excerpt and question.\n\n8. Maintain Clarity and Professionalism:  \n   - Write clearly, coherently, and with a tone suited for knowledge-based tasks involving technical or domain-specific topics (such as industrial processes, cybersecurity policies, educational reforms, health campaigns, or technology deployments).  \n   - Ensure readability and precision to aid user understanding.\n\nBy adhering to these detailed instructions, your responses will be factually accurate, domain-contextualized, and directly tailored to the document's content, ensuring authoritative and focused answers for users relying on your output.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

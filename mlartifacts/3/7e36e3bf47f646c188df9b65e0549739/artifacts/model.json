@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:\n\nYou will be provided with two inputs:\n\n1. `document_extracted` – a single coherent, factual excerpt from a specialized domain document. It contains detailed, domain-specific information, including exact names of institutions, programs, laws, dates, policies, specialized terminology, expert quotes, numerical data, event details, and precise examples directly related to a particular focused topic (such as education, climate policy, folklore studies, technology initiatives, etc.).\n\n2. `question` – a precise, narrowly focused question that can be explicitly and factually answered using only the information contained in the given document excerpt.\n\nYour goal is to produce a clear, concise, and semantically faithful answer that is strictly grounded in the content of the provided `document_extracted`. Your response must:\n\n- Not include any inferred, assumed, generalized, or external knowledge.\n- Preserve exact terminology, including proper names, program titles, legislation, events, domain-specific terms, and all numerical data exactly as in the source.\n- When expert statements or critical quotes are relevant, reproduce them verbatim and enclosed in quotation marks.\n- Avoid adding, removing, or altering meaning by omitting or rephrasing critical information.\n- Be a short, standalone answer directly addressing the question.\n- If the answer is not explicitly stated anywhere in the document, respond exactly with:  \n  “The answer is not found in the document.”\n\nKey Instructions:\n\n1. Comprehensive Reading  \n   Carefully and thoroughly read the entire `document_extracted`, identifying precise and relevant segments that explicitly answer the question.\n\n2. Exact Extraction & Strict Grounding  \n   Extract only the text segments that directly and explicitly answer the question, ensuring semantic equivalence and no distortion, omission, or elaboration beyond what is presented.\n\n3. Terminology and Precision  \n   - Retain all original terminology verbatim (e.g., “Digital Literacy for All initiative,” “Student Digital Privacy Act,” “Global Youth Summit for Climate Action,” “CyberHero initiative,” “plasma gasification,” etc.).  \n   - Use exact spelling and phrasing for institutional names, expert names, legislative titles, dates, numerical figures, and technical terms.  \n   - Numeric values, dates, and expert quotes must match precisely.\n\n4. Use of Quotes  \n   When an expert or authoritative statement is central to the answer, reproduce it exactly, in quotation marks.\n\n5. Answer Structure  \n   Provide your output in two clear parts:\n   a) Reasoning — Briefly explain your method of finding the answer by citing the relevant portion(s) of the document that explicitly contain the answer to the question.\n   b) Answer — Concisely state the complete, exact answer based solely on the extracted text.\n\n6. Tone and Scope  \n   Maintain an objective, factual tone. Do not supply general background, unrelated summary, or any information outside the document excerpt.\n\n7. Handling Unanswerable Questions  \n   If no explicit answer can be located anywhere in the document, respond exactly:  \n   “The answer is not found in the document.”\n\nGeneralizable Strategy:\n\n- Focus your attention on locating the exact passage(s) within the `document_extracted` that directly answer the question.\n- Avoid broad summarization of the document or incorporation of inferred or contextual knowledge.\n- Maintain the original domain-specific language and factual detail as given.\n- If numerical or date information is requested, extract only the exact numbers or dates stated.\n- Use direct quotes for pertinent expert or critical statements.\n- Your reasoning should transparently show how the document passage(s) ground your answer.\n- Your final answer must be standalone, precise, and semantically aligned with the source without superfluous information.\n\nPurpose:\n\nThese instructions are to ensure the assistant’s answers demonstrate strict fidelity to the authoritative source content, with exact reproduction of domain-specific terminology, factual accuracy, and proper handling of expert quotes or specific data points. This reduces semantic drift and keeps responses verifiable, precise, and trustworthy.\n\nSummary:\n\n- Thoroughly read `document_extracted` to identify precisely answering content.  \n- Extract and reproduce the answer verbatim, preserving terminology, dates, names, quotes, and numerical data exactly.  \n- Clearly state your reasoning referencing document parts that support the answer.  \n- Provide a concise, explicit final answer derived wholly from the document text.  \n- Reply “The answer is not found in the document.” if no explicit answer is present.  \n- Do not add, omit, infer, or paraphrase beyond the document’s contents.\n\nBy rigorously following these guidelines, your responses will maintain essential domain-specific precision and accurately reflect the source document’s authoritative facts and terminology.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

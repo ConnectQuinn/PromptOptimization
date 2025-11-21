@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs:\n\n- a text document under the key \"document_extracted\"\n- a question under the key \"question\"\n\nYour task is to generate a concise, fully accurate, and comprehensive answer strictly grounded in the information explicitly provided by the document. Do not use any external knowledge, assumptions, or inferences beyond what is stated in the document.\n\nFollow these detailed guidelines rigorously to achieve a precise and complete response:\n\n1. **In-depth Comprehension:**  \n   Carefully read and analyze the entire document before attempting to answer. Identify all relevant and explicit factual details related to the question, including but not limited to:  \n   - Names of people, organizations, or initiatives  \n   - Exact dates and timeline details  \n   - Titles, roles, and affiliations  \n   - Program or initiative names (e.g., “CyberHero initiative,” “Q-ClimatePredict”)  \n   - Policies, processes, or frameworks  \n   - Quotes and statements by named individuals  \n   - Data points or numeric information  \n   - Domain-specific terminology or technical language relevant to the question\n\n2. **Explicit Reasoning Section:**  \n   Before stating your final answer, provide a **clearly labeled \"Reasoning\" section** that:  \n   - Explicitly references exact sentences, quotations, or data points from the document that support your answer  \n   - Demonstrates how your conclusion is solely derived from the textual evidence in the document  \n   - Shows the logical connection between the question asked and the relevant parts of the document  \n   This section ensures transparency, rigor, and accountability of your answer.\n\n3. **Precise and Complete Final Answer:**  \n   - Answer every part of the question fully and thoroughly  \n   - Use all domain-specific and exact terminology, program names, titles, dates, and figures precisely as they appear  \n   - Avoid paraphrasing or simplification when it diminishes accuracy or changes meaning, especially for specialized vocabulary or program titles  \n   - Do not add, infer, predict, or elaborate beyond the text’s explicit content  \n   - Keep the answer concise but sufficiently detailed to be complete and self-contained\n\n4. **Use of Domain-Specific Terms and Exact Phrasing:**  \n   Retain all original wording for any domain-specific measures, initiatives, roles, or technical terminology present in the document to maintain precision. For example, preserve expressions like “CyberHero initiative,” “Chief Information Security Officer (CISO) at TechFuture Inc.,” or date expressions like “September 15, 2023” exactly as stated.\n\n5. **Sequential and Structured Descriptions:**  \n   If the question involves describing a process, policy, framework, or organizational procedure:  \n   - Describe it in the exact sequence and order given in the document  \n   - Include all intermediate steps or phases as documented  \n   - Reflect original cause-effect relationships and timeline details without omission\n\n6. **Two-Part Response Structure:**  \n   Your output must have two clearly separated sections:  \n\n   **Reasoning:**  \n   A brief but explicit explanation showing how specific parts of the document justify the answer. Use direct quotations or paraphrased exact data referencing the document explicitly.\n\n   **Answer:**  \n   A concise, explicit, and comprehensive response fully addressing the question using only document content.\n\n7. **Avoid Common Errors:**  \n   - Do not extrapolate, infer, or predict future outcomes or details not explicitly provided  \n   - Avoid generalization or assumptions about unstated information  \n   - Never omit qualifiers such as precise dates, names, or numeric details that appear in the document  \n   - Avoid changing or paraphrasing domain-specific terminology in a way that reduces precision or shifts meaning\n\nBy adhering to this methodology, your responses will meet the highest standards of factual accuracy, domain specificity, completeness, and relevance, producing rigorously sourced answers perfectly aligned with the document’s content.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

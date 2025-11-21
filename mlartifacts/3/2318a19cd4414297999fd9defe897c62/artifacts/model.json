@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will be given two inputs:  \n1. `document_extracted` – a precise, domain-specific factual excerpt encompassing exact institutional names, dates, technical terminology, policies, expert statements, numerical data, events, and concrete examples strictly relevant to a narrowly defined subject.  \n2. `question` – a direct query seeking a factual, explicit answer contained solely within the provided document excerpt.\n\nYour task is to produce a concise, semantically faithful answer strictly based on the explicit content of the `document_extracted`. Do not add any external knowledge, inference, or assumption beyond what is explicitly stated.\n\nDetailed Task Description and Requirements:  \n1. **Complete and careful reading:** Read the entire `document_extracted` thoroughly to understand all relevant content and context before answering.  \n2. **Exact extraction:** Identify and extract only the minimal yet complete segment(s) from the document that directly answer the question. This may include institutional roles, specialized terminology, expert quotes, policies, legislation, dates, or numerical data as exactly presented.  \n3. **Reasoning statement:** Begin your response with a brief reasoning statement citing or quoting the exact document segment(s) supporting the answer (e.g., “The document states: ‘…’”).  \n4. **Concise final answer:** Provide a direct, precise final answer that strictly reflects the document’s explicit information without adding, modifying, or omitting critical details or emphasis. Use quotations when exact wording is necessary for accuracy.  \n5. **Preservation of terminology and data:** Maintain all domain-specific terms, names of people, institutions, initiatives, specific techniques, policies, exact numbers, and dates exactly as given, including correct spelling and formatting, e.g., “October 15, 2023,” “salt block grilling technique,” or “CyberHero initiative launched on November 1, 2023.”  \n6. **No external content or inference:** Do not introduce or imply any information not explicitly present in the document, even if widely known. Avoid generalizations or paraphrasing that dilute precise meanings.  \n7. **If no explicit answer:** If the document does not contain a factual answer to the question, respond exactly with: “The answer is not found in the document.”  \n8. **Tone and style:** Maintain an objective, factual tone with no commentary, speculation, or explanation beyond what the document states.  \n9. **Avoid redundancy or verbosity:** Provide only the minimal factual fragments needed to answer the question fully and explicitly.  \n10. **Numerical and date precision:** When numerical or date information is requested, supply the exact figures or dates as presented without rounding or rephrasing.\n\nDomain-Specific Notes and Examples:  \n- The task often involves fields with precise terminology (e.g., gastronomy: “salt block grilling technique,” cybersecurity: “CyberHero initiative launched on November 1, 2023,” or exact dates like “October 15, 2023”). Preserve these exactly.  \n- Expert quotes or statements are to be presented verbatim if their precise wording is critical.  \n- Named entities (people, institutions, programs) and policies must be reproduced exactly to maintain the document’s semantic accuracy.  \n- When providing numerical or date answers, respond solely with the exact figure or date (e.g., “October 15, 2023.”), avoiding explanatory phrases unless they are part of a quote directly answering the question.\n\nReasoning and Final Answer Formatting:  \n- Clearly separate the reasoning from the final answer. The reasoning should cite or quote exact document excerpts that underpin the answer.  \n- The final answer must be as concise as possible while semantically faithful and complete in terms of critical factual content.\n\nExamples of Common Errors to Avoid (Learned from Feedback):  \n- Avoid inferring or infusing any knowledge not found verbatim or explicitly in the document, e.g., do not assume implications about food security, policy timelines, or cultural interpretations beyond what the text states.  \n- Do not provide approximate or inferred dates or generalized statements if the document only contains vaguer or missing timing details; instead, acknowledge absence by stating: “The document does not specify…” or “The answer is not found in the document.”  \n- Avoid restating the entire paragraph if a brief direct quote or segment suffices; extract only the essential factual passages.  \n- When a direct quote fully answers the question, reproduce it exactly rather than paraphrasing.  \n- When the question asks for a fact or numeric data, do not supply explanations or context beyond the exact figure or text from the document.\n\nRecommended Approach:  \n- Thoroughly read the `document_extracted` to understand context and details.  \n- Search precisely for the textual evidence that directly answers the question.  \n- Extract minimal, exact textual fragments or precise data required.  \n- Formulate a short reasoning citing these fragments.  \n- Provide a concise, exact answer strictly grounded in the document.  \n- If no answer is present, reply with “The answer is not found in the document.”  \n- Ensure terminology, names, dates, and numeric data match exactly the document’s forms.\n\nThis approach ensures authoritative, precise, and unambiguous answers that respect the specialized, factually sensitive nature of domain-specific queries where exact terms, details, and quotes are essential.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

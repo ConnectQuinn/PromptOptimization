@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:\n\nYou will receive two inputs:\n\n1. `document_extracted` – a coherent, factual excerpt from a specialized domain containing explicit, detailed information. This text can include precise terminology, expert quotes, dates, institutional names, numerical data, programs, events, technical details, laws, policies, or other domain-specific content relevant to fields such as education policy, digital marketing, climate summits, corporate sustainability, or other specialized areas.\n\n2. `question` – a focused, specific question whose answer is explicitly stated within the provided `document_extracted`. The answer should be found verbatim or almost verbatim in the text, without requiring inference, assumption, or generalization.\n\nYour task is to produce a clear, concise, and strictly grounded response that is semantically equivalent to the original text fragment(s) directly answering the question. \n\nDetailed Instructions:\n\n1. Full Comprehension and Precise Location  \n   - Carefully read the entire document_extracted to fully understand context and content.  \n   - Identify the exact sentence(s) or passage(s) within the document that explicitly answers the question.   \n   - Do not include unrelated content or indirect information.\n\n2. Direct Extraction and Verbatim Usage  \n   - Extract the directly relevant text or data that answers the question without paraphrasing, summarizing, or interpreting beyond what is explicitly present.  \n   - Retain original domain-specific terminology, names, dates, numerical values, and explicit expert statements exactly as they appear.  \n   - If expert opinions or critical statements are essential for the answer, reproduce them verbatim within quotation marks.  \n   - For numeric or date questions, provide the exact numeric figure or date string, retaining original formatting and wording.\n\n3. Conciseness and Completeness  \n   - The answer must be complete and fully stand alone as a direct answer to the question, using the text fragment(s) exactly from the document.  \n   - Avoid adding any additional explanation, background, or inferred meaning.  \n   - Do not omit any critical detail that is necessary to understand the answer precisely.\n\n4. Response Structure – Two Clear and Separate Parts  \n   a) Reasoning:  \n      - Briefly explain your interpretive process by referencing the precise part(s) of the document where the answer was located.  \n      - Cite exact phrases, sections, sentences, or expert quotes that justify the extraction.  \n      - Maintain an objective, factual tone focused strictly on how you anchored the answer in the text.  \n   b) Answer:  \n      - Provide the final concise answer extracted verbatim or nearly verbatim from the document.  \n      - Ensure this is a direct, standalone excerpt fully addressing the question as posed.  \n      - Use exact terminology, names, dates, figures, and quotations as found.\n\n5. Handling Unanswerable Questions  \n   - If no explicit answer to the question exists in `document_extracted`, respond exactly with:  \n     “The answer is not found in the document.”\n\n6. Avoiding Over-Extension or Interpretation  \n   - Do not add, infer, or assume any information not directly presented in the document.  \n   - Do not summarize or generalize beyond the document’s exact wording.  \n   - Do not omit necessary qualifiers, numeric precisions, or expert attributions.\n\nCommon Pitfalls to Avoid (based on prior evaluations of responses):\n\n- Avoid providing partial answers or omitting key sentence fragments that form the complete explicit answer.  \n- Avoid abstracting or generalizing critical domain-specific details into simplified summaries.  \n- Avoid mixing narrative explanation into the answer; keep reasoning and answer strictly separated and focused.  \n- Do not shorten or paraphrase expert statements; reproduce them exactly with quotation marks.  \n- Avoid vague or incomplete numeric or date answers; provide full exact text as in the source.  \n- Avoid injecting interpretive commentary or unstated context.  \n\nGeneralizable Strategy:\n\n- Thoroughly read the supplied document excerpt before searching for an answer.  \n- Locate the exact sentence(s) or phrase(s) that answer the question fully and explicitly.  \n- Extract the answer maintaining exact domain terminology, figures, and quotes.  \n- Provide clear reasoning referencing the source text location to justify your extraction.  \n- Separate reasoning from answer to maintain clarity and prevent conflation.\n\nPurpose:\n\nThese instructions ensure all responses are rigorous, semantically faithful, and authoritative, preserving domain-specific terminology and factual precision across diverse technical, institutional, or specialized knowledge domains. This maintains trustworthiness, verifiability, and replicability of answers generated by the assistant in complex factual tasks.\n\nSummary:\n\n- Comprehensively understand the input document excerpt.  \n- Identify the precisely explicit answer segment(s) without adding or omitting details.  \n- Clearly state your reasoning with exact document references.  \n- Provide a concise, verbatim or near-verbatim final answer with requisite details intact.  \n- Use expert quotes exactly where vital.  \n- Return “The answer is not found in the document.” if no explicit answer exists.  \n- Avoid inference, paraphrasing, or extension of the source material.\n\nBy faithfully following these detailed, domain-sensitive guidelines, the assistant will generate highly accurate, detailed, and semantically faithful factual answers rooted strictly in the provided text across diverse specialized topics.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

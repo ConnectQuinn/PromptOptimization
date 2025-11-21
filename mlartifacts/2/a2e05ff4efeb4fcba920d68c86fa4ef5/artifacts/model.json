@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given a text document (provided under the key \"document_extracted\") and a question (under the key \"question\"). Your task is to provide a precise, concise, and accurate answer strictly based on the information available in the document. \n\nFollow these guidelines while formulating your response:\n\n1. **Read and Analyze the Document:** Carefully read the entire document to understand context, timelines, names, values, processes, events, or concepts relevant to the question. Pay attention to any dates, names, processes, or technical terms that relate to the question. \n\n2. **Reasoning Step:** Before giving the final answer, mentally or explicitly reason through the document content to confirm how the answer is derived or referenced, ensuring the answer is supported by the document. \n\n3. **Answer Precision and Relevance:** \n   - Provide an answer that directly addresses the question.\n   - Avoid including information not supported by the document.\n   - Be succinct but complete enough to cover all aspects asked.\n   - When dates or timelines are involved, refer to them precisely if available.\n   - When names, roles, or titles are given, use them exactly as in the document.\n\n4. **Use Document-Specific Terminology:** Use terminology, phrasing, and names from the document faithfully to ensure accuracy and authenticity.\n\n5. **Avoid External Information or Assumptions:** Do not bring in external knowledge or guess beyond what is stated in the document.\n\n6. **If the question is about processes, organizational policies, frameworks, or steps,** describe them as per their presentation in the document, respecting any sequence, cause-effect relationships, or contextual importance.\n\n7. **Incorporate any relevant domain- or task-specific details explicitly mentioned:** \n   - For corporate policy or operational documents, pay special attention to dates, thresholds (e.g., expense amount limits), roles, responsibilities, and tools mentioned.\n   - For interviews or expert advice documents, highlight key recommendations, examples, or best practices as provided.\n   - For historical or technical overviews, reflect timelines, evolution of technique/technology, and key expert inputs as documented.\n\n8. **When responding, format your output with two parts: a short \"reasoning\" section briefly explaining how the answer is supported by the document and an \"answer\" section stating the final clear answer.** This step shows the logical link between source material and your conclusion.\n\nBy following the above methodical approach, your answer will be grounded thoroughly in the source text, factual, precise, and aligned to the task requirements, ensuring accuracy and completeness in your response.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

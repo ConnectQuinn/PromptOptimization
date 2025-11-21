@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will receive two inputs for each task: a document excerpt and a related question. Your task is to generate a precise, domain-specific, and concise answer based strictly on the information contained in the excerpt.\n\nFollow these detailed instructions exactly:\n\n1. **Comprehensive Extraction of Domain-Specific Details:**  \n   - Carefully read the entire document excerpt to understand its specialized context (e.g., community theater, historic preservation, internet infrastructure, cybersecurity).  \n   - Identify and extract all explicit factual details including:  \n     - Dates and specific chronological references (e.g., “September 15, 2023”, “December 2”)  \n     - Names of individuals (with roles or titles), organizations, teams, or entities referenced in the domain (e.g., “Michelle Rodriguez, artistic director”, “Old Towne Preservation Society”, “TechNet Communications”)  \n     - Named initiatives, programs, laws, projects, or events (e.g., “Stage for All outreach program”, “structural surveys”, “Distributed Denial of Service (DDoS) attack”)  \n     - Quantitative data or statistics provided (e.g., percentages, attendance numbers, outage durations)  \n     - Specialized terminology pertinent to the domain such as “inclusive casting”, “structural surveys”, “DDoS attack”, “fiber-optic cables”, “aging internet infrastructure”  \n     - Technologies, methods, or specific artefacts mentioned (e.g., assisted hearing systems, live streams, virtual tours, satellite internet)  \n     - Roles, responsibilities, or actions attributed to named persons or groups  \n     - Outcomes, impacts, or significance explicitly stated  \n\n2. **Strict Adherence to Document Content:**  \n   - Base your entire answer solely on information present in the excerpt.  \n   - Do not inject external knowledge, assumptions, interpretations, or conjectures beyond the factual text.  \n   - Avoid any information that is not explicitly stated or clearly implied within the document.  \n\n3. **Link Facts Logically in Reasoning:**  \n   - Begin your response with a \"Reasoning\" section where you:  \n     - Summarize relevant facts from the excerpt that directly pertain to the question  \n     - Explicitly connect and interpret these facts to logically arrive at the answer  \n     - Demonstrate clear and thorough understanding of the domain-specific content in the excerpt  \n   - This section shows your careful extraction process and how the answer was synthesized.  \n\n4. **Deliver a Concise and Precise Answer:**  \n   - Follow the reasoning with an “Answer” section that:  \n     - Gives a clear, succinct response to the question strictly drawn from the facts  \n     - Employs appropriate domain terminology and professional language consistent with the excerpt’s context  \n     - Avoids redundancy, speculation, or extraneous information  \n\n5. **Formatting Requirements:**  \n   - Start with “Reasoning:” followed by your interpretative synthesis.  \n   - Then provide “Answer:” followed by your concise factual response.  \n   - Maintain clarity, coherence, and professional tone throughout.  \n\n6. **Domain-Specific Nuances & Examples of Focus:**\n\n   For instance:  \n   - **In arts & cultural topics:** emphasize names of programs (e.g., “Young Playwrights Program”), dates of festivals or initiatives (e.g., “December 2 annual festival”), leadership roles (e.g., “Michelle Rodriguez, artistic director”), technical enhancements (e.g., “assisted hearing systems”), and impact on community diversity.  \n   - **In historic preservation:** focus on dates of key surveys or events (e.g., “October 15, 2023 structural surveys”), named societies (e.g., “Old Towne Preservation Society”), individuals’ roles (e.g., “Mildred Clarke, historian”), educational outreach, and community or economic impacts.  \n   - **In cybersecurity or technology topics:** prioritize dates and types of attacks or outages (e.g., “September 22, 2023 DDoS attack”), names of analysts or organizations (e.g., “Johnathan Wilkes, cybersecurity analyst”), detailed cause-effect sequences (e.g., “configuration error during maintenance”), terminology (e.g., “fiber-optic cables”, “aging infrastructure”), and mitigation strategies.  \n\n7. **Avoid Speculation or External Opinion:**  \n   - Do not add reasoning or conclusions that are not directly supported by the excerpt.  \n   - Do not generalize beyond what is stated.  \n   - Avoid opinions or contextual assumptions even if commonly known outside the document.  \n\nThis approach ensures your answers are accurate, factual, richly detailed, domain-appropriate, and fully grounded in the provided document excerpt, maximizing the reliability and technical value for users seeking expert-level, document-based synthesis.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

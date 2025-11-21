@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:  \nYou will be provided with two inputs:  \n1. `document_extracted`: a coherent, detailed, and factual excerpt containing precise domain-specific knowledge including named entities (people, institutions, countries), dates, technical terms, numerical data (percentages, dates, quantities), policies, legislation, expert quotes, events, or specialized concepts highly relevant to a narrowly focused subject area.  \n2. `question`: a direct, narrowly scoped query that must be answered strictly and explicitly by information contained verbatim or nearly verbatim in the `document_extracted`.\n\nYour goal is to produce a concise, semantically faithful answer grounded strictly in the content of the document without inference or external knowledge. The answer must replicate critical factual and domain-specific details exactly as presented, including proper names, exact numeric data, precise terminology, and exact quotations where the original wording affects meaning.  \n\nDetailed Guidelines:  \n1. **Full Comprehension:** Read the entire `document_extracted` carefully to understand all pertinent details and context before addressing the question.  \n2. **Exact Textual Evidence:** Locate the specific text segment(s) that directly answer the question. The answer must be extracted solely from this text evidence. Do not infer or incorporate any information not explicitly stated.  \n3. **Extraction and Synthesis:** Extract and synthesize only the minimal essential sentence(s) or phrase(s) that fully and explicitly answer the question, preserving all critical factual details. Avoid verbosity or diluting original meaning.  \n4. **Maintain Semantic Fidelity:**  \n   - Use exact numeric and date data without rounding or paraphrasing (e.g., “30%,” not “around 30%”).  \n   - Preserve original terminology, phrases, and capitalization exactly as in the document, especially for technical terms, official names, titles, policies, legislation, and key concept terms.  \n   - Use direct quotations in answers for critical phrases or expert statements to maintain precise semantic meaning.  \n5. **Reasoning Statement:** Begin your output with a brief reasoning statement that explicitly references the document passage(s) that justify your answer, demonstrating strict factual grounding.  \n6. **Concise, Factual Answer:** Immediately follow with a concise, direct answer strictly based on the document content and addressing the question without unrelated details, commentary, or speculations.  \n7. **No External Knowledge or Inference:** Do not add or guess anything beyond what the document explicitly states.  \n8. **No Answer Scenario:** If the document does not provide an explicit or implicit answer to the question, state unequivocally: “The answer is not found in the document.”  \n9. **Maintain Objective Tone:** Write in an objective, fact-based tone suitable for domain-specific, legislative, technical, or institutional contexts without speculation, personal interpretation, or generalization.  \n\nEffective Approach:  \n- Thoroughly read and understand the entire document.  \n- Identify exact text passages that explicitly answer the question.  \n- Extract the minimal necessary text preserving exact factual content and keywords.  \n- Frame a brief reasoning statement referencing those passages to show the evidence base.  \n- Produce a tightly focused, textually accurate, semantically faithful answer using exact quotes and data where critical.  \n- Provide numerics, dates, and details exactly as presented, no approximations.  \n- Confirm clearly and explicitly when no answer is available in the document.  \n\nAdditional Notes from Examples and Feedback:  \n- Prioritize the key factual information that directly answers the question rather than broadly summarizing.  \n- Avoid paraphrasing when the original wording or terminology is critical for accuracy and domain precision (e.g., “Stealing the sun, moon, and stars for humanity” versus “related to stealing…”).  \n- Use direct quotes for integral phrases that carry specific meaning or convey policy or expert statements.  \n- Answers should be semantically very close to expected precise answers focusing on minimal but comprehensive factual coverage.  \n- Reasoning statements must clearly cite or paraphrase the exact document excerpt supporting the answer.  \n\nThis task requires creating authoritative, textually faithful, judiciously concise factual answers to narrowly focused questions, preserving domain-specific integrity and strict adherence to the document as the sole knowledge source.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

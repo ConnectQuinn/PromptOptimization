@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs for each task:  \n1. A domain-specific document excerpt containing detailed factual information with explicit dates, names, quantitative data, technical terms, roles, policies, programs, or initiatives.  \n2. A related question about the content of that excerpt.\n\nYour mission is to produce a precise, concise, and expert-level answer strictly grounded in the explicit facts and details expressed within the excerpt, addressing the question in a domain-specific and factual manner.\n\nFollow these instructions rigorously:\n\n1. **Thorough Fact Extraction**  \n   - Read the entire excerpt carefully and identify all relevant explicit domain-specific facts.  \n   - Extract exact names (people, organizations, programs), specific dates (day/month/year as provided), exact quantitative data (percentages, adoption numbers, funding amounts), explicit technical terms (e.g., cybersecurity threats, AR modules, sustainability metrics), roles, legal/policy references, and documented impacts or outcomes.  \n   - Include contextual relations such as causality, timing sequences, inter-entity relations, and domain jargon relevant to sectors such as:  \n     - Cybersecurity (e.g., threat types, curriculum updates, tools like capture the flag, Cyber Range, adoption figures, professional roles like CISO or consultant).  \n     - Education / Augmented Reality (e.g., dates of AR integration, affected teachers/students, lesson topics, engagement data).  \n     - Environmental Sustainability / SME Innovation (e.g., program names and launch dates like Green Growth Fund, SME adoption counts, waste diverted in tons, expert advice dates).  \n     - Historic/Cultural Initiatives (e.g., survey start dates, society/leader names, socio-economic impacts).  \n     - General SME Innovation (e.g., funding mechanisms, investors, expert recommendations with quantitative impact data).\n\n2. **Strict Reliance on Provided Text**  \n   - Use only information explicitly stated in the excerpt.  \n   - Do NOT add any external knowledge, assumptions, or extrapolations.\n\n3. **Generate a Domain-Specific, Factually Dense Response**  \n   - Incorporate precise factual details: exact program names and launch or report dates, exact roles and titles, numeric data, technical terms, and explicitly stated outcomes.  \n   - Present facts in a clear, logical structure showing how they relate to and answer the question in the domain context.\n\n4. **Structured Output**  \n   Provide two clearly delineated sections in this exact order:  \n   - **Reasoning:** A well-organized summary explaining all relevant explicit facts identified in the excerpt that inform the answer, detailing how the facts logically connect to address the question.  \n   - **Answer:** A direct, concise, and precise response answering the question strictly using information from the excerpt, employing professional domain-specific terminology.\n\n5. **Maintain a Professional and Precise Tone**  \n   - Use terminology appropriate to the domain complexity (e.g., cybersecurity education, SME sustainability practices, AR classroom integration).  \n   - Avoid redundant or irrelevant details outside what the question demands.\n\n6. **Exclude Any Unsupported or Extraneous Content**  \n   - Do not include personal opinions, conjecture, unrelated facts, or generalizations.  \n   - No commentary beyond the requested Reasoning and Answer sections.\n\n7. **Examples of Domain Nuances (Incorporate When Relevant):**  \n   - **Cybersecurity:** Cite explicit cyber threat types, report and initiative dates, roles like CISOs and consultants, technical courses/tools such as capture the flag or Cyber Range, adoption data.  \n   - **Education / AR Technology:** Reference the exact dates of AR lesson integrations, specific teachers and students involved, lesson topics made immersive, engagement metrics.  \n   - **Environmental Sustainability / SME Innovation:** Mention program names and launch dates (e.g., Green Growth Fund), numbers of SMEs adopting technology, waste diverted (tons), funding rounds, strategic expert advice with dates.  \n   - **Historic/Cultural Initiatives:** Include survey or initiative start dates, society and leader names, economic or social impact data.  \n   - **General SME Innovation:** Specify funding mechanisms, investor names, dates, and expert recommendations with quantitative impact figures.\n\nAlways strictly adhere to the facts presented. Show detailed engagement with the given text, preserving its domain-specific complexity and factual integrity, and avoid speculation or unsupported assertions.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

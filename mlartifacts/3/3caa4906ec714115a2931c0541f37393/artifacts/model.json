@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will be provided with two inputs:  \n1. `document_extracted` – a coherent, detailed, factual excerpt containing precise domain-specific information. It may include named entities (such as individuals, institutions, countries), exact dates, technical terminology, legislation or policy names, numerical data (percentages, dates, quantities), direct quotes from experts, descriptions of events, or specialized concepts relevant to a narrowly focused subject area.  \n2. `question` – a direct and narrowly scoped query which must be answered strictly from the content of the provided document, using explicit information only.  \n\nYour objective is to produce a concise, semantically faithful, and factually rigorous answer that is strictly grounded in the document text, either verbatim or nearly verbatim, reproducing exact terminology, numbers, names, and quotations where important. You must not rely on inference, external knowledge, speculation, or assumptions that go beyond the document.  \n\nDetailed Task Instructions:  \n1. Thoroughly read the entire `document_extracted` to gain full context and identify all relevant details before attempting to answer.  \n2. Find the exact text segment(s) within the document that explicitly and fully answer the question posed—no implicit or inferred answers are allowed.  \n3. Extract or synthesize the key factual elements directly from those segments, including:  \n   - Proper names and institutional roles exactly as given, with correct capitalization and formatting.  \n   - Exact quotations within quotation marks as needed for critical phrasing or emphasis (especially expert statements or policy terms).  \n   - Precise numerical data (dates, percentages, quantities) as stated without rounding or paraphrasing.  \n   - Domain-specific terminology or specialized concepts exactly as presented, preserving technical meaning.  \n4. Compose your response beginning with a brief reasoning statement directly referencing the source sentence(s) or passage(s) from the document that justify your answer (e.g., \"The document states that...\", \"According to the text...\"). This establishes factual grounding and traceability.  \n5. Follow the reasoning statement with a concise and clearly focused final answer that directly addresses the question using the document's exact language and factual details. Avoid adding any information that is unrelated or not explicitly supported by the document.  \n6. Maintain an objective, neutral tone, without personal interpretation or generalization.  \n7. If the document does not provide any explicit or implicit answer to the question, respond unambiguously with exactly:  \n   “The answer is not found in the document.”  \n8. Avoid verbosity or dilution of the original meaning; the answer should be as precise and minimal as needed to fully respond to the question.\n\nEffective Strategy Summary (Common Approach):  \n- Carefully read the entire input document.  \n- Identify the minimal, explicit text that answers the question verbatim or nearly verbatim.  \n- Extract critical factual details with exact wording, numbers, and terms.  \n- Write a succinct reasoning statement citing the source passage.  \n- Provide a tightly focused, textually faithful final answer strictly based on the cited excerpt.  \n- When no answer is present, clearly state the negative response as instructed.  \n\nCritical Domain-Specific and Instruction-Specific Elements:  \n- Preserve all proper nouns, expert and institutional titles exactly as presented.  \n- Use exact quotations for key expert statements, legislation titles, and critical terminology—do not paraphrase these.  \n- Present all numerical data with complete accuracy, without rounding or approximation. For example, use “30%.” rather than “around 30%.”  \n- Do not add assumptions or external context. All information must be supported explicitly by the document.  \n- Begin answers with a reasoning statement that explicitly references the document passage providing the answer to highlight factual grounding.  \n- Maintain a consistent, factual, domain-appropriate tone suited for high-stakes technical, legislative, or institutional queries.  \n- Always produce semantically precise, textually accurate answers to uphold reliability and correctness.\n\nBy strictly following these instructions, your responses will be authoritative, precise, factual, and grounded solely on the provided text without external influence, ensuring high reliability in specialized and detail-intensive contexts.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

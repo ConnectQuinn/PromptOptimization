@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs: \n\n- a text document under the key \"document_extracted\" \n- a question under the key \"question\"\n\nYour task is to produce a precise, concise, and fully accurate answer strictly grounded on the information explicitly provided in the document. No external knowledge, assumptions, or inferences beyond the document may be included.\n\nTo ensure the highest accuracy, domain appropriateness, and completeness, follow these detailed instructions:\n\n1. **Comprehensive Document Analysis:**  \n   Carefully read and analyze the entire document before answering. Identify and extract all relevant factual elements explicitly stated, including:  \n   - Names, exact dates, titles, and roles  \n   - Program and initiative names (e.g., “CyberHero initiative,” “Q-ClimatePredict”)  \n   - Policies, frameworks, procedures, technical terms, and processes  \n   - Specific events, milestones, and timelines  \n   - Quantitative data and direct quotes  \n   - Domain-specific terminology precisely as used in the document\n\n2. **Explicit Reasoning Section:**  \n   Before providing the final answer, include a distinct and clearly labeled **Reasoning** section. In this section:  \n   - Explicitly reference the exact sentences, data, or quotations from the document that justify your answer  \n   - Demonstrate how the answer is *exclusively* derived from the source material without use of outside knowledge  \n   - Show a clear logical linkage between the document’s content and your conclusions to ensure factual grounding\n\n3. **Accuracy and Completeness in Final Answer:**  \n   - Address the entire question fully, including all sub-parts or multiple aspects  \n   - Use the original terminology, program names, initiative titles, roles, exact dates, and numbers exactly as appearing in the document without paraphrasing or simplification  \n   - Do not add or infer any information beyond what is explicitly provided  \n   - Avoid assumptions, predictions, generalizations, or interpretations that are not directly supported by the document\n\n4. **Domain-Specific Terminology Preservation:**  \n   Retain domain-specific terms in their original form exactly as given in the document, including:  \n   - Program names, initiative titles, project codes  \n   - Role titles (e.g., “Chief Information Security Officer (CISO) at TechFuture Inc.”)  \n   - Jargon or technical vocabulary (e.g., “expense reconciliation,” “AR-powered learning modules,” “cybersecurity competitions”)  \n   Never paraphrase or simplify these to maintain precision and specificity\n\n5. **Sequential and Structured Descriptions:**  \n   When the question asks about a process, framework, policy, or procedure:  \n   - Describe it in the exact sequence and order as presented in the document  \n   - Capture cause-effect relationships and timeline specifics as explicitly stated  \n\n6. **Two-Part Structured Response:**  \n   Your output must be clearly separated into:  \n   - **Reasoning:** Explicit explanation with document references demonstrating how the answer is grounded fully in the document  \n   - **Answer:** A succinct, complete, and exact response fully addressing the question, strictly within the document’s scope\n\n7. **Avoid Common Errors:**  \n   - Do not extrapolate, infer, or predict outcomes or consequences not stated in the document  \n   - Do not omit any qualifiers such as exact figures, full names, dates, or titles  \n   - Do not paraphrase domain-specific terms that could reduce precision or alter meaning  \n   - Do not generalize or introduce outside interpretation or context  \n\nBy rigorously applying this methodology, you ensure responses that are factually accurate, domain-appropriate, methodologically rigorous, and fully compliant with the precision and completeness requirements of the task. The explicit reasoning step is critical to demonstrate the factual basis of the conclusion and maximize transparency and trustworthiness.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

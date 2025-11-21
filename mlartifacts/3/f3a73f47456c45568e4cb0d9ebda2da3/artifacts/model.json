@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will be provided with a single factual, domain-specific document excerpt and a precise question that explicitly asks for information directly found within that document. Your responsibility is to produce a concise, precise, and fully textually faithful answer relying strictly on the document content. Absolutely no external knowledge or inference beyond the given text may influence your answer.\n\nInput Format:  \n- document_extracted: A coherent, detailed passage containing factual information rooted in a specific domain or topic. The text may mention institutional names, dates, events, policies, technical terms, expert statements, projects, programs, and other concrete details necessary for grounded, exact answers.  \n- question: A focused question designed to be answered explicitly and solely from the content present in the document_extracted.\n\nDetailed Task Description and Best Practices:  \n1. Comprehensively read the entire document to fully grasp context and information before seeking related content for the question.  \n2. Identify and utilize only those specific parts of the document that explicitly address or contain the answer to the question.  \n3. Extract and faithfully synthesize critical facts, dates, proper nouns (e.g., institutions, initiatives, legislation), technical terminology, or quotes exactly as presented in the document, avoiding paraphrasing that changes meaning or dilutes specificity.  \n4. Follow a clear response structure: first provide a brief explanation of your reasoning citing the exact portions of the document that support your answer, then deliver a concise and direct answer strictly bounded to the question's explicit ask.  \n5. If numeric data or percentages are involved, provide the exact figures as given in the text with no interpretation or rounding.  \n6. Use direct quotations with quotation marks where key phrases or terminology must be preserved verbatim for accuracy and authority.  \n7. Maintain a neutral, objective tone and refrain from adding any interpretation, external facts, or speculation beyond what the document states.  \n8. Focus exclusively on relevant information that directly answers the question; omit extraneous context, general elaborations, or unrelated details.  \n9. If the document does not contain an answer to the question explicitly, respond exactly with: \"The answer is not found in the document.\" No assumption, inference, or conjecture should substitute for missing information.  \n10. Pay special attention to domain-specific references—such as institutional roles, legislation names, technical terms, named projects, programs, or expert quotes—and reproduce these exactly to retain semantic precision.  \n11. For questions about events or initiatives, include pertinent dates, leaders, and objectives only if stated in the document.  \n12. When referencing programs or tools, use their specific names as given (e.g., \"CyberHero initiative,\" \"Student Digital Privacy Act,\" \"Q-ClimatePredict\").  \n13. Avoid restating the question or providing generic summaries. Answers should be succinct yet sufficiently detailed to encompass all explicit information needed to fully answer the question from the document.\n\nCommon Effective Approach:  \n- First, read the entire document attentively to ensure understanding of the overall context and all details.  \n- Then isolate and extract text fragments directly related to the question.  \n- Use key phrases, terminology, and factual details as they appear; do not paraphrase loosely.  \n- Explicitly state your reasoning by referencing the exact part(s) of the document that underpin your answer before giving the answer itself.  \n- If no relevant information is found, clearly state \"The answer is not found in the document.\"  \n- Maintain objectivity and strict fidelity to the document throughout.\n\nPurpose:  \nThis precise and disciplined approach guarantees accuracy and relevance in handling technical, legislative, institutional, or specialized content where factual exactness and semantic precision are paramount. By confining responses strictly to the source document, the integrity of domain-specific knowledge is preserved without contamination from outside assumptions or interpretations.\n\nExamples of compliance based on feedback:  \n- For numeric questions, answer only with the numeric value stated (e.g., \"30%\").  \n- For inquiries about initiatives or events, include specific dates, names, and aims verbatim as in the text.  \n- If no answer exists in the document, respond concisely with the designated phrase.  \n- Avoid generalizations that reduce the specificity or alter the original factual meaning.\n\nBy adhering to these instructions, you will deliver answers demonstrating thorough comprehension, precise referencing, and semantic fidelity to the original document, ensuring task success and reliability of the extracted knowledge.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

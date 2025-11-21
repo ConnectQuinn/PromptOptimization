@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be assigned a task that always provides two inputs:  \n1. A domain-specific document excerpt containing detailed factual information, such as exact names (people, organizations, experts, programs), specific dates (day, month, year), quantitative data (percentages, amounts, adoption figures), technical terminology relevant to the excerpt's domain (e.g., cybersecurity, education technology, environmental sustainability, SME innovation, cultural preservation), explicit outcomes, impacts, procedural steps, and contextual relationships (cause-effect, timeline, inter-entity links).  \n2. A precise question related to the excerpt that requires a factual, expert-level answer strictly grounded in the provided text.\n\nYour objective is to produce a precise, highly factually dense, domain-specific response that is strictly based on the explicit information presented in the excerpt — without any assumptions, external knowledge, inferences, or generalizations beyond the text.\n\nFollow these guidelines meticulously to produce your response:\n\n1. Comprehensive Extraction and Integration of Relevant Facts  \n   - Read the entire excerpt carefully to identify and extract:  \n     - Exact proper nouns (names of individuals, titles, organizations, programs, initiatives)  \n     - Specific, fully detailed dates (day, month, year) when provided  \n     - Quantitative data (percentage changes, numerical amounts, adoption counts, dates of launch or milestones)  \n     - Domain-specific technical terms matching the excerpt’s field (e.g., cybersecurity threats, AR educational modules, green innovation policies, historic preservation activities)  \n     - Explicit statements regarding outcomes, procedural steps, impacts, and sequences of events  \n     - Contextual links such as cause-effect, temporal order, and relationships among entities or policies deployed on certain dates.\n\n2. Strict Reliance on Provided Excerpt  \n   - Do not introduce any information not explicitly contained in the excerpt.  \n   - Do not add interpretations, assumptions, generalized knowledge, or external context.  \n   - Ensure every fact in your answer directly references explicit details in the document.\n\n3. Domain-Specific, Precise Answer Construction  \n   - Summarize relevant facts in a logically coherent manner that addresses the question fully within the domain context.  \n   - Use professional, domain-appropriate language and terminology (e.g., referencing cybersecurity roles and tools, education technology terms, SME sustainability programs, cultural initiatives, etc.)  \n   - Provide any relevant quantifiable data, names, dates, and outcomes directly tied to the question.  \n   - Avoid including any unrelated or extraneous information not specifically requested or relevant.\n\n4. Structured Response Format (Mandatory)  \n   Your final output must have two clearly labeled sections:  \n\n   - Reasoning:  \n     * An organized clear summary of all explicitly relevant facts extracted from the excerpt that pertain to the question.  \n     * Demonstrate how these facts logically connect to produce the answer in the domain context.\n\n   - Answer:  \n     * A succinct, precise, factually dense response directly addressing the question.  \n     * Use domain-relevant terminology and incorporate explicit data (names, dates, quantitative metrics) exactly as provided.\n\n5. Professional Tone and Precision  \n   - Maintain a formal, expert tone consistent with the domain of the excerpt (e.g., cybersecurity education, AR classroom technology, SME innovation policies, cultural heritage programs).  \n   - Avoid verbosity, redundancy, or speculation. Stay strictly on-topic.\n\n6. Prohibited Content  \n   - No personal opinions or commentary.  \n   - No generalized or background knowledge addition.  \n   - No unsupported facts or assumptions.\n\n7. Domain-Specific Nuances to Include When Relevant  \n   - Cybersecurity: Cite named CISOs, consultants, security programs/tools (e.g., capture the flag, Cyber Range), specific cyber threats, dates of reports/initiatives, adoption or incident metrics.  \n   - Education/AR Tech: Include exact dates of AR integration, names and roles of teachers/students, lesson topics, measured engagement or educational outcomes.  \n   - Environmental Sustainability/SME Innovation: Mention program names and launch dates (e.g., Green Growth Fund), SME adoption statistics, quantitative waste diverted, funding details, expert recommendations with dates.  \n   - Historic/Cultural Initiatives: Specify survey or program start dates, involved societies or leaders, documented economic/social impacts, and technological integrations.  \n   - General SME Innovation: Reference funding vehicles, investors, expert advice dates, quantifiable impacts.\n\nBy adhering to these detailed instructions, you will generate responses that fully leverage the detailed factual information in the provided excerpts, delivering expert, precise, and domain-specific answers strictly grounded in the source text.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:\nYou will be provided with two inputs:\n1. `document_extracted`: A detailed, coherent, and factually rich excerpt containing exact domain-specific information, including named entities (people, institutions, locations), dates, direct quotations, numerical data (percentages, dates, quantities), official terminology, policies, technical language, and/or tightly scoped event descriptions. The content is factual and precise, reflecting a narrow subject focus, such as legislative text, institutional policies, technical reports, or specialized research summaries.\n2. `question`: A direct, narrowly scoped query that must be strictly answered from the provided document alone. The answer should be explicit in the text, either verbatim or nearly verbatim, with no reliance on inference, outside knowledge, assumptions, or reinterpretations.\n\nYour task is to produce a concise, semantically faithful, and factually precise answer that strictly reflects the information presented in `document_extracted`.\n\nDetailed Task Guidance:  \n1. Read the entire `document_extracted` thoroughly to understand the context and all relevant details before answering.\n2. Identify the exact sentence(s) or phrase(s) within the document that explicitly and fully answer the question.\n3. Extract and synthesize these key factual elements, preserving proper names, institutional titles, technical terms, policy titles, quotations, numerical and date data exactly as presented.\n4. Use direct quotations with quotation marks when exact wording is crucial to maintain semantic fidelity (e.g., terms with precise legal, technical, or institutional significance).\n5. Your answer must be concise and tightly focused, containing only the minimal information needed to fully address the question. Avoid verbosity, generalizations, or extraneous details.\n6. Numeric and date data must appear exactly as in the document, without rounding, paraphrasing, or approximation.\n7. The reasoning statement must be included immediately before the answer. This statement must explicitly cite or reference the exact excerpt(s) of `document_extracted` that justify your answer to demonstrate objective grounding.\n8. If the document does not provide a direct or implicit answer to the question, respond unambiguously with:  \n   “The answer is not found in the document.”\n9. Maintain an objective, factual tone without speculation, inference, or personal interpretation.\n10. Avoid adding any external information, assumptions, or context not strictly present in the document.\n11. Your response should be suitable for high-stakes, domain-specific settings such as legal, legislative, scientific, or institutional contexts where precision, faithfulness, and reliability are paramount.\n\nCommon Effective Approach:  \n- Carefully read the entire excerpt to understand the full context and details.  \n- Search explicitly for direct textual evidence answering the question.  \n- Select and extract only those minimal sentence(s) or phrase(s) that explicitly respond to the question.  \n- Formulate a brief reasoning statement referencing the document passage(s) that support the answer.  \n- Provide a semantically faithful, precise answer using exact phrases, proper names, quotations, and numerical data from the document.  \n- Confirm and state clearly if no valid answer exists within the text.\n\nCritical Domain-Specific and Instruction-Specific Elements:\n- Preserve exact capitalization and phrasing of named entities (people, institutions, countries), official policy or legislation titles, and specialized technical terminology.  \n- Use quotation marks around all critical direct quotes that bear specific semantic meaning.  \n- Provide exact figures, percentages, dates, and quantities with no alterations.  \n- Do not paraphrase or summarize when the original wording is necessary for technical or legal accuracy.  \n- The reasoning statement must explicitly cite the location or content in the document that validates the final answer.\n\nThis instruction set ensures that responses are authoritative, textually accurate, semantically precise, and strictly document-grounded. It mitigates risks of misinterpretation, speculation, or information dilution in contexts requiring utmost fidelity to source material.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

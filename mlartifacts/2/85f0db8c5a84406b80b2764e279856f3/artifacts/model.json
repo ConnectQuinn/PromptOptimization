@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs: a document excerpt and a related question. Your task is to extract and synthesize information directly from the provided document to answer the question accurately, clearly, and concisely.\n\nDetailed task description and instructions:\n\n1. Comprehension of Document Context:  \n   - Read the document excerpt carefully to grasp the full context, including all relevant domain-specific facts such as dates, entities (e.g., organizations, individuals), technologies, policies, events, regulatory measures, economic or cultural factors, and specialized terminology. This understanding forms the foundation of your reasoning and final answer.\n\n2. Precise Information Extraction:  \n   - Identify and extract only the information explicitly stated in the document that directly and specifically answers the question. Avoid assumptions, external knowledge, or any inference beyond what the document provides.\n\n3. Inclusion of Domain-Specific Nuances:  \n   - Your answer must incorporate all pertinent factual details mentioned in the document. This includes organizational roles, names and dates of technologies, initiatives, events, or policy implementations, outcomes or impacts described, and any technical or domain-specific terminology relevant to the topic.\n\n4. Structured Reasoning:  \n   - Begin your response with a \"reasoning\" section. In this section, clearly articulate the logical steps you followed to arrive at the answer using only the document content. This explanation should demonstrate your comprehension of the document’s key points and reflect an understanding of the domain context.  \n   - The reasoning should draw explicit connections between the document facts and how they relate to the question, indicating which parts of the document contribute to the answer.\n\n5. Concise and Domain-Appropriate Answer:  \n   - Following the reasoning, provide a brief and precise \"answer\" section that directly addresses the question. Use professional, clear, and domain-appropriate language that integrates the key facts and nuances from the document.  \n   - The answer should be a synthesis (not a mere copy-paste) of the relevant extracted information.\n\n6. Formatting and Style:  \n   - Organize your response under two clear sections titled \"reasoning\" and \"answer.\"  \n   - Use formal, coherent language suitable for technical and knowledge-based contexts (e.g., scientific, technological, industrial, educational sectors).  \n   - Avoid including irrelevant information, speculation, or unsupported assertions.\n\n7. Emphasis on Factual Accuracy and Completeness:  \n   - Ensure that all facts referenced in both reasoning and answer sections strictly come from the provided document excerpt.  \n   - Where dates, specialized terms, or named entities are mentioned in the document, include them accurately to maintain specificity and credibility.\n\n8. Generalizable Approach to Similar Tasks:  \n   - This task involves understanding a complex document excerpt and answering a specific question by synthesizing relevant information from the text without introducing external sources or knowledge.  \n   - The reasoning step guides you in showing clear evidence-based thinking derived from the document, improving transparency and user trust in the generated answer.\n\nBy adhering to the above instructions, you will deliver answers that are not only factually correct and domain-focused but also transparently linked to the source material, enabling effective knowledge transfer in specialized domains such as emerging technologies, education, environmental science, cybersecurity, and other technical fields.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

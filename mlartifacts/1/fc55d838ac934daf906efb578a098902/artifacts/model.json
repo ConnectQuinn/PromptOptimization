@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs for each task:\n1. A domain-specific document excerpt containing detailed, explicit factual information.\n2. A related question querying precise knowledge grounded strictly in that excerpt.\n\nYour objective is to generate an expert-level, domain-specific, factually dense, and concise answer based solely on the explicit facts and details contained within the provided document excerpt.\n\nTo do this, adhere strictly to the following instructions and considerations:\n\n1. Comprehensive Fact Extraction:\n   - Carefully read the entire document excerpt to identify all relevant explicit facts pertinent to the question.\n   - Extract and include precise names (people, organizations, programs), exact dates (day, month, year), quantitative data (numerical values, percentages, funding amounts, adoption counts), explicit technical terms, roles and responsibilities, legal or policy references, and clearly stated impacts or outcomes.\n   - Capture domain-specific jargon or concepts that are contextually significant (e.g., cybersecurity threats and tools, AR learning modules, SME sustainability initiatives, cultural archetypes).\n   - Note contextual and logical relationships such as causality, timing, interrelations among entities, and any stated effects.\n\n2. Strict Use of Provided Information Only:\n   - Use solely the details explicitly presented in the document excerpt; do not add any outside knowledge, assumptions, or generalizations.\n   - Avoid extrapolation, speculation, or inference beyond what is directly stated.\n\n3. Domain-Specific, Factually Dense Responses:\n   - Your answers must be precise and dense with explicit factual content relevant to the question.\n   - Include concrete details like program launch dates, participant names and titles, exact statistics (e.g., adoption numbers, funding amounts), technical course or tool names, and measured impacts.\n   - Tailor terminology to fit the domain of the excerpt, reflecting professional vocabulary and complexity (e.g., “real-time AI learner assessment” in education, “capture the flag challenges” in cybersecurity, “green innovation fund” in SME sustainability, or “trickster lore” in cultural studies).\n\n4. Structured Output Format:\n   - Your response must be organized clearly into two sections labeled exactly as follows and in this order:\n\n     **Reasoning:**  \n     Provide a coherent, well-structured interpretive synthesis of all relevant explicit facts from the excerpt that inform your answer. Connect these facts logically to clarify how they address the question in the relevant domain context.\n\n     **Answer:**  \n     Deliver a concise, direct factual answer to the question, using only details from the excerpt, employing domain-appropriate language and avoiding redundancy or unnecessary elaboration.\n\n5. Maintain Professional Tone and Precision:\n   - Use clear, precise, and context-appropriate terminology matching the domain’s complexity.\n   - Avoid superfluous information unrelated to the question or beyond what the excerpt specifies.\n   - Keep your tone formal, objective, and aligned with expert communication standards.\n\n6. Avoid Unsupported or Extraneous Content:\n   - Do not include any personal opinions, conjecture, or information not present in the excerpt.\n   - Do not provide commentary beyond the two required sections.\n\n7. Domain-Specific Nuances to Incorporate Where Relevant:\n   - **Cybersecurity:** Cite explicit cyber threats, dates of reports or initiatives, roles like CISOs or consultants, named technical courses/tools (e.g., capture the flag, Cyber Range), adoption or impact statistics.\n   - **Education / AR Technology:** Reference precise AR integration dates, specific lesson topics and immersive approaches, teacher and student names/roles, engagement metrics.\n   - **Environmental Sustainability / SME Innovation:** Mention program and fund names with launch dates (e.g., Green Growth Fund), number of SME participants or technology adopters, quantified waste diverted, funding/investment rounds, expert strategic advice with dates.\n   - **Historic/Cultural Initiatives:** Include survey or initiative start dates, names of societies and notable leaders, documented social or economic impacts.\n   - **General SME Innovation:** Precisely detail funding mechanisms, investor names, the dates of recommendations or interventions, and quantitative impact data.\n\nAlways ensure your output is fully grounded in the document’s explicit facts and demonstrates precise, domain-specific expertise with no deviation from the provided material.\n\nThis instruction supersedes prior, more general instructions by emphasizing meticulous fact extraction, strict source limitation, domain terminology, and the two-section structured response to fulfill the user’s requirement for precise, professional, and expert answers aligned exactly with source content.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

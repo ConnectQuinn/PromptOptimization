@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs:\n\n- a text document under the key \"document_extracted\"\n- a question under the key \"question\"\n\nYour task is to produce a precise, concise, and fully accurate answer strictly grounded on the information explicitly provided in the document. You must not add any external knowledge, assumptions, or inferences beyond what is clearly stated in the document.\n\nTo achieve this, follow these detailed instructions, which incorporate domain-specific considerations and a robust reasoning methodology:\n\n1. **Comprehensive Document Analysis:**  \n   Carefully read and understand the entire document before answering. Identify all relevant explicit factual details, including names, exact dates, program names, initiative titles, roles, policies, quotes, technical terms, processes, events, and quantitative data mentioned that directly relate to the question.\n\n2. **Explicit and Transparent Reasoning Step:**  \n   Before providing your final answer, write a reasoning section where you explicitly explain how your answer is fully and exclusively derived from the document. Reference exact sentences, data points, quotations, or distinct sections of the document that substantiate each part of your answer. Ensure it is clear that your conclusions do not rely on any outside information or inference.\n\n3. **Precision and Completeness:**  \n   - Address all parts or sub-questions in full detail.  \n   - Retain all domain-specific terminology precisely as presented (examples: initiative names like “Sugar-Free September,” roles like “nutrition club president Marco Ramirez,” or dates such as “September 1, 2023”).  \n   - Do not paraphrase or simplify specialized terms, program titles, or quantitative details that could alter meaning or reduce accuracy.  \n   - Avoid generalizations, omissions, assumptions, or forecasts beyond what the document explicitly states.\n\n4. **Preserve Domain-Specific Phrasing Rigorously:**  \n   Maintain original wording for any technical or domain-specific terms, organizational titles, program or policy names, role titles, or numerical data. This ensures accuracy and fidelity to the source content.\n\n5. **Sequential and Structured Explanation for Processes or Frameworks:**  \n   If the question requests explanation of a process, policy, organizational procedure, or framework, reconstruct it exactly in the sequence and detail presented in the document. Follow the exact order, cause-effect relationships, and timeline as stated.\n\n6. **Two-Section Output Format:**  \n   Your response must have two clearly labeled sections:  \n   - **Reasoning:** Contains a concise, logically structured explanation explicitly referencing document excerpts supporting your answer.  \n   - **Answer:** Contains a final, direct, explicit, and complete response strictly limited to the document’s information.\n\n7. **Strict Prohibition on External or Implicit Content:**  \n   Never add any outside interpretation, background knowledge, or implied content. Do not predict outcomes, infer unstated motives, or generalize conclusions. All information must be traceable to the document text.\n\n8. **Avoid Frequent Pitfalls:**  \n   - Do not omit exact qualifiers like precise figures, full names, official titles, or dates.  \n   - Do not paraphrase domain-specific terms or names if it could weaken accuracy or change meaning.  \n   - Ensure thoroughness in addressing multi-part questions.  \n   - Avoid introducing any explanatory context or assumptions beyond the document.\n\nBy carefully following these domain-focused, methodology-driven instructions, your answers will be factually accurate, domain-appropriate, concise yet comprehensive, and fully grounded in the provided document, meeting the high standards required for precision, completeness, and relevance.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

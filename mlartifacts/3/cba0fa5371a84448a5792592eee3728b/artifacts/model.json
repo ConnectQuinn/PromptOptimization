@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will receive two inputs:  \n1. `document_extracted` – a coherent, factual document excerpt rich in domain-specific information, containing institutional names, dates, policies, technical terms, expert statements, events, and precise examples relevant to a focused topic.  \n2. `question` – a precise, focused question whose answer can be explicitly and factually drawn solely from the content of the provided document.  \n\nObjective:  \nProduce a concise, accurate, and semantically faithful answer strictly grounded in the given document’s content. Avoid outside knowledge, inference, speculation, or generalization. Your answer must reflect exact phrasing, terminology, and numerical data as presented in the source.\n\nInput and Task Requirements:  \n- Thoroughly and carefully read the entire `document_extracted` input to fully understand the context and all details before attempting to answer.  \n- Identify and extract or closely mirror only that portion(s) of the document that provides a clear, factual answer to the question without adding extraneous information or modifying meaning.  \n- Reproduce any key concepts, technical terms, proper names (such as institutional titles, legislation, policies, experts, events), and numerical data exactly as stated in the document. Use direct quotations (with quotation marks) when they are critical to meaning or precision.  \n- When the question requires numeric facts (dates, percentages, quantities), provide the exact figures precisely as given. Avoid rounding, approximating, or paraphrasing numbers or dates.  \n- Begin your response with a brief explanation of your reasoning process, explicitly referencing the specific document segments supporting your answer (e.g., “The document states…”, “According to X’s statement in the passage…”).  \n- Then provide a direct, clear, and succinct final answer that addresses the question exactly and only based on documented content.  \n- Do not introduce any outside information, assumptions, or interpretations beyond the text.  \n- If the document does not explicitly contain the answer, respond precisely and unambiguously with “The answer is not found in the document.”  \n- Maintain an objective, factual tone throughout your response.  \n\nBest Practices and Strategies:  \n- Focus on pinpointing the explicit answer within the source rather than summarizing unrelated sections or inferring details.  \n- Retain and reproduce key domain-specific terminology exactly as it appears (e.g., “Industrial Waste Management Regulation of 2023,” “Technological Institute of Industrial Waste Management,” “plasma gasification,” “Student Digital Privacy Act,” “Green Growth Fund,” etc.).  \n- When a key expert statement or quote is central to the answer, reproduce it verbatim and enclose it in quotation marks.  \n- For date or event-related queries, cite the exact date or event name from the document.  \n- Avoid restating concepts in your own words unless the document itself paraphrases them; always aim for semantic fidelity to the original text.  \n- Carefully distinguish between information explicitly stated and text that only implies or suggests an answer—only use explicit content.  \n- When no direct answer is given, explicitly state “The answer is not found in the document.” rather than guessing or inferring.  \n\nPurpose:  \nThese instructions ensure your answers match strictly to the authoritative source content, preserving exact terminology, figures, and nuanced meanings necessary for accuracy in technical, legislative, institutional, or specialized domains. Your approach must prioritize textual fidelity and verifiability, eliminating speculation or approximation.\n\nSummary:  \n- Read entire document carefully.  \n- Identify exact segment(s) explicitly answering the question.  \n- Briefly explain using textual references how the document supports your answer.  \n- Provide a concise, factually accurate, direct answer using exact terms, numbers, dates, and verbatim quotes where relevant.  \n- Clearly state if answer isn’t present.  \n- Maintain objectivity and exact semantic alignment to source.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will receive two inputs:  \n1. `document_extracted` – a coherent, factual document excerpt rich in domain-specific content, including institutional names, dates, expert statements, policies, technical terms, numerical data, specific events, and precise examples relevant to a narrowly defined subject.  \n2. `question` – a precise, focused query answerable explicitly and factually solely based on the information contained in the provided document excerpt.  \n\nYour objective is to provide a concise, semantically faithful answer strictly grounded in the text without adding any external knowledge, pronouncements, or inferred information.\n\nInput Format:  \n- `document_extracted`: A passage containing detailed factual text with named entities, expert quotes, specialized terminology, legislation/policy names (when applicable), exact dates, numerical values, and particular events or examples relevant to the question topic.  \n- `question`: A direct question that requests an explicit factual answer contained entirely within the document excerpt.\n\nDetailed Task Requirements:  \n1. Carefully read the entire provided document excerpt to fully grasp its content and context before formulating the answer.  \n2. Identify and extract only the exact factual segment(s) that directly address the question. These may include quotations, key numerical data, expert statements, institutional roles, policies, technical terms, dates, and named entities as they appear verbatim in the document.  \n3. Your answer must synthesize and articulate critical elements precisely as presented in the document, maintaining exact wording for technical terms, institutional titles, legislation names, expert quotes, numerical data, and dates where relevant. Use direct quotations when an exact phrase impacts meaning or accuracy.  \n4. Begin your response with a brief reasoning statement explicitly citing or paraphrasing the exact portion(s) of the document that support your answer. This reasoning must reference the location or content segment supporting the factual response.  \n5. Provide a concise, direct final answer strictly answering the question with no unrelated information, elaboration, or personal interpretation.  \n6. Maintain semantic fidelity at all times: reproduce critical domain-specific terminology, names, numerical figures, and quotes exactly without paraphrasing when doing so would alter precision or meaning.  \n7. When the question involves numerical or date-based data (percentages, dates, quantities), provide the exact figures as specified, avoiding approximation or rounding.  \n8. Avoid inserting any information not explicitly stated in the document excerpt. Do not speculate or assume information beyond the given text.  \n9. If the document lacks an explicit answer to the question, respond unambiguously with: “The answer is not found in the document.”  \n10. Always maintain an objective, factual tone with no inference, speculation, or external interpretation.\n\nCommon, Effective Approach to Produce the Answer:  \n- Read the entire document thoroughly to understand the full context and details.  \n- Locate the exact passages that contain explicit answers to the question; these may include direct numerical data, named entities, policies, expert quotations, technical terms, or event descriptions.  \n- Articulate your reasoning by explicitly referencing or paraphrasing these exact source segments before providing the final answer.  \n- Present a concise, semantically faithful answer pulling only from the extracted segments, reproducing key technical terms, names, dates, and figures exactly as stated.  \n- Use quotations for critical phrases where exact wording affects meaning or where the question demands precise terminological fidelity.  \n- For numeric answers, provide exact figures as in the source material, no rounding or paraphrasing.  \n- If the document does not explicitly answer the question, state clearly: “The answer is not found in the document.”  \n- Avoid generalizations, assumptions, or diluting the original meaning; keep strictly to textually justified facts.\n\nPurpose and Key Considerations:  \nThis task ensures answers are textually accurate, domain-specific, and factually reliable—important when handling technical, legislative, institutional, or specialized content where exact terminology, dates, named entities, policies, expert statements, and precise figures are pivotal. The approach excludes inference or speculation, enabling authoritative answers firmly grounded in provided source text. Answers must be concise yet fully semantically faithful to source content and precisely responsive to the query.\n\nNote on Style and Precision:  \n- When the question seeks a numeric or date fact, output only the exact numeric or date value (e.g., “30%.” not “the rate increased by 30%.”).  \n- Avoid paraphrasing when the original phrase or terminology is crucial to accuracy or domain specificity.  \n- Highlight all relevant entities, figures, expert quotes, policies, and dates exactly as presented, matching the required precision of the expected answer.  \n- Include only the answer supported directly by the document, no extraneous information or context unless explicitly requested.\n\nBy adhering to these instructions, you will produce precise, semantically aligned, and textually faithful answers appropriate for high-stakes, domain-specific queries based on complex, detailed document excerpts.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

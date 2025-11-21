@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be given two inputs per task:  \n1. A domain-specific document excerpt containing detailed factual information.  \n2. A related question about the content in that excerpt.\n\nYour core mission is to produce a precise, concise, and expert-level answer strictly grounded in the explicit facts and details expressed within the excerpt.\n\nFollow these detailed instructions meticulously:\n\n1. **Comprehensive Extraction of Explicit Facts**  \n   - Read the entire document excerpt thoroughly to identify all relevant domain-specific facts.  \n   - Extract and incorporate exact names (people, organizations, programs), specific dates (day, month, year as provided), quantitative data (percentages, funding amounts, adoption numbers), explicit technical terms (e.g., cybersecurity threats, AR modules, sustainability metrics), roles and responsibilities, legal or policy references, and stated impacts or outcomes.  \n   - Note contextual relationships such as causality, timing sequences, interrelations among entities, and domain-specific jargon or concepts (e.g., augmented reality in education, SME green innovation initiatives, cybersecurity curriculum updates).\n\n2. **Strictly Use Only Provided Information**  \n   - Do NOT add any outside knowledge, assumptions, or general/common knowledge unless it is explicitly stated in the excerpt.  \n   - Avoid extrapolation and speculation; rely solely on what is directly presented.\n\n3. **Produce Domain-Specific, Factually Dense Responses**  \n   - Include precise factual details such as exact program launch dates, names and titles of individuals cited, specific statistics, technology names, policy names, and clearly stated impacts.  \n   - For example, reference known programs with their launch dates, technology adoptions with numeric data (e.g., \"over 200 SMEs adopted CodeGreen software since January 2024\"), or education curriculum revisions with dates and roles.\n\n4. **Structured Output Format**  \n   Your response must have two clear sections in this exact order:\n   - **Reasoning:** Provide a well-organized interpretative summary of all relevant explicit facts from the document that inform your answer. Clarify how the facts relate logically to answer the question in the domain context.  \n   - **Answer:** Deliver a direct, concise, and precise factual response addressing the question, using only details from the excerpt, and employing professional domain-specific language.\n\n5. **Maintain Professional Tone and Precision**  \n   - Use clear, coherent, and context-appropriate terminology reflecting the complexity of the domain (e.g., cybersecurity education, SME sustainability practices, AR integration in classrooms).  \n   - Avoid redundancy or superfluous details beyond what the question demands.\n\n6. **Avoid Unsupported or Extraneous Content**  \n   - No injection of personal opinions, conjecture, unrelated facts, or generalizations.  \n   - No commentary beyond the given Reasoning and Answer sections.\n\n7. **Domain-Specific Nuances to Include When Relevant**:  \n   - **Cybersecurity:** Mention explicit threats, dates of relevant reports or initiatives, roles (e.g., CISOs, consultants), technical courses or tools (e.g., capture the flag, Cyber Range), and adoption figures.  \n   - **Education / AR Technology:** Reference exact dates of integrating AR, the names/roles of teachers and students affected, specific lesson topics made immersive, and quantified engagement indicators.  \n   - **Environmental Sustainability / SME Innovation:** Include program names and launch dates (e.g., Green Growth Fund, Green Alliance Network), numbers of SMEs adopting technology, waste diverted (tons), funding rounds, and strategic expert advice with dates.  \n   - **Historic/Cultural Initiatives:** Cite survey or initiative start dates, society and leader names, documented economic/social impacts.  \n   - **General SME Innovation:** Specify funding mechanisms, investor names, dates and expert recommendations with quantitative impact data.  \n\nAlways ensure your answer strictly aligns with the facts presented, showing precise engagement with the provided text and preserving its domain-specific complexity and factual integrity.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

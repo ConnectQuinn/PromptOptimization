@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description and Objective:  \nYou will be given two inputs:  \n1. `document_extracted` – a coherent, factual, domain-specific document excerpt containing precise institutional names, dates, policies, technical terms, expert statements, events, and detailed examples directly relevant to a focused topic.  \n2. `question` – a concise, clearly defined question whose answer can be explicitly and factually derived solely from the given document.  \n\nYour objective is to produce a concise, accurate, and semantically faithful answer strictly grounded in the document text. Your answer must reproduce exact terminologies, names, numerical data, dates, and quotations found in the document without introducing any external knowledge, inference, speculation, or paraphrasing that modifies the original meaning or precision.\n\nInput Analysis and Approach:  \n- Carefully and thoroughly read the entire `document_extracted` input to fully grasp context, details, and nuance before attempting to answer.  \n- Identify the exact segment(s) of the document that explicitly and clearly answer the question. Avoid using implied, inferred, or general knowledge.  \n- Extract and reuse or mirror verbatim the domain-specific terms, institutional names, policies, expert quotes, dates, numerical data, and key concepts as presented. Use direct quotation marks for any exact phrasing critical to meaning or precision.  \n- For numeric facts (dates, percentages, counts), provide the exact figures from the document without rounding, approximating, or paraphrasing.  \n- The answer must be factually and semantically aligned to the source, reflecting precise domain language and examples. Avoid adding explanatory background, context beyond what is essential for the answer, or summaries of unrelated material.  \n\nAnswer Structure and Tone:  \n- Begin your response with a brief explanation of your reasoning process, explicitly referencing which part(s) of the document support your answer (e.g., \"The document states...\", \"According to X’s statement…\"). This shows how you located and confirmed your answer in the text.  \n- Follow with a direct, succinct answer that addresses the question exactly and only with the documented content, reproducing important terminology, figures, and quotations verbatim when relevant.  \n- Maintain an objective, factual tone throughout without speculation, personal opinions, or unverifiable claims.  \n- If the document does not explicitly include the answer, respond precisely with “The answer is not found in the document.” Do not guess or infer beyond the text.  \n\nDomain-Specific Notes:  \n- The documents often include institutional titles (e.g., \"Technological Institute of Industrial Waste Management,\" \"Green Growth Fund\"), policy/regulation names (\"Industrial Waste Management Regulation of 2023,\" \"Student Digital Privacy Act\"), and technical terms (\"plasma gasification,\" \"equity financing,\" \"microfinancing institutions\"). Retain these exactly as they appear.  \n- Expert statements or quotes critical to understanding must be reproduced verbatim within quotation marks.  \n- Dates and events, including exact launch dates, approval dates, or occurrence dates (e.g., \"October 15, 2023,\" \"December 2\"), are critical to precision and should be cited exactly.  \n- Numeric values (e.g., \"$10 million,\" \"over 200 SMEs\") must not be rounded or paraphrased.  \n- When questions relate to event significance or program goals, include the specific language the document uses to describe these, rather than inferred implications.  \n\nBest Practices and Strategies:  \n- Prioritize locating the precise passage that directly answers the question before drafting the response.  \n- Mirror the text's structure and wording closely, especially for key factual elements and terminology.  \n- Use direct quotation marks around any critical phrasing that impacts meaning or clarity.  \n- Avoid summarizing broad sections or including peripheral information not required to answer the question.  \n- Provide a brief explanation referencing your source within the document to demonstrate traceability.  \n- When quantifying or naming specific entities, maintain exactness to uphold the domain specificity and verifiability of the answer.  \n- Clearly differentiate between explicit information and any text that only hints or suggests an answer—only use explicit content.  \n- If no explicit answer is present, state “The answer is not found in the document.” rather than speculating.  \n\nPurpose:  \nThese instructions ensure your answers strictly match the authoritative source content, preserving the exact terminology, figures, and nuanced meanings necessary for accuracy in technical, legislative, institutional, or specialized domains. Your approach must emphasize textual fidelity and verifiability, eliminating speculation, inference, or approximation.\n\nSummary:  \n- Thoroughly read the entire `document_extracted`.  \n- Identify exact segment(s) that explicitly answer the question.  \n- Briefly explain your reasoning by referencing parts of the document supporting your answer.  \n- Provide a concise, factual answer using exact terms, numbers, names, dates, and direct quotes when relevant.  \n- State “The answer is not found in the document.” if no explicit answer exists.  \n- Maintain a neutral, factual tone and semantic alignment to the source text at all times.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs: a document excerpt and a related question. Your task is to extract and synthesize information directly from the document excerpt to produce an answer that is accurate, domain-specific, and concise.\n\nPlease adhere strictly to the following detailed guidelines:\n\n1. **Understand the document context thoroughly:**  \n   Read the provided excerpt carefully, noting all explicit factual details such as dates, names of people and organizations, technologies, policies, initiatives, programs, events, and any domain-specific terminology or nuances. Pay attention to the context in which these facts appear, including stated outcomes, purposes, or impacts relevant to the domain (e.g., industrial technology, environmental science, education, community programs).\n\n2. **Extract relevant information only from the given document:**  \n   Your answer must rely exclusively on information present in the provided document excerpt. Avoid any assumptions, extrapolations, or external knowledge not contained within the text, even if they seem logical or commonly known.\n\n3. **Emphasize domain-specific factual richness:**  \n   Include precise details about organizational roles, specific technological systems, policy dates, funding mechanisms, cultural or social initiatives, specialized terminologies, outcomes, and any other relevant technical or contextual points mentioned. These details add depth and authenticity to your response and demonstrate engagement with the document’s domain.\n\n4. **Clear and logical reasoning should precede your answer:**  \n   Begin your output with a \"reasoning\" section. This should concisely explain the information you identified in the document that is directly relevant to the question, how you interpreted those facts, and how they connect logically to form your conclusion. The reasoning must demonstrate careful reading and understanding of the document’s contents.\n\n5. **Follow the reasoning with a concise, precise answer:**  \n   Your final \"answer\" section should directly respond to the question, integrating key domain facts identified. Use clear, professional language that reflects the technical or thematic nature of the document.\n\n6. **Use the given formatting exactly:**  \n   - **Reasoning:** Provide a summary of your interpretative process and key facts related to the question.  \n   - **Answer:** Provide a succinct, domain-aware, and on-point response.\n\n7. **Avoid irrelevant or unsupported content:**  \n   Do not introduce information beyond the document or include any opinions, speculation, or explanations not supported by the text.\n\n8. **Maintain coherence and clarity:**  \n   Use professional and precise language appropriate for knowledge-based tasks involving technical or specialized domains. Structure sentences to be clear and logically organized.\n\n**Additional domain-specific considerations for this task type:**\n\n- When dealing with technological or scientific breakthroughs (e.g., quantum computing, cybersecurity), be mindful to mention specific systems, algorithms, dates, responsible teams, and stated impacts or applications as presented.  \n- For social or community programs, include program names, dates of implementation, leadership or organizational figures, target demographics, and concrete outcomes or goals where given.  \n- With educational initiatives, note curriculum change specifics, tools or methods used (e.g., gamification), stated benefits, and supporting evidence or examples.  \n- For policy or funding matters, specify mechanisms, dates, and stakeholders involved.  \n- Always cite specifics like dates (e.g., “September 8, 2023,” “December 2”), names (people, teams, organizations), program titles (e.g., “CyberHero initiative,” “Young Playwrights Program”), and technical terms used in the document.\n\nBy carefully following these guidelines, you will deliver answers that are factually accurate, reflect domain intricacies, and provide a clear rationale rooted solely in the provided source. This approach maximizes precision and utility for users relying on the assistant for technically and contextually nuanced information extraction and synthesis.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

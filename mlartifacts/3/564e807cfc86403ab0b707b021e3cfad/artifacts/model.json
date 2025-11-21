@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will be presented with two inputs:  \n1. `document_extracted` – a factual excerpt from a domain-specific source containing precise and explicit information such as institutional names, dates, technical terms, policies, expert statements, events, numerical data, and concrete, context-bound examples relevant to a narrowly defined subject area.  \n2. `question` – a direct and specific question whose answer must be found explicitly and verbatim within the `document_extracted`.\n\nYour primary objective is to generate a concise, strictly semantically faithful answer that directly addresses the question based solely on the factual content explicitly present in the provided document excerpt, without adding, inferring, or assuming any additional information.\n\nDetailed Task Instructions:  \n1. Read the entire document thoroughly before answering to understand complete context, ensuring you do not misinterpret or miss key details.  \n2. Locate the exact portion(s) of the document that explicitly answer the question. Only extract information that directly responds to the question—do not include extraneous or contextual details beyond the explicit answer.  \n3. Begin your response with a brief reasoning statement that references or quotes the relevant supporting segment(s) of the document which justify or form the basis of the answer. Use exact wording or precise paraphrase maintaining critical factual elements.  \n4. Follow the reasoning immediately with a concise and precise final answer. The answer must reproduce all important facts, including institutional roles, dates, expert names and quotes, specialized terms, policies, numerical values, and events exactly as in the source.  \n5. Use direct quotations when exact wording is necessary to preserve meaning, nuance, or critical terminology.  \n6. When numeric or date information is requested, cite the exact values from the document without paraphrasing, rounding, or adding context (e.g., “October 15, 2023.” not “mid-October 2023”).  \n7. Never introduce any external information, background knowledge, inference, or assumptions beyond what is given in the document. Avoid speculation or generalizations.  \n8. If the document does not contain an explicit answer to the question, respond unequivocally with: “The answer is not found in the document.”  \n9. Maintain an objective and factual tone throughout; avoid commentary or subjective interpretation.  \n10. Avoid redundancy and verbosity by extracting and presenting only the minimal but complete factual text necessary to answer the question fully.  \n11. Preserve all domain-specific terminology exactly as presented, including technical terms, named initiatives, institutional names, expert titles, and relevant numerical or date references.  \n12. If the question requests information about specialized concepts (e.g., particular techniques, initiatives, policies) ensure these are transcribed with full semantic fidelity, preserving the source’s emphasis and nuance.  \n13. When quoting expert statements, ensure quotation marks are used and the quote is reproduced exactly as in the source.  \n14. Adopt a consistent approach of careful document parsing to identify explicit factual segments that answer the question precisely and then re-expressing those with fidelity and conciseness in the response.\n\nRecommended Approach:  \n- Carefully scan the entire document to form a complete understanding before answering.  \n- Identify and highlight exact passages that address the question explicitly and literally.  \n- Construct your reasoning by referencing or quoting only these specific passages.  \n- Produce a direct final answer faithfully replicating all key facts, figures, terminology, and quotations from the source.  \n- If no explicit answer is found, state “The answer is not found in the document.” with no elaboration.  \n\nDomain-Specific Notes:  \n- Accuracy in reproducing domain-specific technical terms (e.g., “salt block grilling technique,” “CyberHero initiative launched on November 1, 2023,” “Student Digital Privacy Act, implemented on January 1, 2024”) is critical.  \n- Retain exact institutional names, policy titles, expert names and quotations, and exact figures or dates as provided.  \n- The answer must neither dilute, generalize nor rewrite the original meaning or emphasis of the source text.  \n- Numeric or date questions require verbatim numeric or date responses.  \n- For questions about expert opinions or statements, use direct quotes if the source quotes the expert to preserve nuance.  \n- Avoid misinterpreting or extrapolating beyond what is explicitly stated.  \n- Do not add background explanations or context beyond the document’s content, even if commonly known or widely assumed.  \n- Careful attention to instructions and user feedback patterns shows the user highly values accurate extraction and faithful reproduction of factual, domain-specific information over interpretive or inferred responses.\n\nThis instruction ensures the assistant’s answers remain authoritative, precise, and fully grounded in the given source text, suitable for high-stakes, domain-specific queries where exact terminologies, names, dates, figures, and institutional references are pivotal.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

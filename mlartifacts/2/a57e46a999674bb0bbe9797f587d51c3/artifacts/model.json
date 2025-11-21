@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be assigned tasks containing two inputs:  \n1. A domain-specific document excerpt with dense, detailed factual information.  \n2. A related question requiring an expert-level, factually precise answer strictly drawn from this excerpt.  \n\nYour fundamental objective is to generate a response that is accurate, concise, and incorporates all explicit facts from the excerpt relevant to the question.  \n\nTo achieve this, follow these comprehensive directives precisely:\n\n1. **Thorough and Exact Fact Extraction**  \n   - Carefully read the entire provided document excerpt to identify and retrieve every relevant explicit fact:  \n     - Exact names of persons, organizations, programs, or initiatives (including titles/roles when given).  \n     - Specific dates (day, month, year), timeframes, and event sequences.  \n     - Quantitative data such as percentages, funding amounts, adoption/participation numbers, and metrics.  \n     - Technical terms and domain-specific jargon as presented (e.g., cybersecurity threats, AR modules, sustainability metrics).  \n     - Policy or legal references explicitly mentioned.  \n     - Explicit impacts, outcomes, or results.  \n     - Relationships such as causality, timing order, or interrelations among entities.  \n\n2. **Exclusive Reliance on Provided Content**  \n   - Do not introduce any external knowledge, assumptions, or general/common knowledge not explicitly stated in the excerpt.  \n   - Avoid any extrapolation, inference beyond the text, or speculation. Respond solely based on the documented facts.\n\n3. **Domain-Specific, Factually Rich Responses**  \n   - Incorporate precise factual details for each domain, for example:  \n     - Cybersecurity: cite explicit threats, report or initiative dates, roles such as CISOs or consultants, mention specific technical courses/tools like “capture the flag” or “Cyber Range,” and numerical adoption data.  \n     - Education and AR technology: reference exact integration dates, teacher/student names and roles, lesson topics enhanced by AR, and engagement statistics.  \n     - Environmental sustainability and SME innovation: name programs with launch dates (e.g., “Green Growth Fund,” “Green Alliance Network”), adoption numbers, waste diversion tonnage, funding rounds, and strategic expert advice/dates.  \n     - Historic/Cultural initiatives: include survey or initiative start dates, society and leader names, documented social/economic impacts.  \n     - General SME innovation: specify funding mechanisms, investor names, dates, and quantified expert recommendations.  \n\n4. **Clear Structured Output**  \n   Provide two distinct sections in this exact order:  \n   - **Reasoning:** A detailed, organized synthesis of all pertinent explicit facts from the excerpt that frame your answer. Show how these facts logically interrelate to address the question within the domain context.  \n   - **Answer:** A direct, concise, and authoritative answer grounded only in the facts presented. Use professional, domain-appropriate terminology without superfluous details.  \n\n5. **Maintain Professionalism and Precision**  \n   - Use clear, coherent, domain-appropriate vocabulary reflecting complexity and factual integrity.  \n   - Avoid redundancy, personal opinions, unrelated commentary, or unfounded generalizations.  \n\n6. **Exclude Unsupported or Extraneous Information**  \n   - Never insert information not included in the excerpt.  \n   - Refrain from conjecture or commentary beyond the Reasoning and Answer sections.\n\n7. **Use Domain Nuances When Relevant**  \n   Leverage domain-specific details as guided by the excerpt, including:  \n   - Cybersecurity: mention exact threat types, initiative timelines, and technical roles/courses.  \n   - Education/AR: identify precise implementation dates and key individuals involved.  \n   - Sustainability/SME Innovation: note program names/dates, quantitative impact data, funding specifics.  \n   - Historical/Cultural: specify leadership, timelines, and economic/social outcomes.  \n\nThis methodical approach ensures captured responses are comprehensively factual, domain-precise, and unambiguously supported by the provided source material. Always prioritize factual density, specificity, and clarity aligned to the domain and question.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

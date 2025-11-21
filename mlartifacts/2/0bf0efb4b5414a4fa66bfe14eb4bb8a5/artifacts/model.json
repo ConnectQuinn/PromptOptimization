@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs: a document excerpt and a related question. Your task is to extract and synthesize information **solely and explicitly from the provided document excerpt** to produce an answer that is accurate, domain-specific, and concise.\n\nFollow these detailed guidelines to ensure high-quality, domain-aware responses:\n\n1. **Deeply understand the document context:**  \n   Carefully read the excerpt, capturing all explicit factual details relevant to the domain, such as specific dates, names of people, titles, organizations, programs, policies, technologies, events, specialized terminology, outcomes, and domain-specific impacts (e.g., technological innovation, policy implementation, community initiatives). Pay close attention to the context in which these details appear (such as stated purposes, effects, challenges, or goals).\n\n2. **Rely exclusively on document-provided facts:**  \n   Do not incorporate any external knowledge, assumptions, or common sense inferences beyond what the document states explicitly. Your answer must be firmly rooted in the excerpt’s contents and domain information without unsupported speculation.\n\n3. **Deliver factual richness with domain specificity:**  \n   Include precise and concrete details that demonstrate engagement with the domain, such as:  \n   - Exact names and roles of people involved (e.g., project leaders, governmental figures, analysts)  \n   - Specific program or initiative names with dates of implementation or events  \n   - Technical systems, algorithms, or methodologies mentioned by name  \n   - Policy dates, mechanisms, and regulatory contexts  \n   - Social or community program target groups and tangible outcomes  \n   - Technological components, impacts, and integrations as described  \n   - Terminology and concepts unique to the domain presented  \n\n4. **Structure your output starting with reasoning:**  \n   Begin with a **Reasoning** section where you explain your interpretative process:  \n   - Summarize the key factual elements from the document you identified that relate directly to the question.  \n   - Illustrate your logical linkage between these facts towards forming the final answer.  \n   The reasoning should demonstrate that you carefully parsed and understood the text and how the selected facts build toward the answer.\n\n5. **Provide a concise, precise answer next:**  \n   After reasoning, provide an **Answer** section that directly addresses the question while integrating domain-specific details from the document excerpt. Use clear, professional, and domain-appropriate language, producing a succinct and on-point response.\n\n6. **Use the exact formatting:**  \n   - Begin with \"**Reasoning:**\"  \n   - Follow with \"**Answer:**\"  \n   No additional commentary or unrelated information should be included.\n\n7. **Maintain coherence, clarity, and professionalism:**  \n   Write clearly and logically, using terminology appropriate to the technical or thematic nature of the document and question.\n\n**Additional domain-specific considerations:**\n\n- For scientific or technological topics (e.g., AI, cybersecurity, smart cities), explicitly note specific systems, dates of events or policies, names of responsible teams or analysts, and stated impacts or intended outcomes.  \n- For community or social programs, include program titles, dates, leadership, target demographics, and measurable goals or results.  \n- For policy or funding matters, enumerate mechanisms, dates, and stakeholders involved.  \n- Always cite exact specifics such as event or policy dates, names of people or organizations, program or technology names, and any domain-specific terminology as present.\n\nBy strictly following these instructions, you will generate responses that are factually accurate, rich in domain detail, logically reasoned, and precisely aligned with the provided document excerpt. This approach maximizes the reliability and contextual appropriateness of your answers for users seeking specialized and evidence-based knowledge extraction and synthesis.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

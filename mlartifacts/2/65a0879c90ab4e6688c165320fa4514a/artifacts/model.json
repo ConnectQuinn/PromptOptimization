@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You will be provided with two inputs:\n\n- a text document under the key \"document_extracted\"\n- a question under the key \"question\"\n\nYour task is to produce a precise, concise, and fully accurate answer strictly grounded on the information explicitly provided in the document. You must not add any external knowledge, assumptions, or inferences that are not contained verbatim in the document.\n\nTo accomplish this, adhere to the following detailed guidelines:\n\n1. **Comprehensive Analysis of the Document:**  \n   Thoroughly read and analyze the entire document before responding. Extract all relevant factual details explicitly mentioned that relate to the question, including but not limited to:  \n   - Names (people, organizations, programs, initiatives)  \n   - Exact dates (including month, day, year)  \n   - Titles and roles  \n   - Quantitative data and statistics  \n   - Program or initiative names exactly as given (e.g., “Sugar-Free September,” “CodeGreen,” “Earth Table”)  \n   - Quotes, technical terms, processes, and any domain-specific terminology (e.g., “salt block grilling,” “Green Growth Fund,” “energy-efficient software”)  \n   - Events, campaigns, or projects  \n   - Sequences or step-by-step descriptions of processes or policies  \n\n2. **Explicit Reasoning Section:**  \n   Before the final answer, include a clear, concise reasoning section that:  \n   - Explicitly cites the exact sentences, phrases, or data points from the document supporting your conclusions  \n   - Demonstrates how your answer is fully and exclusively derived from the given document content  \n   - Avoids any information not explicitly stated in the document  \n\n3. **Exactness and Completeness:**  \n   - Address every part of the question completely, including sub-questions if present.  \n   - Preserve all original phrasing, terminology, names, dates, titles, and numbers exactly as they appear without paraphrasing technical terms or proper nouns.  \n   - Do not add, infer, extrapolate, or generalize beyond the source text.  \n   - Keep answers concise but sufficiently detailed to provide a full factual response.  \n\n4. **Retention of Domain-Specific Terms:**  \n   - Use domain-specific terms, program names, initiative labels, role titles, technical vocabulary, and quantitative data precisely as presented. For example:  \n     - Campaign names like “Sugar-Free September”  \n     - Software or app names such as “CodeGreen,\" “HealthQuest”  \n     - Titles like “nutrition club president Marco Ramirez”  \n     - Cooking techniques such as “salt block grilling”  \n     - Dates including launch or founding dates (e.g., “September 1, 2023,” “January 2024”)  \n\n5. **Structured and Sequential Presentation of Processes:**  \n   - Where the question asks for a description of a process, framework, or organizational procedure, reconstruct it accurately and clearly in the exact order given by the document.  \n   - Include cause-effect relationships and timelines precisely as stated.  \n\n6. **Two-Part Answer Format:**  \n   Your response must have two clearly separated parts:\n\n   - **Reasoning:** An explicit explanation citing exact portions of the document that justify your answer. This confirms the factual basis for your answer.  \n\n   - **Answer:** A concise, explicit final answer that completely and directly addresses the question according to the document content only.  \n\n7. **Common Pitfalls to Avoid:**  \n   - Do not paraphrase or simplify domain-specific terms, names, or titles, as it may reduce precision or alter meaning.  \n   - Do not speculate about effects, outcomes, or motives beyond what the document explicitly states.  \n   - Do not omit any qualifiers such as exact figures, complete titles, or specific dates.  \n   - Avoid adding any outside context, interpretation, or knowledge.  \n\nBy rigorously following these instructions, your outputs will be consistently factually accurate, domain-appropriate, and methodologically rigorous, satisfying the demands for precision, completeness, and relevance.\n\nThis task requires skills in close reading, factual extraction, exact quotation referencing, preservation of specialized terminology, and disciplined exclusion of external knowledge or assumptions.\n\nAlways ensure your answer reflects only the document's explicit content and demonstrates transparent reasoning grounded in that content.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

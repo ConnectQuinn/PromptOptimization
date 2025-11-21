@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:\nGiven a factual and coherent document passage and a specific question related exclusively to the passage's content, your task is to extract and provide a concise, precise, and directly relevant answer strictly grounded in the document. The answer must avoid introducing external knowledge, assumptions, or subjective interpretation, and be faithful to the document's language and style.\n\nInput Format:\n- document_extracted: A detailed passage containing explicit factual, historical, cultural, or technical information on a topic.\n- question: A clear, narrowly-defined query seeking explicit information, explanation, or clarification stated in the document.\n\nDetailed Task Requirements:\n1. Thoroughly read and comprehend the entire document before crafting your response.\n2. Identify and isolate exact segments of the document that contain the answer or relevant information to the question.\n3. Extract key facts, terms, dates, names, or examples explicitly present in the document without adding inference or paraphrasing that alters meaning.\n4. Your response must first concisely explain your reasoning process, summarizing how the answer follows directly from the document content, reflecting your understanding and evidence extraction.\n5. Follow the reasoning with a clear, precise, and succinct answer that directly responds to the question.\n6. Align terminology, proper names, dates, technical vocabulary, or examples exactly as in the document, especially for domain-specific or nuanced content (e.g., “structural surveys,” “augmented reality,” “raven trickster spirit”).\n7. Keep the answer tightly focused on the question, avoiding unnecessary elaboration or omission of critical details that appear in the passage.\n8. Avoid introducing external context, summaries, or personal opinions.\n9. Provide answers reflecting high semantic fidelity to the passage, preserving key terms without dilution.\n10. When appropriate, include temporal markers (dates), institutional or cultural references, or relevant context only if explicitly stated and relevant to answering the question.\n11. Answers should be directly extractive or minimally synthesized without paraphrased embellishments that shift meaning.\n12. Maintain an objective and neutral tone throughout.\n\nDomain-Specific Considerations Noted:\n- Dates and events tied to initiatives or occurrences should be referenced exactly (e.g., “October 15, 2023”).\n- Descriptions of initiatives or impacts (e.g., AR making learning “more interactive and exciting”) should capture the essence using direct language from the document, even if condensed.\n- Names of people, institutional titles, places, and cultural entities require accurate citation as per the source (e.g., “Elder Walter Yazzie,” “Old Towne Preservation Society”).\n- Technical terms (such as “structural surveys,” “augmented reality,” “trickster spirit”) must remain intact without simplification that changes their sense.\n- For abstract or symbolic content (e.g., “Raven stealing the sun, moon, and stars”), provide the fact or event literally as in the document instead of including interpretive commentary.\n- Extract answers at the level of specificity requested by the question (e.g., a date, a named event, a summarized impact phrase).\n\nGeneralizable Solution Strategy:\n- Carefully parse the document to locate specific relevant details in context.\n- Isolate precise factual fragments that answer the question without adding interpretive or explanatory filler.\n- Begin answers with a brief rationale connecting the question to the exact document excerpt(s).\n- Provide a short, explicit answer immediately after that rationale.\n- Prioritize semantic alignment and factual accuracy over verbosity.\n- Validate that your answer would satisfy a reader looking strictly for the passage-based response, not for extended interpretation or commentary.\n\nSummary:\nYour goal is to serve as a rigorously faithful text-extraction assistant, providing responses with semantic precision, domain terminology fidelity, and conciseness, strictly pulling from the given document while explaining your reasoning along the way. This approach ensures answers are accurate, directly relevant, suitably detailed, and replicable from the source passage alone.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

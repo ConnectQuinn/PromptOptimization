@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Description:  \nYou will be given two inputs:  \n1. `document_extracted` – a fact-rich, domain-specific excerpt containing precise institutional names, expert quotes, dates, technical terms, policies, numerical data, and concrete examples relevant to a narrowly defined subject. The excerpt can contain multiple paragraphs, detailed narratives, and specific events with exact dates, names, and terminology.  \n2. `question` – a direct, precise query seeking a factual answer strictly contained within the provided document excerpt.\n\nYour goal is to produce a concise, semantically faithful answer strictly extracted and grounded on the explicit information within the provided document. Your response must neither add any external or inferred knowledge nor omit any critical factual details relevant to the question.\n\nDetailed Instructions and Key Requirements:  \n\n1. **Thorough Document Comprehension:**  \n   Carefully read the entire `document_extracted` to fully understand context and specific details. Avoid premature answers that miss relevant information occurring later in the text.  \n\n2. **Precise Extraction of Relevant Text:**  \n   Identify only the exact segment(s) that explicitly answer the question. Extract all crucial factual elements such as:  \n   - Exact institutional names and official titles (e.g., “GlobalFinance Corp.,” “University of Gastronomy,” “Earth Table”)  \n   - Named individuals along with their correct titles and roles (e.g., “Jessica Sanders, a high school biology teacher,” “Dr. Rosalind Chu, esteemed chemist”)  \n   - Exact dates and numerical data as given (e.g., “September 15, 2023,” “PS500,” “October 12”) without rounding or paraphrasing  \n   - Specific expert quotes that are pertinent to the question, preserving punctuation and casing exactly  \n   - Specialized technical or policy terms and domain-specific terminology (e.g., “salt block grilling technique,” “AR-powered learning modules,” “expense reconciliation”)  \n   - Concrete examples or events directly related to the question  \n\n3. **Begin with a Brief Reasoning Statement:**  \n   Include a short statement that references or quotes verbatim the supporting excerpt(s) to justify your final answer. This shows the factual grounding for your response. For example, quote or paraphrase the exact phrase(s) that contain critical facts.  \n\n4. **Concise, Direct, and Complete Final Answer:**  \n   Provide a brief final answer that addresses the question fully and accurately. The answer must:  \n   - Reproduce critical factual information exactly as stated in the document  \n   - Use direct quotations when exact wording is key to preserving accuracy or emphasis  \n   - Avoid generalizations, dilution, or omission of significant details  \n   - Avoid redundancy or verbosity; use minimal text sufficient to answer fully  \n\n5. **Numeric and Date Data:**  \n   When the question asks for numbers or dates, report them exactly as presented (e.g., “October 15, 2023.” not “mid-October” or “around October”) without added commentary.  \n\n6. **Handling Absence of Answer:**  \n   If the document does not explicitly contain a factual answer to the question, respond exactly with:  \n   “The answer is not found in the document.”  \n\n7. **Maintain Objectivity and Neutrality:**  \n   Your answer must be purely factual without any speculation, inference, editorializing, or commentary beyond what the document states.  \n\n8. **Domain-Specific Terminology and Entities:**  \n   Because domain terminology and named entities are pivotal, always replicate them verbatim. For example, “salt block grilling technique,” “eco-conscious restaurant ‘Earth Table’,” “AR-powered learning modules,” “CyberHero initiative launched on November 1, 2023.”  \n   Similarly, preserve direct quotes fully and precisely as given, since subtle changes can alter meaning or emphasis.  \n\n9. **Leverage Key Phrases or Quotes From the Document to Improve Semantic Fidelity:**  \n   When appropriate, use direct quotes to reflect the document’s emphasis and nuance. Refrain from paraphrasing if the exact wording conveys critical meaning or interpretation related to the question.  \n\n10. **Avoid Introducing External or Inferred Knowledge:**  \n    The answer must rely strictly on explicit information from the document. Even if the question might be commonly understood elsewhere, do not provide anything unless it appears in the provided text.  \n\nRecommended Approach:  \n- Thoroughly read the entire document excerpt to capture every relevant detail.  \n- Locate and highlight the exact phrases and data that explicitly answer the question; do not infer or generalize beyond them.  \n- Construct a brief reasoning that cites these supporting text segments.  \n- Write a concise answer that faithfully reproduces all critical information exactly as given.  \n- When quoting, use quotation marks only when the exact wording is essential.  \n- Use precise numeric or temporal data directly from the document.  \n- If an answer is absent, state “The answer is not found in the document.” in compliance with requirement.  \n\nPurpose of This Task:  \nThis task is intended for handling high-stakes, precise knowledge retrieval in domain-specific contexts where exact terminology, names, dates, figures, policies, and expert statements matter. The answers must be authoritative and accurate, maintaining semantic fidelity to the source to support critical decision-making or knowledge validation.  \n\nAvoid common pitfalls such as:  \n- Summarizing or rephrasing the content in a way that loses critical specificity or nuances  \n- Providing inferred or background information not present in the document  \n- Omitting precise dates, numbers, or direct quotes required by the question  \n- Being verbose or redundant rather than minimal and exact  \n\nThis carefully disciplined method ensures precise, trustworthy responses based solely on the document’s explicitly provided information, preserving domain integrity and factual correctness.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Task Overview:  \nYou will receive two inputs:  \n1. `document_extracted` – a coherent, factual document excerpt rich in domain-specific content, including institutional names, dates, technical terms, policies, expert statements, events, and precise examples relevant to a narrowly defined subject.  \n2. `question` – a precise, focused query that can be answered explicitly and factually strictly based on the information contained within the provided document excerpt.  \n\nYour task is to produce a concise, semantically faithful answer grounded solely and exactly in the document’s content, without invoking any outside knowledge, inference, or assumptions.\n\nInput Format:  \n- `document_extracted`: A passage containing detailed factual information with numerics, quotations, named entities, specialized terminology, specific dates, policies, or technical concepts relevant to the question topic.  \n- `question`: A direct query answerable explicitly and factually from the document without requiring extrapolation.  \n\nDetailed Task Requirements:  \n1. Thoroughly read the entire document to grasp full context and content before attempting to answer.  \n2. Identify and extract only the precise segment(s) directly answering the question, replicating the critical factual information exactly as presented.  \n3. Your answer must synthesize and articulate key elements such as names, dates, expert quotes, policies, technical terms, numerical data, and events exactly as stated in the document.  \n4. Begin your response with a brief reasoning statement explicitly citing the exact portion(s) of the document that support your final answer.  \n5. Provide a concise, direct final answer that precisely addresses the question without including any unrelated information or personal interpretation.  \n6. Maintain semantic fidelity: reproduce key technical terms, institutional roles, legislation names, policy terms, expert statements, and numerical data exactly as given; use direct quotations when exact wording is critical.  \n7. When the question involves numerical data (percentages, dates, quantities), provide the exact figures as specified; do not paraphrase or approximate.  \n8. Avoid generalizations, assumptions, or wording that alters or dilutes the original meaning or emphasis.  \n9. If the document does not explicitly answer the question, state clearly: “The answer is not found in the document.”  \n10. Always maintain an objective, factual tone with no inference, speculation, or external interpretation beyond the text’s facts.\n\nCommon, Effective Approach to Produce the Answer:  \n- Read the entire document carefully to fully understand the content and context.  \n- Directly locate the specific text that explicitly answers the question.  \n- Articulate the reasoning by explicitly citing or paraphrasing the exact source segments containing the answer.  \n- Present a concise, semantically faithful answer capturing all key entities, technical terms, quotations, or numerical data exactly as in the document.  \n- Use quotations for critical phrases or terminology where the exact wording affects meaning or accuracy.  \n- When a numeric or date-based answer is requested, give the precise figure as in the source.  \n- If no explicit answer exists, respond unambiguously with “The answer is not found in the document.”  \n- Avoid adding any information beyond what is provided in the document excerpt.\n\nPurpose:  \nThis instruction ensures that answers are textually accurate, domain-specific, and factually reliable—essential when handling technical, legislative, institutional, or specialized materials where exact terminology, named entities, dates, policies, and figures are pivotal. The approach excludes assumptions and speculations, enabling precise, authoritative answers grounded strictly in the source text content.\n\nNote on Feedback Patterns:  \n- Responses must focus on extracting exact, minimal factual fragments (e.g., “30%.” rather than “attacked increased by 30%”) when the question requests a numeric fact.  \n- Avoid paraphrasing where the original phrase or specific terminology is required to retain technical accuracy and semantic fidelity.  \n- Highlight all relevant names, numerical facts, or quotations exactly as presented, matching the expected answer’s level of precision and detail.\n\nBy adhering to these refined instructions, the assistant will produce precise, semantically aligned, and textually faithful answers appropriate for high-stakes, domain-specific queries from detailed and complex documents.",
+      "fields": [
+        {
+          "prefix": "Document Extracted:",
+          "description": "${document_extracted}"
+        },
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}
